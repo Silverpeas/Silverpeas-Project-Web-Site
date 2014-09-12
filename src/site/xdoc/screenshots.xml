@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns="http://maven.apache.org/XDOC/2.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+
+  <properties>
+    <title>Some Screenshots</title>
+    <author>Emmanuel Hugonnet</author>
+    <author>Miguel Moquillon</author>
+    <author>Aurore Allibe</author>
+  </properties>
+  <head>
+    <title>Some Screenshots of Silverpeas</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <link rel="stylesheet" type="text/css" href="./css/tn3/tn3.css" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/jquery.tn3lite.min.js"></script>
+    <script type="text/javascript" src="./js/screenshots.js"></script>
+  </head>
+  <body>
+    <section name="Some Screenshots">
+    <div id="content">
+      <div class="mygallery">
+        <div class="tn3 album">
+          <div class="section">
+            <h4>Fixed Dimensions</h4>
+          <div class="tn3 description">Images with fixed dimensions</div>
+          <div class="tn3 thumb">images/30x30/1.jpg</div>
+            </div>
+          <ol>
+            <li>
+              <div class="section">
+              <h4>Death Metal</h4>
+              <div class="tn3 description">Skin</div>
+              <a href="images/screenshots/death_metal.png">
+                <img src="images/screenshots/death_metal.png" />
+              </a>
+              </div>
+            </li>
+            <li>
+              <div class="section">
+              <h4>Death Metal Quizz</h4>
+              <div class="tn3 description">Skin</div>
+              <a href="images/screenshots/quizz.png">
+                <img src="images/screenshots/quizz.png" />
+              </a>
+              </div>
+            </li>
+            <li>
+              <div class="section">
+              <h4>Death Metal Publication</h4>
+              <div class="tn3 description">Skin</div>
+              <a href="images/screenshots/ged.png">
+                <img src="images/screenshots/ged.png" />
+              </a>
+              </div>
+            </li>
+            <li>
+              <div class="section">
+              <h4>Carré</h4>
+              <div class="tn3 description">Skin</div>
+              <a href="images/screenshots/carre_02.png">
+                <img src="images/screenshots/carre_02.png" />
+              </a>
+              </div>
+            </li>
+            <li>
+              <div class="section">
+              <h4>Dark Blue</h4>
+              <div class="tn3 description">Skin</div>
+              <a href="images/screenshots/darkblue_02.png">
+                <img src="images/screenshots/darkblue_02.png" />
+              </a>
+              </div>
+            </li>
+            <li>
+              <div class="section">
+              <h4>Dexter</h4>
+              <div class="tn3 description">Skin</div>
+              <a href="images/screenshots/dexter_02.png">
+                <img src="images/screenshots/dexter_02.png" />
+              </a>
+              </div>
+            </li>
+            <li>
+              <div class="section">
+              <h4>Fire</h4>
+              <div class="tn3 description">Skin</div>
+              <a href="images/screenshots/feuFlamme_02.png">
+                <img src="images/screenshots/feuFlamme_02.png" />
+              </a>
+              </div>
+            </li>
+            <li>
+              <div class="section">
+              <h4>Geometry</h4>
+              <div class="tn3 description">Skin</div>
+              <a href="images/screenshots/geometrieGirly_02.png">
+                <img src="images/screenshots/geometrieGirly_02.png" />
+              </a>
+              </div>
+            </li>
+            <li>
+              <div class="section">
+              <h4>Labs</h4>
+              <div class="tn3 description">Skin</div>
+              <a href="images/screenshots/laborantin_02.png">
+                <img src="images/screenshots/laborantin_02.png" />
+              </a>
+              </div>
+            </li>
+            <li>
+              <div class="section">
+              <h4>Cube</h4>
+              <div class="tn3 description">Skin</div>
+              <a href="images/screenshots/leCube_02.png">
+                <img src="images/screenshots/leCube_02.png" />
+              </a>
+              </div>
+            </li>
+            <li><div class="section">
+              <h4>Clean</h4>
+              <div class="tn3 description">Skin</div>
+              <a href="images/screenshots/passePartout_02.png">
+                <img src="images/screenshots/passePartout_02.png" />
+              </a>
+              </div>
+            </li>
+            <li>
+              <div class="section">
+              <h4>Silverpeas BackOffice</h4>
+              <div class="tn3 description">Skin</div>
+              <a href="images/snapshots/backoffice.png">
+                <img src="images/snapshots/backoffice.png" />
+              </a>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    </section>
+  </body>
+</document>

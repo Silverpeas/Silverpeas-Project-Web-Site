@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (C) 2000 - 2013 Silverpeas
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    As a special exception to the terms and conditions of version 3.0 of
+    the GPL, you may redistribute this Program in connection with Free/Libre
+    Open Source Software ("FLOSS") applications as described in Silverpeas's
+    FLOSS exception.  You should have received a copy of the text describing
+    the FLOSS exception, and it is also available here:
+    "http://www.silverpeas.org/docs/core/legal/floss_exception.html"
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+-->
+
+<document>
+  <properties>
+    <author>Miguel Moquillon</author>
+    <author>Aurore Allibe</author>
+    <title>Introduction</title>
+  </properties>
+  <head>
+  </head>
+  <body>
+    <section name="Introduction">
+      <p>
+      Silverpeas is an Open-Source Collaborative and Social Web Portal mainly used by our users to build an Intranet or an Extranet. The key words of Silverpeas are
+        <em>collaboration</em> and <em>social network</em>. Atop of a collaborative bus and a social network engine, about 30 ready to use applications are freely available to share documents (EDM Electronic Document Management),
+      to streamline project management, to manage content (CMS), and to optimize the management of knowledge and skills.
+      </p>
+      <p>
+        Among the ready to use applications, you can find: EDM, Pictures Gallery, directories, calendars, workflow, forms, blog, wiki, forums,  project management, and so on.
+        It offers also a non-technical mechanism of delegation of rights and a powerful transverse taxonomy mechanism, that is coupled with the search engine, enable users to find rapidly the information they are looking for.
+      </p>
+      </section>
+    <section name="Architecture">
+      <p>
+        <img align="right" src="images/bus_silverpeas.png" alt="" />
+      </p>        
+      <p>Silverpeas is built on the Java JEE environment leveraging both its architecture and its cutting-edge technology.
+        It is made up of a collaborative bus through which a large variety of both technical and business services are provided, atop of which
+        are built about 30 freely available applications.
+        It provides also a framework to develop new applications and a set of components to build a coherent and integrated look&amp;feel.
+      </p>
+      <ul>
+        <li>
+          <p>Below an example of services provided by the collaborative bus:</p>
+          <ul>
+            <li>authentication</li>
+            <li>rights management</li>
+            <li>search engine</li>
+            <li>workflow engine</li>
+            <li>notification</li>
+            <li>event subscription</li>
+            <li>content publishing</li>
+            <li>commenting</li>
+            <li>rating</li>
+          </ul>
+        </li>
+        <li>
+          <p>Below an example of some available applications:</p>
+          <ul>
+            <li>Document Management</li>
+            <li>Collaborative Management</li>
+            <li>Knowledge Management</li>
+            <li>Content Management</li>
+            <li>Workflow</li>
+            <li>Connectors</li>
+          </ul>
+        </li>      
+      </ul>
+    <subsection name="Operating Systems">
+      <p>Silverpeas operates under</p>
+      <ul>
+        <li>Windows</li>
+        <li>Mac OS X</li>
+        <li>Any Unix-like OS supported by Java (mainly GNU/Linux)</li>
+      </ul>
+    </subsection>
+    </section>
+    <section name="Collaborative Tools">
+      <p>
+        <img align="right" src="../images/applications/tools_uk.png" alt="" />
+      </p>
+      <subsection name="Collaborative tools">
+        <ul>
+          <li>Silverpeas is a collaborative workspace, called a portal, which uses different on-line tools for the creation, exchange and management of information and documents in real time.</li>
+          <li>Silverpeas is not an open source brick structure but a true platform with portlet integration, where all tools interact freely with each other.</li>
+        </ul>
+      </subsection>
+      <subsection name="Tools via the application bus">
+        <ul>
+          <li>Working via the application bus, a wide choice of Silverpeas tools such as document workflow, image galleries, forums, surveys, as well as instant messaging, notifications and subscription, contribute to efficient daily work practices by feeding collaborative workspaces.
+          </li>
+        </ul>
+      </subsection>
+      <subsection name="Working together">
+        <ul>
+          <li>In normal business, people work together for the production of goods or services.
+            However, in collaborative work, a less hierarchical structure is needed, being based on the Taylorist model of organisation.
+          </li>
+        </ul>
+      </subsection>
+      <subsection name="Open access">
+        <ul>
+          <li>In this new organisational model, anyone can be involved by simply adding their own contribution and without having to re-build what has already been set up. </li>
+        </ul>
+      </subsection>
+      <subsection name="Examples in practice">
+        <ul>
+          <li>
+            <u>Example 1: A production line</u>
+            <p>A foreman analyses the efficiency of a production line. When a problem is found, the foreman and designer work together to propose a solution which can be implemented immediately. If the designer and foreman are located thousands of miles from each other, as is common these days, then alternative tools to the telephone can be used. In this situation, the collaborative platform really comes into its own.</p>
+          </li>
+          <li>
+            <u>Example 2: Project management and validation </u>
+            <p>A user is involved in a project with a validation process. The workflow can be managed so the 'todo' list and schedule is fed with information and updated in realtime. This is particularly useful for meetings and staying in contact with up to the minute news.</p>
+          </li>
+        </ul>
+      </subsection>
+    </section>
+  </body>
+</document>

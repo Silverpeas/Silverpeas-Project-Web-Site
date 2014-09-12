@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (C) 2000 - 2013 Silverpeas
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    As a special exception to the terms and conditions of version 3.0 of
+    the GPL, you may redistribute this Program in connection with Free/Libre
+    Open Source Software ("FLOSS") applications as described in Silverpeas's
+    FLOSS exception.  You should have received a copy of the text describing
+    the FLOSS exception, and it is also available here:
+    "http://www.silverpeas.org/docs/core/legal/floss_exception.html"
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+-->
+
+<document xmlns="http://maven.apache.org/XDOC/2.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+
+  <properties>
+    <title>Quality of Silverpeas code</title>
+    <author>Emmanuel Hugonnet</author>
+    <author>Miguel Moquillon</author>
+  </properties>
+  <head>
+  </head>
+  <body>
+    <section name="SonarQube">
+        <p>
+          <img src="http://www.sonarsource.org/wp-content/themes/sonarsource.org/images/sonar.png" alt="sonar logo" style="height:30px;padding-right:10px;float:left;position:relative;margin:1em;" />
+          <a href="http://www.sonarsource.org/">SonarQube</a> is an open platform to manage code quality. At Silverpeas we are running a new analysis every day.
+          You can check the results for both the Silverpeas Core and the components on <a href="http://integration.silverpeas.org/sonar/">http://integration.silverpeas.org/sonar/</a>.
+        </p>
+    </section>
+    <section name="Coverity Scan">
+        <p>
+          <img src="http://scan.coverity.com/assets/coverity_logo_reverse-small.png" alt="Coverity logo" style="height:30px;padding-right:10px;float:left;position:relative;margin:1em;background-color:#333333;" />
+          <a href="http://www.coverity.com/">Coverity</a> Coverity xrays your application to assess release risks so you lead Smarter Testing Strategies that balance test efforts and risk coverage. At Silverpeas we are running a new analysis every week.
+          These results are then pushed into the Silverpeas's dashboard in <a href="https://scan.coverity.com/">the Scan Coverity service</a>.
+        </p>
+    </section>
+  </body>
+</document>

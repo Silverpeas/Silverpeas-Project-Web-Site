@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (C) 2000 - 2014 Silverpeas
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    As a special exception to the terms and conditions of version 3.0 of
+    the GPL, you may redistribute this Program in connection with Free/Libre
+    Open Source Software ("FLOSS") applications as described in Silverpeas's
+    FLOSS exception.  You should have received a copy of the text describing
+    the FLOSS exception, and it is also available here:
+    "http://www.silverpeas.org/docs/core/legal/floss_exception.html"
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses />.
+
+-->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.silverpeas</groupId>
+    <artifactId>parent</artifactId>
+    <version>28-SNAPSHOT</version>
+  </parent>
+
+  <description>
+    Silverpeas is a Collaborative and Social Web Portal useful to build an Intranet and an Extranet.
+    Silverpeas offers about 30 different applications permitting to the user to manage and to organize a large variety of contents.
+    A collaborative bus and a social network engine facilitate the collaboration and the content sharing between the users themselves.
+  </description>
+
+  <repositories>
+    <repository>
+      <id>Silverpeas</id>
+      <layout>default</layout>
+      <name>Silverpeas Repository</name>
+      <url>http://www.silverpeas.org/nexus/content/groups/silverpeas</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>Silverpeas</id>
+      <name>Silverpeas Maven 3.x Repository</name>
+      <url>http://www.silverpeas.org/nexus/content/groups/silverpeas</url>
+    </pluginRepository>
+  </pluginRepositories>
+
+
+  <groupId>com.silverpeas</groupId>
+  <artifactId>silverpeas-project</artifactId>
+  <version>5.15-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>Silverpeas Project Web Site</name>
+  <url>http://www.silverpeas.org</url>
+
+  <distributionManagement>
+    <site>
+      <id>silverpeas_repository</id>
+      <url>scp://www.silverpeas.org/var/www/</url>
+    </site>
+  </distributionManagement>
+
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-javadoc-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <artifactId>maven-site-plugin</artifactId>
+        <version>3.4</version>
+        <configuration>
+          <relativizeDecorationLinks>false</relativizeDecorationLinks>
+          <generateSitemap>true</generateSitemap>
+        </configuration>
+      </plugin>
+      <!--
+      <plugin>
+        <groupId>com.github.github</groupId>
+        <artifactId>site-maven-plugin</artifactId>
+        <version>0.1</version>
+        <configuration>
+          <description>Creating site</description>
+          <override>false</override>
+          <message>Deploying web site on Githbub for ${project.name} - ${project.version}</message>
+          <includeAttached>true</includeAttached>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>site</goal>
+            </goals>
+            <phase>site</phase>
+          </execution>
+        </executions>
+      </plugin>-->
+    </plugins>
+  </build>
+
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-project-info-reports-plugin</artifactId>
+        <version>2.7</version>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>index</report>
+              <report>summary</report>
+              <report>project-team</report>
+              <report>mailing-list</report>
+              <report>issue-tracking</report>
+              <report>scm</report>
+              <report>cim</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+        <configuration>
+          <dependencyDetailsEnabled>false</dependencyDetailsEnabled>
+          <dependencyLocationsEnabled>false</dependencyLocationsEnabled>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>2.9</version>
+      </plugin>
+    </plugins>
+  </reporting>
+
+  <properties>
+    <installer_stable_version>5.14</installer_stable_version>
+    <installer_izpack_version>5.14</installer_izpack_version>
+    <installer_version>${project.version}</installer_version>
+  </properties>
+
+</project>
