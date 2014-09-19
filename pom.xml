@@ -24,7 +24,6 @@
     along with this program.  If not, see <http://www.gnu.org/licenses />.
 
 -->
-
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
@@ -35,42 +34,17 @@
     <version>28-SNAPSHOT</version>
   </parent>
 
-  <description>
-    Silverpeas is a Collaborative and Social Web Portal useful to build an Intranet and an Extranet.
-    Silverpeas offers about 30 different applications permitting to the user to manage and to organize a large variety of contents.
-    A collaborative bus and a social network engine facilitate the collaboration and the content sharing between the users themselves.
-  </description>
-
-  <repositories>
-    <repository>
-      <id>Silverpeas</id>
-      <layout>default</layout>
-      <name>Silverpeas Repository</name>
-      <url>http://www.silverpeas.org/nexus/content/groups/silverpeas</url>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </repository>
-  </repositories>
-
-  <pluginRepositories>
-    <pluginRepository>
-      <id>Silverpeas</id>
-      <name>Silverpeas Maven 3.x Repository</name>
-      <url>http://www.silverpeas.org/nexus/content/groups/silverpeas</url>
-    </pluginRepository>
-  </pluginRepositories>
-
-
   <groupId>com.silverpeas</groupId>
   <artifactId>silverpeas-project</artifactId>
   <version>5.15-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Silverpeas Project Web Site</name>
   <url>http://www.silverpeas.org</url>
+  <description>
+    Silverpeas is a Collaborative and Social Web Portal useful to build an Intranet and an Extranet.
+    Silverpeas offers about 30 different applications permitting to the user to manage and to organize a large variety of contents.
+    A collaborative bus and a social network engine facilitate the collaboration and the content sharing between the users themselves.
+  </description>
 
   <distributionManagement>
     <site>
@@ -79,12 +53,166 @@
     </site>
   </distributionManagement>
 
+  <ciManagement>
+    <system>Jenkins</system>
+    <url>http://integration.silverpeas.org/jenkins</url>
+  </ciManagement>
+
+  <mailingLists>
+    <mailingList>
+      <name>Silverpeas Users List</name>
+      <subscribe>mailto:silverpeas-users+subscribe@googlegroups.com</subscribe>
+      <unsubscribe>mailto:silverpeas-users+unsubscribe@googlegroups.com</unsubscribe>
+      <archive>http://groups.google.com/group/silverpeas-users</archive>
+    </mailingList>
+    <mailingList>
+      <name>Silverpeas Development List</name>
+      <subscribe>mailto:silverpeas-dev+subscribe@googlegroups.com</subscribe>
+      <unsubscribe>mailto:silverpeas-dev+unsubscribe@googlegroups.com</unsubscribe>
+      <archive>http://groups.google.com/group/silverpeas-dev</archive>
+    </mailingList>
+  </mailingLists>
+
+  <issueManagement>
+    <system>Redmine</system>
+    <url>https://tracker.silverpeas.org</url>
+  </issueManagement>
+
+  <licenses>
+    <license>
+      <name>GNU Affero General Public License with FLOSS Exception</name>
+      <distribution>repo</distribution>
+      <url>http://www.silverpeas.org/legal/gnu_affero.html</url>
+    </license>
+  </licenses>
+
+  <developers>
+    <developer>
+      <id>mmoquillon</id>
+      <name>Miguel Moquillon</name>
+      <roles>
+        <role>Architect</role>
+        <role>Developer</role>
+      </roles>
+      <organization>Silverpeas</organization>
+      <organizationUrl>http://www.silverpeas.com</organizationUrl>
+      <email>miguel.moquillon@silverpeas.org</email>
+    </developer>
+    <developer>
+      <id>cbonin</id>
+      <name>Cécile Bonin</name>
+      <roles>
+        <role>Project Manager</role>
+        <role>Developer</role>
+      </roles>
+      <organization>Silverpeas</organization>
+      <organizationUrl>http://www.silverpeas.com</organizationUrl>
+    </developer>
+    <developer>
+      <id>neysseric</id>
+      <name>Nicolas Eysseric</name>
+      <roles>
+        <role>Product Manager</role>
+        <role>Developer</role>
+      </roles>
+      <organization>Silverpeas</organization>
+      <organizationUrl>http://www.silverpeas.com</organizationUrl>
+      <email>nicolas.eysseric@silverpeas.org</email>
+    </developer>
+    <developer>
+      <id>svuillet</id>
+      <name>Sébastien Vuillet</name>
+      <roles>
+        <role>CTO</role>
+        <role>Project Manager</role>
+      </roles>
+      <organization>Silverpeas</organization>
+      <organizationUrl>http://www.silverpeas.com</organizationUrl>
+    </developer>
+    <developer>
+      <id>ebonnet</id>
+      <name>Etienne Bonnet</name>
+      <roles>
+        <role>Project Manager</role>
+        <role>Developer</role>
+      </roles>
+      <organization>Silverpeas.com</organization>
+      <organizationUrl>http://www.silverpeas.com</organizationUrl>
+    </developer>
+    <developer>
+      <id>aallibe</id>
+      <name>Aurore Allibe</name>
+      <roles>
+        <role>Web Designer</role>
+      </roles>
+      <organization>Silverpeas.com</organization>
+      <organizationUrl>http://www.silverpeas.com</organizationUrl>
+    </developer>
+    <developer>
+      <id>ychastagnier</id>
+      <name>Yohann Chastagnier</name>
+      <roles>
+        <role>Developer</role>
+      </roles>
+      <organization>Silverpeas.com</organization>
+      <organizationUrl>http://www.silverpeas.com</organizationUrl>
+      <email>yohann.chastagnier@silverpeas.org</email>
+    </developer>
+    <developer>
+      <name>David Lesimple</name>
+      <roles>
+        <role>Support</role>
+        <role>System Administrator</role>
+        <role>Project Manager</role>
+      </roles>
+      <organization>Silverpeas</organization>
+      <organizationUrl>http://www.silverpeas.com</organizationUrl>
+    </developer>
+  </developers>
+
+  <contributors>
+    <contributor>
+      <name>Emmanuel Hugonnet</name>
+      <roles>
+        <role>Developer</role>
+        <role>Support</role>
+      </roles>
+      <organization>RedHat</organization>
+      <organizationUrl>http://www.redhat.com</organizationUrl>
+    </contributor>
+    <contributor>
+      <name>Umar Raad</name>
+      <roles>
+        <role>German translator</role>
+      </roles>
+    </contributor>
+    <contributor>
+      <name>Ludovic Bertin</name>
+      <roles>
+        <role>Project Manager</role>
+        <role>Developer</role>
+      </roles>
+      <organization>Oosphere</organization>
+      <organizationUrl>http://www.oosphere.ch</organizationUrl>
+    </contributor>
+    <contributor>
+      <name>Nicolas Dupont</name>
+      <roles>
+        <role>Developer</role>
+      </roles>
+      <organization>Oosphere</organization>
+      <organizationUrl>http://www.oosphere.ch</organizationUrl>
+    </contributor>
+  </contributors>
+
   <build>
     <plugins>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
       </plugin>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-site-plugin</artifactId>
         <version>3.4</version>
         <configuration>
