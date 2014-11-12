@@ -8,10 +8,10 @@
 <meta name="Date-Revision-yyyymmdd" content="20120831" />
 <meta http-equiv="Content-Language" content="en" />
 <title>Welcome at the Silverpeas Open-Source and Libre Project</title>
-<link rel="stylesheet" href="docs/core/css/apache-maven-fluido-1.3.0.min.css" />
-<link rel="stylesheet" href="docs/core/css/site.css" />
-<link rel="stylesheet" href="docs/core/css/print.css" media="print" />
-<script type="text/javascript" src="docs/core/js/apache-maven-fluido-1.3.0.min.js"></script>
+<link rel="stylesheet" href="css/apache-maven-fluido-1.3.0.min.css" />
+<link rel="stylesheet" href="css/site.css" />
+<link rel="stylesheet" href="css/print.css" media="print" />
+<script type="text/javascript" src="js/apache-maven-fluido-1.3.0.min.js"></script>
 <script type="text/javascript">var _gaq = _gaq || [];
         _gaq.push(['_setAccount', 'UA-2015926-3']);
         _gaq.push(['_trackPageview']);
@@ -69,7 +69,14 @@
                 <li><a href="configuration/migration.html"  title="Migration">Migration</a></li>
                 <li><a href="configuration/ldap.html"  title="LDAP Synchronization">LDAP Synchronization</a></li>
                 <li><a href="configuration/proxy.html"  title="Configuring a reverse-proxy">Configuring a reverse-proxy</a></li>
-                <li><a href="cas/SSO-CAS.html"  title="CAS">CAS</a></li>
+                <li class="dropdown-menu"><a href="#"  title="CAS">CAS</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="cas/SSO-CAS.html" title="Introduction">Introduction</a></li>
+                    <li><a href="cas/certificates.html" title="Certificates Configuration">Certificates Configuration</a></li>
+                    <li><a href="cas/configuring-tomcat.html" title="Tomcat as CAS Server Configuration">Tomcat as CAS Server Configuration</a></li>
+                    <li><a href="cas/configuring_silverpeas.html" title="Silverpeas Configuration">Silverpeas Configuration</a></li>
+                  </ul>
+                </li>
                </ul>
             </li>
             <li><a href="faq.html" title="FAQ">FAQ</a></li>
@@ -114,14 +121,14 @@
 </div>
 <div >
   <div id="banner">
-    <div class="pull-left"> <a href="http://www.silverpeas.org/" id="bannerLeft"> <img src="docs/core/images/logo.png"  alt="Silverpeas"/> </a> </div>
+    <div class="pull-left"> <a href="http://www.silverpeas.org/" id="bannerLeft"> <img src="images/logo.png"  alt="Silverpeas"/> </a> </div>
     <div class="pull-right"> </div>
     <h1>improves the <strong>collaboration</strong> between <br />
       the actors of your company or organization</h1>
     <p class="accroche">Accessible from a simple web browser or from a Smartphone, Silverpeas makes it possible for users to work together, share their knowledge and good practices, and in general to improve their reciprocal 		empathy, therefore their willingness to collaborate.
       The introduction in the latest version of the conversational and relational (social network) functions has once again improved its benchmark coverage.</p>
-      <p id="zone-bouton"><a href="http://www.silverpeas.org/docs/core/installation/izpack.html"><img src="docs/core/images/download_sidebar.png" alt="Download the IzpAck Installer" class="bouton"></a>
-      <a href="docs/core/installation/installation.html"><img src="docs/core/images/instruction_installation.png" alt="Find the instruction installation" class="bouton" id="btnInstruction"></a></p>
+      <p id="zone-bouton"><a href="http://www.silverpeas.org/installation/izpack.html"><img src="images/download_sidebar.png" alt="Download the IzpAck Installer" class="bouton"></a>
+      <a href="installation/installation.html"><img src="images/instruction_installation.png" alt="Find the instruction installation" class="bouton" id="btnInstruction"></a></p>
     <p id="discours-mr-coss">Silverpeas is available as <strong>Free Software</strong> under the Affero GPL</p>
     <div class="clear">
       <hr/>
@@ -149,7 +156,7 @@
                                 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
                               })();
                             </script>
-          <div class="community center"> <a target="_blank" href="http://twitter.com/Silverpeas"><img title="Follow us on Twitter" alt="Twitter" src="docs/core/images/btn-twitt-uk.png"></a> <a target="_blank" href="http://www.facebook.com/pages/Silverpeas/113429255383677"><img title="Follow us on Facebook" alt="Facebook" src="docs/core/images/btn-fb-uk.png"></a> </div>
+          <div class="community center"> <a target="_blank" href="http://twitter.com/Silverpeas"><img title="Follow us on Twitter" alt="Twitter" src="images/btn-twitt-uk.png"></a> <a target="_blank" href="http://www.facebook.com/pages/Silverpeas/113429255383677"><img title="Follow us on Facebook" alt="Facebook" src="images/btn-fb-uk.png"></a> </div>
           <div class="clear"></div>
         </div>
       </div>
