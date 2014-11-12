@@ -1,0 +1,426 @@
+<!--
+<?xml version="1.0" encoding="UTF-8"?>
+
+    Copyright (C) 2000 - 2013 Silverpeas
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    As a special exception to the terms and conditions of version 3.0 of
+    the GPL, you may redistribute this Program in connection with Free/Libre
+    Open Source Software ("FLOSS") applications as described in Silverpeas's
+    FLOSS exception.  You should have received a copy of the text describing
+    the FLOSS exception, and it is also available here:
+    "http://www.silverpeas.org/docs/core/legal/floss_exception.html"
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+-->
+
+<document>
+  <properties>
+    <author>Emmanuel Hugonnet</author>
+    <title>CASifying Silverpeas</title>
+  </properties>
+  <head>
+  </head>
+  <body>
+    <section name="Introduction">
+      <p>
+        <b>CAS (Central Authentication Service)</b> is a single sign-on protocol for the web.
+        Its purpose is to permit a user to access multiple applications while providing their credentials
+        (such as user identifier and password) only once. It also allows Web applications to authenticate users
+        without gaining access to a user's security credentials, such as a password.
+        The name CAS also refers to a software package that implements this protocol.<br/>
+        This document presents the different operations to enable CAS with Silverpeas :
+      </p>
+      <ul>
+        <li>Installing the JDK</li>
+        <li>Installing a CAS Server on Tomcat</li>
+        <li>Enabling CAS Authentication on Silverpeas</li>
+      </ul>
+      <p>
+        For the rest of this document <b>ServerA</b> will be the CAS Server, and <b>ServerB</b> will be the Silverpeas Server.
+      </p>
+      <p>For more information on CAS you can read <a href="http://en.wikipedia.org/wiki/Central_Authentication_Service">Wikipedia's article</a> or go to <a href="http://www.jasig.org/cas">CAS website</a>.</p>
+    </section>
+
+    <section name="Certificates Configuration">
+      <subsection name="JDK">
+        <p>
+          You will install the latest JDK from SUN: download it from <a href="http://java.sun.com/javase/downloads/index.jsp#need">here</a>.<br/>
+          It will be used by the <a href="http://tomcat.apache.org">Apache Tomcat</a> server who will host the CAS server.
+        </p>
+      </subsection>
+      <subsection name="Certificates">
+        <p>To generate certificates for each server we will use the JDK tool: <i>keytool</i>.
+          The following command will create a keystore in <code>C:\Java/keystore.jks</code>:</p>
+        <fieldset>
+          <code>keytool -genkey -keystore C:\Java\keystore.jks -alias tomcat -keypass changeit -keyalg RSA</code>
+        </fieldset>
+        <p>
+          Use the password <i>changeit</i>.<br/>
+          Enter all the requested information. Note that you <b>must</b>  enter the name of the server as the '<i>first and last name</i>'.<br/>
+          So for the CAS server it should be <b>ServerA</b>.<br/>
+        </p>
+        <p>Now we need to repeat this operation for ServerB.</p>
+      </subsection>
+      <subsection name="Trusting each others">
+        <p>
+          Once the server is running, you can use our utility : <a href="https://repository.silverpeas.org/files/CertificateImporter.jar">Certificat Importer</a> to add the certificate to the trustore.
+        </p>
+        <fieldset>
+          <code>java -jar CertificateImporter.jar serverB:8443 changeit C:\Java\keystore.jks</code>
+        </fieldset>
+        <p>Now we need to repeat this operation for ServerB.</p>
+      </subsection>
+    </section>
+
+    <section name="Configuration of Tomcat as a CAS Server">
+      <subsection name="Installing Tomcat">
+        <p>
+          Download and install the last release of Tomcat from the Apache Tomcat <a href="http://tomcat.apache.org">website</a>.
+          Don't forget to define the environment variables: <i>JAVA_HOME</i> and <i>CATALINA_HOME</i>.<br/>
+          Now, you can edit the file <code>server.xml</code> and allow the SSL connector by uncommenting
+          the following element and configuring the paths to the keystore an trustore :
+        </p>
+        <fieldset><pre><![CDATA[<!-- Define a SSL HTTP/1.1 Connector on port 8443 -->
+<Connector port="8443" maxHttpHeaderSize="8192"
+           maxThreads="150" minSpareThreads="25" maxSpareThreads="75"
+           enableLookups="false" disableUploadTimeout="true"
+           acceptCount="100" scheme="https" secure="true"
+           clientAuth="false" sslProtocol="TLS"
+           keystoreFile="C:/Java/keystore.jks"
+           keystorePass="changeit"
+           truststoreFile="C:/Java/keystore.jks"/>]]></pre></fieldset>
+      </subsection>
+      <subsection name="Installing the CAS Server">
+        <p>
+          Download the latest CAS Server package from the <a href="http://www.jasig.org/cas">CAS Website</a>.
+          Extract the WAR file from the archive in <code>cas-server-3.4.2\modules</code> and copy into in <code>$CATALINA_HOME/webapps</code>.
+          Rename the WAR into <code>cas.war</code>.
+        </p>
+      </subsection>
+      <subsection name="Configuring the authentication mecanism">
+        <p>
+          The CAS Server is configured using the file <code>deployerConfigContext.xml</code> in the directory <code>$CATALINA_HOME/webapps/cas/WEB-INF</code>.
+        </p>
+        <div class="section">
+          <h4><a name="Default_Mode">Default Mode</a></h4>
+          <p>
+            By default, the authentication checks that the password matches the login. This is configured with
+            the following <code>deployerConfigContext.xml</code> :
+          </p>
+          <fieldset><pre><![CDATA[<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+  <bean id="authenticationManager" class="org.jasig.cas.authentication.AuthenticationManagerImpl">
+    <property name="credentialsToPrincipalResolvers">
+      <list>
+        <bean class="org.jasig.cas.authentication.principal.UsernamePasswordCredentialsToPrincipalResolver" />
+        <bean class="org.jasig.cas.authentication.principal.HttpBasedServiceCredentialsToPrincipalResolver" />
+      </list>
+    </property>
+
+    <property name="authenticationHandlers">
+      <list>
+        <bean class="org.jasig.cas.authentication.handler.support.HttpBasedServiceCredentialsAuthenticationHandler"
+              p:httpClient-ref="httpClient" />
+        <bean class="org.jasig.cas.authentication.handler.support.SimpleTestUsernamePasswordAuthenticationHandler" />
+      </list>
+    </property>
+  </bean>
+  
+  <bean id="userDetailsService" class="org.springframework.security.userdetails.memory.InMemoryDaoImpl">
+    <property name="userMap">
+      <value></value>
+    </property>
+  </bean>
+
+  <bean id="attributeRepository" class="org.jasig.services.persondir.support.StubPersonAttributeDao">
+    <property name="backingMap">
+      <map>
+        <entry key="uid" value="uid" />
+        <entry key="eduPersonAffiliation" value="eduPersonAffiliation" />
+        <entry key="groupMembership" value="groupMembership" />
+      </map>
+    </property>
+  </bean>
+
+  <bean id="serviceRegistryDao" class="org.jasig.cas.services.InMemoryServiceRegistryDaoImpl" />
+</beans>]]></pre></fieldset>
+        </div>
+        <div class="section">
+          <h4><a name="JDBC_Mode">JDBC Mode</a></h4>
+          <fieldset>
+            <pre><![CDATA[<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+  <bean id="authenticationManager" class="org.jasig.cas.authentication.AuthenticationManagerImpl">
+    <property name="credentialsToPrincipalResolvers">
+      <list>
+        <bean class="org.jasig.cas.authentication.principal.UsernamePasswordCredentialsToPrincipalResolver" />
+        <bean class="org.jasig.cas.authentication.principal.HttpBasedServiceCredentialsToPrincipalResolver" />
+      </list>
+    </property>
+    <property name="authenticationHandlers">
+      <list>
+        <bean class="org.jasig.cas.authentication.handler.support.HttpBasedServiceCredentialsAuthenticationHandler"
+              p:httpClient-ref="httpClient" />
+        <bean class="org.jasig.cas.adaptors.jdbc.QueryDatabaseAuthenticationHandler">
+          <property name="dataSource" ref="dataSource" />
+          <property name="sql"
+                    value="select password from login_table_name where lower(login_column_name) = lower(?)" />
+        </bean>
+      </list>
+    </property>
+  </bean>
+
+  <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+    <property name="driverClassName">
+      <value>org.postgresql.Driver</value>
+    </property>
+    <property name="url">
+      <value>jdbc:postgresql://serverB:5432/database_name</value>
+    </property>
+    <property name="username">
+      <value>database_username</value>
+    </property>
+    <property name="password">
+      <value>database_password</value>
+    </property>
+  </bean>
+
+  <bean id="userDetailsService" class="org.springframework.security.userdetails.memory.InMemoryDaoImpl">
+    <property name="userMap">
+      <value></value>
+    </property>
+  </bean>
+
+  <bean id="attributeRepository" class="org.jasig.services.persondir.support.StubPersonAttributeDao">
+    <property name="backingMap">
+      <map>
+        <entry key="uid" value="uid" />
+        <entry key="eduPersonAffiliation" value="eduPersonAffiliation" />
+        <entry key="groupMembership" value="groupMembership" />
+      </map>
+    </property>
+  </bean>
+
+  <bean id="serviceRegistryDao" class="org.jasig.cas.services.InMemoryServiceRegistryDaoImpl" />
+</beans>]]></pre></fieldset>
+          <p>
+            The previous example uses a connection to PostgreSQL (configure the <code>datasource</code> bean according to your RDBMS).
+            Don't forget to add the JDBC driver into your <code>WEB-INF/lib</code> directory.
+          </p>
+        </div>
+        <div class="section">
+          <h4><a name="LDAP_Mode">LDAP Mode</a></h4>
+          <fieldset>
+            <pre><![CDATA[<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+  <bean id="contextSource" class="org.jasig.cas.adaptors.ldap.util.AuthenticatedLdapContextSource">
+    <property name="pooled" value="true"/>
+    <property name="urls">
+      <list>
+        <value>ldap://ldap_server_name:ldap_port</value>
+      </list>
+    </property>
+    <property name="userName" value="uid=admin,ou=system"/>
+    <property name="password" value="secret"/>
+    <property name="baseEnvironmentProperties">
+      <map>
+        <entry>
+          <key>
+            <value>java.naming.security.authentication</value>
+          </key>
+          <value>simple</value>
+        </entry>
+      </map>
+    </property>
+  </bean>
+
+  <bean id="authenticationManager" class="org.jasig.cas.authentication.AuthenticationManagerImpl">
+    <property name="credentialsToPrincipalResolvers">
+      <list>
+        <bean class="org.jasig.cas.authentication.principal.UsernamePasswordCredentialsToPrincipalResolver" />
+        <bean class="org.jasig.cas.authentication.principal.HttpBasedServiceCredentialsToPrincipalResolver" />
+      </list>
+    </property>
+    <property name="authenticationHandlers">
+      <list>
+        <bean class="org.jasig.cas.authentication.handler.support.HttpBasedServiceCredentialsAuthenticationHandler"
+              p:httpClient-ref="httpClient" />
+        <bean class="org.jasig.cas.adaptors.ldap.FastBindLdapAuthenticationHandler" >
+          <property name="filter" value="uid=%u,ou=Users,dc=example,dc=com" />
+          <property name="contextSource" ref="contextSource" />
+        </bean>
+      </list>
+    </property>
+  </bean>
+
+  <bean id="userDetailsService" class="org.springframework.security.userdetails.memory.InMemoryDaoImpl">
+    <property name="userMap">
+      <value></value>
+    </property>
+  </bean>
+
+  <bean id="attributeRepository" class="org.jasig.services.persondir.support.StubPersonAttributeDao">
+    <property name="backingMap">
+      <map>
+        <entry key="uid" value="uid" />
+        <entry key="eduPersonAffiliation" value="eduPersonAffiliation" />
+        <entry key="groupMembership" value="groupMembership" />
+      </map>
+    </property>
+  </bean>
+
+  <bean id="serviceRegistryDao" class="org.jasig.cas.services.InMemoryServiceRegistryDaoImpl" />
+</beans>]]></pre></fieldset>
+          <p>
+            You need to configure your LDAP parameters, and to download the Jar file <a href="http://developer.ja-sig.org/maven/cas/jars/">cas-server-support-ldap</a>
+            and add it to your <code>WEB-INF/lib</code> directory.
+          </p>
+        </div>
+      </subsection>
+      <subsection name="Customizing the CAS pages">
+        <p>
+          You can customize les pages of the CAS Server by editing the JSPs in <code>$CATALINA_HOME/webapps/cas/WEB-INF/view/jsp/default/ui</code>
+          or the stylesheets in <code>$CATALINA_HOME/webapps/cas/css</code>.
+        </p>
+      </subsection>
+    </section>
+
+    <section name="Configuring Silverpeas">
+      <subsection name="Configuring the keystore">
+        <p>
+          On the Silverpeas Sever (ServerB). Go and edit the file <i>$SILVERPEAS_HOME/initialize/systemSettings.properties</i>.<br/>
+          Set the various parameters (supposing that the keystore you have generated following the <a href="certificates.html">documentation</a> is in C:\Java\keystore.jks) :
+        </p>
+        <ul>
+          <li><b>javax.net.ssl.trustStore</b>=C:\\Java\\keystore.jks</li>
+          <li><b>ssl.keystore</b>=C:\\Java\\keystore.jks</li>
+          <li><b>ssl.keystore.password</b>=changeit</li>
+        </ul>
+      </subsection>
+      <subsection name="Configuration the servlet filter">
+        <p>
+          You need to enable the CAS Servlet Filter. To do this edit the <i>$JBOSS_HOME/server/deploy/silverpeas.ear/war-ic.war/WEB-INF/web.xml</i>.<br/>
+          and add the following configuration :
+        </p>
+        <fieldset>
+          <pre><![CDATA[
+  <context-param>
+    <param-name>serverName</param-name>
+    <param-value>http://localhost:8000</param-value>
+  </context-param>
+
+  ...
+
+  <filter>
+    <filter-name>CAS Authentication Filter</filter-name>
+    <filter-class>org.jasig.cas.client.authentication.AuthenticationFilter</filter-class>
+    <init-param>
+      <param-name>casServerLoginUrl</param-name>
+      <param-value>https://ServerA:8443/cas/login</param-value>
+    </init-param>
+  </filter>
+  <filter>
+    <filter-name>CAS Validation Filter</filter-name>
+    <filter-class>org.jasig.cas.client.validation.Cas20ProxyReceivingTicketValidationFilter</filter-class>
+    <init-param>
+      <param-name>casServerUrlPrefix</param-name>
+      <param-value>https://ServerA:8443/cas</param-value>
+    </init-param>
+  </filter>
+
+  ...
+
+  <filter-mapping>
+    <filter-name>CAS Authentication Filter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>CAS Validation Filter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+        ]]></pre>
+        </fieldset>
+        <p>
+          You can find more informations from CAS website: <a href="http://www.ja-sig.org/wiki/display/CASC/web.xml+for+Tomcat+5.5+Tomcat+Manager">Sample web.xml</a>,
+          <a href="http://www.ja-sig.org/wiki/display/CASC/Configuring+the+JA-SIG+CAS+Client+for+Java+in+the+web.xml">Configuration details</a> and
+          <a href="http://www.ja-sig.org/wiki/display/CASC/CAS+Client+for+Java+3.1">CAS Java Client</a>.
+        </p>
+      </subsection>
+      <subsection name="Configuring the Login page">
+        <p>
+          Edit the file in <i>$SILVERPEAS_HOME/properties/org/silverpeas/lookAndFeel/generalLook.properties</i>,
+          update the parameter <code>loginPage</code>  like this :
+        </p>
+        <fieldset>
+          <pre>
+loginPage = /silverpeas/AuthenticationServlet
+          </pre>
+        </fieldset>
+      </subsection>
+      <subsection name="Activating the realm">
+        <p>
+          Edit the file in <i>$SILVERPEAS_HOME/properties/org/silverpeas/authentication/autDomainSP.properties</i>,
+          set the parameter <code>autServer0.enabled</code> to true and thus enable the CAS authentication :
+        </p>
+        <fieldset>
+          <pre>
+autServer0.type=org.silverpeas.authentication.AuthenticationCAS
+autServer0.enabled=true
+autServer0.SQLJDBCUrl=jdbc:postgresql://localhost:5432/SilverpeasV5
+autServer0.SQLAccessLogin=postgres
+autServer0.SQLAccessPasswd=postgres
+autServer0.SQLDriverClass=org.postgresql.Driver
+autServer0.SQLUserTableName=st_user
+autServer0.SQLUserLoginColumnName=login
+          </pre>
+        </fieldset>
+        <p>
+          Since the authentication was performed beforehand, the class AuthenticationCAS just check for an existing
+          user in the user table of Silverpeas.
+        </p>
+        <p>
+          Now we need to define the <code>domainId</code> that is going to be used by CAS. By default it is <emp>0</emp> to match the previous configuration but
+          this can be configured by editing the file in <i>$SILVERPEAS_HOME/properties/org/silverpeas/authentication/settings/authenticationSettings.properties</i>,
+          and add the following parameter like this :
+        </p>
+        <fieldset>
+          <pre>
+cas.authentication.domainId=0
+          </pre>
+        </fieldset>
+        <p>
+          At last, to coclude the configuration you can setup a logout page for Silverpeas to be called after the logout has been performed by adding the
+          entry <code>logout.page</code> to the file <i>$SILVERPEAS_HOME/properties/org/silverpeas/authentication/settings/authenticationSettings.properties</i> like this :
+        </p>
+        <fieldset>
+          <pre>
+logout.page=myLogoutPage.jsp
+          </pre>
+        </fieldset>
+      </subsection>
+    </section>
+  </body>
+</document>
