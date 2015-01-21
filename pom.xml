@@ -58,6 +58,12 @@
     <url>http://integration.silverpeas.org/jenkins</url>
   </ciManagement>
 
+  <scm>
+    <connection>scm:git:git@github.com:Silverpeas/A_SILVERPEAS_PROJECT.git</connection>
+    <developerConnection>scm:git:git@github.com:Silverpeas/A_SILVERPEAS_PROJECT.git</developerConnection>
+    <url>http://github.com/Silverpeas</url>
+  </scm>
+
   <mailingLists>
     <mailingList>
       <name>Silverpeas Users List</name>

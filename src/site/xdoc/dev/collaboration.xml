@@ -30,12 +30,12 @@
   xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
 
   <properties>
-    <title>Collaborating to Silverpeas</title>
+    <title>Contributing to Silverpeas</title>
     <author>Emmanuel Hugonnet</author>
     <author>Miguel Moquillon</author>
   </properties>
   <head>
-    <title>Collaborating to Silverpeas</title>
+    <title>Contributing to Silverpeas</title>
   </head>
   <body>
     <section name="Git">
@@ -109,11 +109,68 @@
         <source>git remote add silverpeas URL_OF_SILVERPEAS_REPOSITORY</source>
         <p>For example:</p>
         <source>git remote add silverpeas git@github.com:Silverpeas/Silverpeas-Core.git</source>
-        <p>To synchronize your local repository with Silverpeas, you have to execute the following command:</p>
-        <source>git pull silverpeas master</source>
+        <p>To synchronize your local repository with Silverpeas, we recommend to execute the following command:</p>
+        <source>git pull --rebase silverpeas master</source>
         <p>Or to be less confusing by unexpected merge conflicts, you can divide the synchronization in two steps:</p>
-        <source>git fetch silverpeas
-git merge silverpeas/master</source>
+        <source>git fetch silverpeas master
+git rebase FETCH_HEAD</source>
+        <p>The <code>rebase</code> operation while synchronizing your local repository with Silverpeas is to ensure
+        your changes will be on top of the fetched modifications and hence they won't be mixed with external commits.
+        By doing this, when we'll merge your changes, the history of Silverpeas changes will be clean and understandable.</p>
+      </subsection>
+      <subsection name="Build Silverpeas">
+        <p>We use the <a href="http://maven.apache.org/">maven build tool</a> to manage the build life-cycle of our projects. With Maven,
+          a project is described by a POM (Project Object Model) that is defined in the <code>pom.xml</code> file at the root of the
+          project. Maven provides at least the following features:</p>
+        <ul>
+          <li>a predefined directories layout for both sources code and build results,</li>
+          <li>a build workflow in which each stages are well defined,</li>
+          <li>a dependency management by using both a local and a remote repository.</li>
+        </ul>
+        <p>Before building your copy of a Silverpeas project, you have to define some settings to Maven like indicating
+          our own <a href="http://www.silverpeas.org/nexus">Maven repository</a>. For doing, please edit a file <code>settings.xml</code>
+          in the <code>.m2</code> directory at your home folder and add the following lines:</p>
+        <source>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                      http://maven.apache.org/xsd/settings-1.0.0.xsd"&gt;
+  &lt;mirrors&gt;
+    &lt;mirror&gt;
+      &lt;id&gt;silverpeas&lt;/id&gt;
+      &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;
+      &lt;url&gt;http://www.silverpeas.org/nexus/content/groups/silverpeas/&lt;/url&gt;
+    &lt;/mirror&gt;
+  &lt;/mirrors&gt;
+
+  <!-- And in the case of being behind a given proxy
+  &lt;proxies&gt;
+   &lt;proxy&gt;
+      &lt;active&gt;true&lt;/active&gt;
+      &lt;protocol&gt;http&lt;/protocol&gt;
+      &lt;host&gt;proxy.somewhere.com&lt;/host&gt;
+      &lt;port&gt;8080<&lt;port&gt;
+      &lt;username&gt;proxyuser&lt;/username&gt;
+      &lt;password&gt;somepassword&lt;/password&gt;
+      &lt;nonProxyHosts>www.google.com|*.somewhere.com&lt;/nonProxyHosts&gt;
+    &lt;/proxy&gt;
+  &lt;/proxies&gt;
+  -->
+&lt;/settings&gt;
+        </source>
+        <p>Once done, you are ready to build the project:</p>
+        <source>mvn clean install</source>
+        <p>or without running the tests:</p>
+        <source>mvn clean install -Dmaven.test.skip=true</source>
+        <p>In order to build both <code>Silverpeas-Core</code> and <code>Silverpeas-Components</code>,
+          you have to build first <code>Silverpeas-Core</code> and then <code>Silverpeas-components</code>.
+          If you have modified <code>Silverpeas-Parent</code> whose aim is to declare the version of all
+          of the dependencies of Silverpeas, you have to compile first this project before anything.</p>
+        <p>The project <code>Silverpeas-installer-package</code> is the source code to generate the
+        Silverpeas installation archives for both Windows and Unix-like systems. You can also build it
+        by executing the following command:</p>
+        <source>mvn clean package</source>
+        <p>and the archives will be generated into the <code>target</code> directory of the project.</p>
       </subsection>
       <subsection name="Creating a development branch">
         <p>Now that you have your own repository, let's create a branch to develop some code in it.
