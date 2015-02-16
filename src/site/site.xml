@@ -33,31 +33,6 @@
   </bannerLeft>
   <publishDate position="right" format="yyyy-MM-dd" />
   <version position="right" />
-  <skin>
-    <groupId>org.apache.maven.skins</groupId>
-    <artifactId>maven-fluido-skin</artifactId>
-    <version>1.3.0</version>
-  </skin>
-  <custom>
-    <fluidoSkin>
-      <topBarEnabled>true</topBarEnabled>
-      <sideBarEnabled>false</sideBarEnabled>
-      <sourceLineNumbersEnabled>false</sourceLineNumbersEnabled>
-      <navBarStyle>navbar-inverse</navBarStyle>
-      <gitHub>
-        <projectId>Silverpeas</projectId>
-        <ribbonOrientation>right</ribbonOrientation>
-        <ribbonColor>orange</ribbonColor>
-      </gitHub>
-      <!--
-      <twitter>
-        <user>Silverpeas</user>
-        <showUser>true</showUser>
-        <showFollowers>true</showFollowers>
-      </twitter>
-      -->
-    </fluidoSkin>
-  </custom>
   <!-- Powered By -->
   <poweredBy>
     <logo name="Netbeans 7.3" href="http://netbeans.org/downloads/index.html" img="http://repository.silverpeas.org/docs/core/images/logos/logo_netBeans.gif" />
@@ -69,6 +44,11 @@
     <logo name="Subshell Toromiro" href="http://www.subshell.com/en/toromiro/" img="http://repository.silverpeas.org/docs/core/images/logos/toromiro-logo.png" />
     <logo name="Yourkit" href="http://www.yourkit.com" img="http://repository.silverpeas.org/docs/core/images/logos/yourkit-logo.png" />
   </poweredBy>
+  <skin>
+    <groupId>org.apache.maven.skins</groupId>
+    <artifactId>maven-fluido-skin</artifactId>
+    <version>1.4-SNAPSHOT</version>
+  </skin>
   <body>
     <head>
       <script type="text/javascript">
@@ -143,5 +123,31 @@
       <item name="FLOSS Exception" href="legal/floss_exception.html" collapse="true"/>
       <item name="Silverpeas Trade Mark" href="legal/trademark.html" collapse="true"/>
     </menu>
+    <footer>
+      <div class="license">
+        <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Licence Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>.
+      </div>
+    </footer>
   </body>
+
+  <custom>
+    <fluidoSkin>
+      <topBarEnabled>true</topBarEnabled>
+      <sideBarEnabled>false</sideBarEnabled>
+      <sourceLineNumbersEnabled>false</sourceLineNumbersEnabled>
+      <navBarStyle>navbar-inverse</navBarStyle>
+      <gitHub>
+        <projectId>Silverpeas</projectId>
+        <ribbonOrientation>right</ribbonOrientation>
+        <ribbonColor>orange</ribbonColor>
+      </gitHub>
+      <!--
+      <twitter>
+        <user>Silverpeas</user>
+        <showUser>true</showUser>
+        <showFollowers>true</showFollowers>
+      </twitter>
+      -->
+    </fluidoSkin>
+  </custom>
 </project>

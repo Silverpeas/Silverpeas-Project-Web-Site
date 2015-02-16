@@ -46,6 +46,29 @@
     A collaborative bus and a social network engine facilitate the collaboration and the content sharing between the users themselves.
   </description>
 
+  <repositories>
+    <repository>
+      <id>Silverpeas</id>
+      <layout>default</layout>
+      <name>Silverpeas Repository</name>
+      <url>http://www.silverpeas.org/nexus/content/groups/silverpeas</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>Silverpeas</id>
+      <name>Silverpeas Maven 3.x Repository</name>
+      <url>http://www.silverpeas.org/nexus/content/groups/silverpeas</url>
+    </pluginRepository>
+  </pluginRepositories>
+
   <distributionManagement>
     <site>
       <id>silverpeas_repository</id>

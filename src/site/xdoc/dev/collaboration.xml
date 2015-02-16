@@ -95,6 +95,22 @@
           <a href="http://help.github.com/">create your account on Github</a>, then fork the
           <a href="http://github.com/Silverpeas">Silverpeas repositories</a> you are interested in.
         </p>
+        <p>For information, Silverpeas is made up of the following projects, each of them with their
+          own Git repository:</p>
+        <ul>
+          <li><a href="https://github.com/Silverpeas/Silverpeas-Parent"><code>Silverpeas Parent</code></a> that
+          is a global descriptor of the Silverpeas projects: it defines the dependencies required to build and to run
+          Silverpeas, the team, the contributors, the project management tools used, and so on. Usually, you won't have
+          to modify this project.</li>
+          <li><a href="https://github.com/Silverpeas/Silverpeas-Core"><code>Silverpeas Core</code></a> in which
+          are defined the Core APIs of Silverpeas for both the business part and the Web part.</li>
+          <li><a href="https://github.com/Silverpeas/Silverpeas-Components"><code>Silverpeas Components</code></a> that
+          comprise all of the applications provided by Silverpeas (DEM, gallery, blog, ...)</li>
+          <li><a href="https://github.com/Silverpeas/Assembly-Silverpeas"><code>Assembly Silverpeas</code></a> is
+          a project that declares all the components that made up the Silverpeas collaborative platform and that
+          defines the rules to build from them the final Silverpeas application, ready to be deployed into a JEE
+          runtime.</li>
+        </ul>
         <p>Once the fork completed, clone it:</p>
         <source>git clone URL_OF_THE_FORK</source>
         <p>Your fork is then referenced by your git configuration with the name <code>origin</code></p>
@@ -125,7 +141,7 @@ git rebase FETCH_HEAD</source>
         <ul>
           <li>a predefined directories layout for both sources code and build results,</li>
           <li>a build workflow in which each stages are well defined,</li>
-          <li>a dependency management by using both a local and a remote repository.</li>
+          <li>a dependency management by using both a local and a remote repository in which the dependencies (named artifacts) are available.</li>
         </ul>
         <p>Before building your copy of a Silverpeas project, you have to define some settings to Maven like indicating
           our own <a href="http://www.silverpeas.org/nexus">Maven repository</a>. For doing, please edit a file <code>settings.xml</code>
@@ -162,15 +178,30 @@ git rebase FETCH_HEAD</source>
         <source>mvn clean install</source>
         <p>or without running the tests:</p>
         <source>mvn clean install -Dmaven.test.skip=true</source>
-        <p>In order to build both <code>Silverpeas-Core</code> and <code>Silverpeas-Components</code>,
+        <p>In order to build the Silverpeas application,
           you have to build first <code>Silverpeas-Core</code> and then <code>Silverpeas-components</code>.
-          If you have modified <code>Silverpeas-Parent</code> whose aim is to declare the version of all
-          of the dependencies of Silverpeas, you have to compile first this project before anything.</p>
+          If you have modified <code>Silverpeas-Parent</code>, you have to compile first this project before anything.</p>
+        <p>In the case you have added a new application, you can reference it into the <code>POM</code>
+        of the <code>Assembly-Silverpeas</code> project.</p>
+
+      </subsection>
+      <subsection name="Installing and testing your codes">
+        <p>Beside the unit and integration tests, you can test functionally your code in Silverpeas by
+        installing it with your changes.</p>
         <p>The project <code>Silverpeas-installer-package</code> is the source code to generate the
-        Silverpeas installation archives for both Windows and Unix-like systems. You can also build it
-        by executing the following command:</p>
+          Silverpeas installation archives for both Windows and Unix-like systems. You can also build it
+          by executing the following command:</p>
         <source>mvn clean package</source>
-        <p>and the archives will be generated into the <code>target</code> directory of the project.</p>
+        <p>and the archives will be generated into the <code>target</code> directory of the project.
+        Then just extract it, set correctly the environment variables <code>SILVERPEAS_HOME</code>
+        and <code>JBOSS_HOME</code> and follows the instructions in the
+          <a href="../installation/installation.html">Silverpeas installation page</a>.</p>
+        <p>Once done, you are ready to run Silverpeas either in debugging mode or in a normal mode
+        to test it:</p>
+        <source>silverpeas_start_jboss.sh</source>
+        <p>to run Silverpeas in normal mode in a Unix system,</p>
+        <source>silverpeas_debug_jboss.sh</source>
+        <p>to run Silverpeas in debugging mode in a Unix system.</p>
       </subsection>
       <subsection name="Creating a development branch">
         <p>Now that you have your own repository, let's create a branch to develop some code in it.
