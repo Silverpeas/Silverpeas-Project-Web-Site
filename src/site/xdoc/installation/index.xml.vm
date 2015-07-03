@@ -70,6 +70,11 @@
         <a href="cloud.html">our page</a> explaining how to get a cloud-ready image of Silverpeas.
       </p>
     </section>
+    <section name="Document Online Edition">
+      <p>Silverpeas provides the users a way to edit the documents in Silverpeas by using their favorite Office Suite. This feature
+      requires an external program to install on the user host. You will find more information about the online edition of documents
+      in the <a href="webdav.html">dedicated page</a>.</p>
+    </section>
     <section name="Problems">
       <p>If you encounter a problem during installation or if you have any question, you can post them on the <a href="http://groups.google.com/group/silverpeas-users" >users mailing-list</a></p>
     </section>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (C) 2000 - 2015 Silverpeas
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    As a special exception to the terms and conditions of version 3.0 of
+    the GPL, you may redistribute this Program in connection with Free/Libre
+    Open Source Software ("FLOSS") applications as described in Silverpeas's
+    FLOSS exception.  You should have received a copy of the text describing
+    the FLOSS exception, and it is also available here:
+    "http://www.silverpeas.org/docs/core/legal/floss_exception.html"
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+-->
+
+<document xmlns="http://maven.apache.org/XDOC/2.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+
+  <properties>
+    <title>Installation of a native program for the online edition of documents.</title>
+    <author>Miguel Moquillon</author>
+  </properties>
+  <head>
+  </head>
+  <body>
+    <section name="The Native Online Edition Program">
+      <p>Please, download the program that matches your OS:</p>
+      <ul>
+        <li><a href="http://www.silverpeas.org/files/spwebdav/windows/setup64.exe" alt="installator for Windows 64bits">For Windows 64bits (Windows 7 and Windows 8)</a></li>
+        <li><a href="http://www.silverpeas.org/files/spwebdav/windows/setup32.exe" alt="installator for Windows 32bits">For Windows 32bits (Windows XP and some Windows 7)</a></li>
+        <li><a href="http://www.silverpeas.org/files/spwebdav/linux/spwebdav.tgz" alt="archive for GNU/Linux x64">For GNU/Linux x64</a></li>
+        <li><a href="http://www.silverpeas.org/files/spwebdav/darwin/onlineEditing" alt="executable for MacOS X x64">For MacOS X x64</a></li>
+      </ul>
+      <p>The program takes profit of the protocol handler mechanism to open a document accessible through WebDAV with an available Office Suite.
+      Unfortunately, this mechanism is not yet used for MacOS X.</p>
+    </section>
+
+    <section name="Online Edition through WebDAV">
+      <p>
+        For a long time, Silverpeas provides the users a easy way to edit the documents by using their favorite
+        Office Suite (MS-Office, LibreOffice or OpenOffice.org suites). For doing, an external program is necessary to
+        find an acceptable Office Suite and to launch it with the WebDAV URL of the document to edit.
+      </p>
+      <p>
+        The online edition is usually performed through a Java program that is installed and launched thanks to
+        the <a href="http://www.oracle.com/technetwork/java/javase/javawebstart/index.html">Java Web Start mechanism</a>.
+        The installation and the upgrade of the program is done transparently thanks to this mechanism.
+        Unfortunately, the security restrictions to use this mechanism are increasibly constraining and some of our users have
+        complained of the refusal by the Web browser to launch the program. For example, the Chrome Web browser stops now
+        the execution of any Java program. For the other Web browsers, we have normally fixed this
+        issue and this problem shouldn't occur any more; it implies to use the latest version of Java in the user host (Java 8).
+      </p>
+      <p>
+        Nevertheless, in order to don't block our users when a such situation is occurring, we have decided to
+        develop a native program, written in Go, in replacement of the Java one. As the deployment of this program
+        isn't done by the Java Web Start mechanism, you have to download it explicitly according to your OS.
+      </p>
+    </section>
+  </body>
+</document>

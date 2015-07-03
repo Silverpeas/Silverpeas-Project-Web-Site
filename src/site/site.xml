@@ -83,6 +83,7 @@
         <item name="Installation" href="installation/installation.html" collapse="false"/>
         <item name="GNU/Linux Native Packages" href="http://www.silverpeas.org/repo/index.html" collapse="false" />
         <item name="Silverpeas in the Cloud" href="installation/cloud.html" collapse="false" />
+        <item name="Online Edition of Documents" href="installation/webdav.html" collapse="false"/>
       </item>
       <item name="Our versions" href="#" collapse="true">
         <item name="Roadmap" href="https://tracker.silverpeas.org/projects/silverpeas/roadmap?completed=1" collapse="false"/>
