@@ -124,18 +124,19 @@
         <role>Developer</role>
       </roles>
       <organization>Silverpeas</organization>
-      <organizationUrl>http://www.silverpeas.com</organizationUrl>
+      <organizationUrl>http://www.silverpeas.org</organizationUrl>
       <email>miguel.moquillon@silverpeas.org</email>
     </developer>
     <developer>
       <id>cbonin</id>
       <name>Cécile Bonin</name>
+      <email>cecile.bonin@silverpeas.org</email>
       <roles>
         <role>Project Manager</role>
         <role>Developer</role>
       </roles>
       <organization>Silverpeas</organization>
-      <organizationUrl>http://www.silverpeas.com</organizationUrl>
+      <organizationUrl>http://www.silverpeas.org</organizationUrl>
     </developer>
     <developer>
       <id>neysseric</id>
@@ -145,49 +146,42 @@
         <role>Developer</role>
       </roles>
       <organization>Silverpeas</organization>
-      <organizationUrl>http://www.silverpeas.com</organizationUrl>
+      <organizationUrl>http://www.silverpeas.org</organizationUrl>
       <email>nicolas.eysseric@silverpeas.org</email>
-    </developer>
-    <developer>
-      <id>svuillet</id>
-      <name>Sébastien Vuillet</name>
-      <roles>
-        <role>CTO</role>
-        <role>Project Manager</role>
-      </roles>
-      <organization>Silverpeas</organization>
-      <organizationUrl>http://www.silverpeas.com</organizationUrl>
     </developer>
     <developer>
       <id>ebonnet</id>
       <name>Etienne Bonnet</name>
       <roles>
-        <role>Project Manager</role>
         <role>Developer</role>
       </roles>
-      <organization>Silverpeas.com</organization>
-      <organizationUrl>http://www.silverpeas.com</organizationUrl>
+      <organization>Silverpeas</organization>
+      <organizationUrl>http://www.silverpeas.org</organizationUrl>
     </developer>
     <developer>
       <id>aallibe</id>
       <name>Aurore Allibe</name>
+      <email>aurore.allibe@silverpeas.org</email>
       <roles>
         <role>Web Designer</role>
       </roles>
-      <organization>Silverpeas.com</organization>
-      <organizationUrl>http://www.silverpeas.com</organizationUrl>
+      <organization>Silverpeas</organization>
+      <organizationUrl>http://www.silverpeas.org</organizationUrl>
     </developer>
     <developer>
       <id>ychastagnier</id>
       <name>Yohann Chastagnier</name>
+      <email>yohann.chastagnier@silverpeas.org</email>
       <roles>
         <role>Developer</role>
       </roles>
-      <organization>Silverpeas.com</organization>
-      <organizationUrl>http://www.silverpeas.com</organizationUrl>
-      <email>yohann.chastagnier@silverpeas.org</email>
+      <organization>Silverpeas</organization>
+      <organizationUrl>http://www.silverpeas.org</organizationUrl>
     </developer>
-    <developer>
+  </developers>
+
+  <contributors>
+    <contributor>
       <name>David Lesimple</name>
       <roles>
         <role>Support</role>
@@ -196,10 +190,16 @@
       </roles>
       <organization>Silverpeas</organization>
       <organizationUrl>http://www.silverpeas.com</organizationUrl>
-    </developer>
-  </developers>
-
-  <contributors>
+    </contributor>
+    <contributor>
+      <name>Sébastien Vuillet</name>
+      <roles>
+        <role>Project Manager</role>
+        <role>Developer</role>
+      </roles>
+      <organization>Silverpeas</organization>
+      <organizationUrl>http://www.silverpeas.com</organizationUrl>
+    </contributor>
     <contributor>
       <name>Emmanuel Hugonnet</name>
       <roles>
@@ -221,8 +221,8 @@
         <role>Project Manager</role>
         <role>Developer</role>
       </roles>
-      <organization>Oosphere</organization>
-      <organizationUrl>http://www.oosphere.ch</organizationUrl>
+      <organization>AIM Services</organization>
+      <organizationUrl>http://www.aim-services.ch</organizationUrl>
     </contributor>
     <contributor>
       <name>Nicolas Dupont</name>
