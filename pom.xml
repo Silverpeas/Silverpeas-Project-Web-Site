@@ -36,7 +36,7 @@
 
   <groupId>com.silverpeas</groupId>
   <artifactId>silverpeas-project</artifactId>
-  <version>5.15-SNAPSHOT</version>
+  <version>5.15</version>
   <packaging>pom</packaging>
   <name>Silverpeas Project Web Site</name>
   <url>http://www.silverpeas.org</url>
