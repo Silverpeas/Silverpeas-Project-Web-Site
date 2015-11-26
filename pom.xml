@@ -31,7 +31,7 @@
   <parent>
     <groupId>com.silverpeas</groupId>
     <artifactId>parent</artifactId>
-    <version>28-SNAPSHOT</version>
+    <version>28</version>
   </parent>
 
   <groupId>com.silverpeas</groupId>
@@ -305,9 +305,9 @@
   </reporting>
 
   <properties>
-    <installer_stable_version>5.14</installer_stable_version>
-    <installer_izpack_version>5.14</installer_izpack_version>
-    <installer_version>${project.version}</installer_version>
+    <installer_stable_version>5.15</installer_stable_version>
+    <installer_izpack_version>5.15</installer_izpack_version>
+    <installer_version>5.15-SNAPSHOT</installer_version>
   </properties>
 
 </project>
