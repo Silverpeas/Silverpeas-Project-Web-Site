@@ -138,7 +138,7 @@
         <p>
           If you expect to install Silverpeas on a server running with a Debian-based distribution, you cannot use the SWFTools software packaged with your distribution.
           Indeed, it lacks of the program <code>pdf2swf</code> that is used by Silverpeas.
-        <p>
+        </p>
       </subsection>
     </section>
     <section name="Installation">
