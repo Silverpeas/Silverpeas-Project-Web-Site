@@ -45,7 +45,9 @@
       <p>
         <b>You have to have a Java 6 JDK installed.</b>
         <br/>
-        <b>This version is not suitable for production !</b>.
+        <b>You have to have <a href="http://www.imagemagick.org/script/index.php">ImageMagick</a> installed as it is required to render images and the preview of documents</b>
+        <br/>
+        <b>This version is not suitable for production!</b>.
       </p>
       <ol>
         <li>Download the

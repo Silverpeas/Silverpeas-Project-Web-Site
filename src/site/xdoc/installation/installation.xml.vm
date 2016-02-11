@@ -109,6 +109,37 @@
           </p>
         </subsection>
       </subsection>
+      <subsection name="ImageMagick">
+        <p>
+          Silverpeas uses the image handling tool suite <a href="http://www.imagemagick.org/script/index.php">ImageMagick</a> to render the preview of documents.
+          Up to 5.14, ImageMagick was only a recommendation to enhance the user experience of Silverpeas. With Silverpeas 5.15, it is now a requirement as it is
+          also used to resize images used in the Web pages.
+        </p>
+        <p>It is a free software (free as freedom) that can be downloaded <a href="http://www.imagemagick.org/script/binary-releases.php">from this page</a></p>
+      </subsection>
+      <subsection name="SWFTools, Ghostscript and Pdf2Json">
+        <p>
+          Whereas not required to run and to use Silverpeas, we <em>recommend strongly</em> to install the SWFTools tool suite to enhance the user experience with Silverpeas.
+          It is used by Silverpeas to preview and to visualize any document content (whatever the document format).
+          It depends on the Ghostscript software so you have also to install it.
+        </p>
+        <p>
+          Pdf2Json is another tool, developed and provided by <a href="http://flexpaper.devaldi.com/">FlexPaper</a>. It is used by Silverpeas to split a large document into smaller pieces
+          in order to be processed more efficiently by FlexPaper (that is used in the visualization of document content).
+        </p>
+        <p>
+          They are all free softwares (free as freedom) and they can be downloaded from:
+        </p>
+        <ul>
+          <li>Ghostscript: <a href="http://www.ghostscript.com/download/">http://www.ghostscript.com/download/</a></li>
+          <li>Pdf2Json: <a href="https://github.com/flexpaper/pdf2json/releases">https://github.com/flexpaper/pdf2json/releases</a></li>
+          <li>SWFTools: <a href="http://www.swftools.org/download.html">http://www.swftools.org/download.html</a></li>
+        </ul>
+        <p>
+          If you expect to install Silverpeas on a server running with a Debian-based distribution, you cannot use the SWFTools software packaged with your distribution.
+          Indeed, it lacks of the program <code>pdf2swf</code> that is used by Silverpeas.
+        <p>
+      </subsection>
     </section>
     <section name="Installation">
       <p>You will get better performance with GNU/Linux systems.</p>

@@ -35,7 +35,7 @@
   </parent>
 
   <groupId>com.silverpeas</groupId>
-  <artifactId>silverpeas-project</artifactId>
+  <artifactId>silverpeas-website</artifactId>
   <version>5.15</version>
   <packaging>pom</packaging>
   <name>Silverpeas Project Web Site</name>
@@ -307,7 +307,7 @@
   <properties>
     <installer_stable_version>5.15</installer_stable_version>
     <installer_izpack_version>5.15</installer_izpack_version>
-    <installer_version>5.15-SNAPSHOT</installer_version>
+    <installer_version>5.15.2-SNAPSHOT</installer_version>
   </properties>
 
 </project>
