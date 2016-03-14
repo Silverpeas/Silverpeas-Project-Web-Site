@@ -31,12 +31,12 @@
   <parent>
     <groupId>com.silverpeas</groupId>
     <artifactId>parent</artifactId>
-    <version>28</version>
+    <version>29-SNAPSHOT</version>
   </parent>
 
   <groupId>com.silverpeas</groupId>
   <artifactId>silverpeas-website</artifactId>
-  <version>5.15</version>
+  <version>5.15.1</version>
   <packaging>pom</packaging>
   <name>Silverpeas Project Web Site</name>
   <url>http://www.silverpeas.org</url>
