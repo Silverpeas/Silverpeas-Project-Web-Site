@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (C) 2000 - 2016 Silverpeas
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    As a special exception to the terms and conditions of version 3.0 of
+    the GPL, you may redistribute this Program in connection with Free/Libre
+    Open Source Software ("FLOSS") applications as described in Silverpeas's
+    FLOSS exception.  You should have recieved a copy of the text describing
+    the FLOSS exception, and it is also available here:
+    "http://www.silverpeas.org/docs/core/legal/floss_exception.html"
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+-->
+<document>
+  <properties>
+    <author>Miguel Moquillon</author>
+    <title>Installation of Silverpeas 6</title>
+  </properties>
+  <head>
+  </head>
+  <body>
+    <p>
+      Silverpeas 6 will be the next major version of Silverpeas. It will be released in this year. It is in development and as such it isn't ready to be used for production.
+    </p>
+    <section name="Pre-requisite">
+      <p>
+        Silverpeas 6 can be automatically deployed on the JEE application server <a href="http://wildfly.org/">Wildfly</a> &gt;= 8.1.
+        We strongly recommend to deploy it on Wildfly 10 as this version will be used to build the next major version of JBoss EAP.
+      </p>
+      <p>
+        Silverpeas 6, like Silverpeas 5, depends on external tools to run and to offer a better user experience.
+        Please find a list of the tools you will need to install Silverpeas below.<br/>
+      </p>
+      <subsection name="Java 8">
+        <p>
+          Silverpeas needs a Java SE Development Kit (JDK) version 8, which can be downloaded <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html#jdk">from Oracle</a>
+          or <a href="http://openjdk.java.net/install/index.html">from OpenJDK</a>. Don't forget to set up the environment variable <code>JAVA_HOME</code> with the path of the installation directory of Java.
+        </p>
+      </subsection>
+      <subsection name="Wildfly">
+        <p>
+          Silverpeas requires Wildfly as a runtime. We strongly recommend Wildfly 10 as JBoss EAP 7 will be based upon it; JBoss EAP is the commercial, enterprise class, version of Wildfly.
+          You can download Wildfly 10 from different location:
+        </p>
+        <ul>
+          <li><strong>From our own Web site</strong>: <a href="https://repository.silverpeas.org/files/wildfly-10.0.0.Final.zip">Wildfly 10</a></li>
+          <li><strong>From the official Wildfly Project Web site</strong>: <a href="http://wildfly.org/downloads/">Wildfly downloads page</a></li>
+        </ul>
+        <p>
+          Once a Widfly or a JBoss EAP distribution downloaded, please unzip it into the location you want Wildfly/JBoss to be installed and then set up the environment variable <code>JBOSS_HOME</code>
+          with the path of the extracted Wildfly/JBoss directory.
+        </p>
+        <p>
+            <img src="../images/linux_logo_24X24.png"/>
+            For example, in Unix:
+        </p>
+          <ul>
+            <li>Unzip the <code>wildfly-10.0.0.Final.zip</code> file into <code>/opt/</code></li>
+            <li>Sets the <code>$JBOSS_HOME</code> environment variable with the path <code>/opt/wildfly-10.0.0.Final</code></li>
+          </ul>
+        <p>
+            <img src="../images/windows_logo_24X24.png"/>
+            For example, in Windows:
+        </p>
+          <ul>
+            <li>Unzip the <code>wildfly-10.0.0.Final.zip</code> file into <code>C:\Silverpeas</code></li>
+            <li>Sets the <code>%JBOSS_HOME%</code> environment variable with the path <code>C:\Silverpeas\wildfly-10.0.0.Final</code></li>
+          </ul>
+        <p>
+          In the next sections, we will refer the JBOSS_HOME environment variable by its name (without the OS-specific characters like % or $).
+        </p>
+      </subsection>
+      <subsection name="PostgreSQL">
+        <p>Silverpeas supports the following RDBMS:</p>
+        <ul>
+          <li>PostgreSQL >= 9.1,</li>
+          <li>MS-SQLServer,</li>
+          <li>and Oracle >= 11.</li>
+        </ul>
+        <p>
+          However we recommend to use PostgreSQL for its great capabilities compared to the others solutions. This is why Silverpeas is pre-configured to run on PostgreSQL 9.x
+          which can be downloaded from <a href="http://www.postgresql.org/download/">here</a>.
+        </p>
+        <p>You will have to create a database <code>Silverpeas</code> and a user with administrative rights for this database.
+          (The credentials of this user have to be specified in the Silverpeas configuration file; see <a href="#Configuration">the corresponding section</a>.)
+          You may use the tool <a href="http://www.pgadmin.org/download/">pgAdmin</a> which provides a GUI to manage PostgreSQL.
+        </p>
+      </subsection>
+      <subsection name="ImageMagick">
+        <p>
+          Silverpeas uses the image handling tool suite <a href="http://www.imagemagick.org/script/index.php">ImageMagick</a> to render the preview of documents and to resize images used in Web pages.
+        </p>
+        <p>It is a free software (free as freedom) and it can be downloaded <a href="http://www.imagemagick.org/script/binary-releases.php">from this page</a></p>
+      </subsection>
+      <subsection name="SWFTools, Ghostscript and Pdf2Json">
+        <p>
+          Whereas not required to run and to use Silverpeas, we <em>recommend strongly</em> to install the SWFTools tool suite to enhance the user experience with Silverpeas.
+          It is used by Silverpeas to preview and to visualize any document content (whatever the document format).
+          It depends on the Ghostscript software so you have also to install it.
+        </p>
+        <p>
+          Pdf2Json is another tool, developed and provided by <a href="http://flexpaper.devaldi.com/">FlexPaper</a>. It is used by Silverpeas to split a large document into smaller pieces
+          in order to be processed more efficiently by FlexPaper (that is used in the visualization of document content).
+        </p>
+        <p>
+          They are all free softwares (free as freedom) and they can be downloaded from:
+        </p>
+        <ul>
+          <li><strong>Ghostscript</strong>: <a href="http://www.ghostscript.com/download/">http://www.ghostscript.com/download/</a></li>
+          <li><strong>Pdf2Json</strong>: <a href="https://github.com/flexpaper/pdf2json/releases">https://github.com/flexpaper/pdf2json/releases</a></li>
+          <li><strong>SWFTools</strong>: <a href="http://www.swftools.org/download.html">http://www.swftools.org/download.html</a></li>
+        </ul>
+        <p>
+          If you expect to install Silverpeas on a server running with a Debian-based distribution, you cannot use the SWFTools software packaged with your distribution.
+          Indeed, it lacks of the program <code>pdf2swf</code> that is used by Silverpeas.
+        </p>
+      </subsection>
+    </section>
+    <section name="Installation">
+      <p>You will get better performance with GNU/Linux (or *BSD) systems.</p>
+      <subsection name="Preparing Silverpeas">
+        <p>We currently provide a distribution of Silverpeas 6, that is to say a packaged and pre-configured version that will build Silverpeas and its database. Please download</p>
+        <p>
+            <img src="../images/snapshot_version_icon_32px.png"/>
+            <strong>Snapshot release</strong>: <a href="https://repository.silverpeas.org/files/silverpeas-${installer_snapshot_version}-wildfly10.zip">silverpeas-${installer_snapshot_version}-wildfly10.zip</a>
+        </p>
+
+        <p>Unzip the content into the location you want Silverpeas to be installed.</p>
+        <p>Set up the environment variable <b>SILVERPEAS_HOME</b> with the path of the extracted Silverpeas directory.</p>
+        <p>
+          <img src="../images/linux_logo_24X24.png"/>
+          For example, in Unix:
+        </p>
+        <ul>
+          <li>Unzip the <code>silverpeas-${installer_snapshot_version}-wildfly10.zip</code> file into <code>/opt/</code></li>
+          <li>Sets the <code>$SILVERPEAS_HOME</code> environment variable with the path <code>/opt/silverpeas-${installer_snapshot_version}-wildfly10</code></li>
+        </ul>
+        <p>
+          <img src="../images/windows_logo_24X24.png"/>
+          For example, in Windows:
+        </p>
+        <ul>
+          <li>Unzip the <code>silverpeas-${installer_snapshot_version}-wildfly10.zip</code> file into <code>C:\Silverpeas</code></li>
+          <li>Sets the <code>%SILVERPEAS_HOME%</code> environment variable with the path <code>C:/Silverpeas/silverpeas-${installer_snapshot_version}-wildfly10</code>
+            (the slash instead of the backslash character as path separator is normal and SILVERPEAS_HOME should be set as such)</li>
+        </ul>
+        <p>
+          In the next sections, we will refer the SILVERPEAS_HOME environment variable by its name (without the OS-specific characters like % or $).
+        </p>
+      </subsection>
+      <subsection name="Proxy configuration">
+        <p>
+          The installation process starts by downloading from our <a href="https://www.silverpeas.org/nexus/">Nexus Repository</a> the different software components that made up Silverpeas.
+          Hence, an access to the Internet is required, so if you are behind a proxy, you have to define correctly its properties for the installer.
+        </p>
+        <p>
+          Because the Silverpeas build life-cycle is managed with Maven (Nexus is a repository of Maven artifacts, id est software bundles), the installation program accesses the repository
+          through an embedded Maven library (unlike Silverpeas 5, it doesn't require Apache Maven to be installed). So, the proxy configuration can be done with the usual user Maven settings.
+          Please edit or create the file <code>.m2/settings.xml</code> in the home directory of the user that is responsible of the Silverpeas installation with the following instructions:
+        </p>
+        <source><![CDATA[<settings>
+  ...
+  <proxies>
+   <proxy>
+      <active>true</active>
+      <protocol>http</protocol>
+      <host>proxy.somewhere.com</host>
+      <port>8080</port>
+      <username>proxyuser</username>
+      <password>somepassword</password>
+      <nonProxyHosts>www.google.com|*.somewhere.com</nonProxyHosts>
+    </proxy>
+  </proxies>
+  ...
+</settings>]]></source>
+        <p>
+          For a complete configuration description, see this <a href="http://maven.apache.org/guides/mini/guide-proxies.html">Maven documentation page</a>.
+          For a complete description of each parameter see <a href="http://maven.apache.org/ref/3.0.1/maven-settings/settings.html#proxy">Maven Settings.xml configuration page</a>.
+        </p>
+      </subsection>
+      <subsection name="Configuration">
+        <p>The configuration of Silverpeas is splitted into two main folders in the directory <code>SILVERPEAS_HOME/configuration</code>:</p>
+        <ul>
+          <li><code>jboss</code> with JBoss CLI scripts for configuring Wildfly in order to run Silverpeas,</li>
+          <li><code>silverpeas</code> with Groovy and XML scripts for configuring the Silverpeas application itself.</li>
+        </ul>
+        <p>
+          Usually you don't have to touch the content of these folders unless for some specific settings of your own. The only file to adapt to your need is the <code>SILVERPEAS_HOME/configuration/config.properties</code>
+          global configuration file that can be created from the template <code>SILVERPEAS_HOME/configuration/sample_config.properties</code>. All the commented parameters declared in the global configuration file are set with
+          their default value. To set some parameters with a different value, then just uncomment them and set the correct value. This file is used by the configuration process to set up both the Wildfly server and Silverpeas.
+        </p>
+        <p>
+          Usually, the properties of the database to be used by Silverpeas have to be set explictly into this configuration file. So, if it doesn't already exist, creates it from the template
+          <code>SILVERPEAS_HOME/configuration/sample_config.properties</code> in the same directory and set the following properties with the parameters of the database:
+        </p>
+        <source><![CDATA[DB_SERVERTYPE = the database type (POSTGRESQL, MSSQL, or ORACLE)
+DB_SERVER = the IP address or the DNS name of the database server
+DB_USER = the login of the user with the administrative rights on the database
+DB_PASSWORD = the password associated with the login above
+DB_NAME = the name of the database if otherwise than Silverpeas]]></source>
+        <p>
+          Beside the global configuration file, the behaviour of some of the Silverpeas functionalities are parameterized through properties files in the directory <code>SILVERPEAS_HOME/properties</code> that is generated during
+          the installation process. This setting can be refined either through a Groovy script or an XML script in <code>SILVERPEAS_HOME/configuration/silverpeas</code>. In the case of an XML script, as in Silverpeas 5, it is usually
+          named <code>CustomerSettings.xml</code>. When you name your own scripts to configure some parts of Silverpeas, don't forget the scripts are loaded by the configuration process by their name and the
+          <code>00-SilverpeasSettings.xml</code> script must be the first one to be executed.
+        </p>
+      </subsection>
+      <subsection name="Installing Silverpeas">
+        <p>
+          The installation program is built upon the build automation system <a href="http://gradle.org/">Gradle</a>. You don't have to install it as the program will download it the first time you run it.
+        </p>
+        <p>
+          For an upgrade, if the use of a new Silverpeas distribution isn't required, you just have to change the <code>version</code> variable in the <code>SILVERPEAS_HOME/bin/silverpeas.gradle</code> file with the new version of Silverpeas 6.
+        </p>
+        <p>
+          To install or upgrade Silverpeas, that is to say to download Silverpeas, to configure it and then to deploy it into Wildfly, you just have to type, in the <code>SILVERPEAS_HOME/bin</code> directory:
+        </p>
+        <source>silverpeas clean install</source>
+        <p>with:</p>
+        <ul>
+          <li><code>clean</code>: this command instructs to clean up any previous installation of Silverpeas;
+            this command is required for an upgrade to force the installation process to rebuild and to configure Silverpeas. For a fresh installation, this command isn't required.</li>
+          <li><code>install</code>: this command starts the installation process that follows then the following execution path:
+            <ol>
+              <li>if the Gradle's cache is empty, the software components that made up Silverpeas are then downloaded from our Nexus Repository and pushed in the cache, otherwise the version in the cache is used,</li>
+              <li>the Silverpeas Web application is built,</li>
+              <li>Wildfly/JBoss is configured to run the Silverpeas Web application,</li>
+              <li>Silverpeas is configured,</li>
+              <li>the database used by Silverpeas is either built (in the case of a fresh installation) or updated (in the case of an upgrade).</li>
+            </ol>
+           </li>
+        </ul>
+        <p>
+          Once the installation or upgrade process done, you will find the bundles deployed in Wildfly/JBoss in the <code>SILVERPEAS_HOME/deployments/</code> directory.
+        </p>
+        <p>
+          If you need only to reconfigure Silverpeas, you just have to type, in the <code>SILVERPEAS_HOME/bin</code> directory:
+        </p>
+        <source>silverpeas configure</source>
+        <p>
+          To know if the process has succeeded or what failed, you can consult the build log file in the <code>SILVERPEAS_HOME/log</code> directory whose the name starts with <code>build</code> and ends with the timestamp of the process.
+        </p>
+      </subsection>
+      <subsection name="Launching Silverpeas">
+        <p>To start Silverpeas, in the <code>SILVERPEAS_HOME/bin</code> directory:</p>
+        <source>silverpeas start</source>
+        <p>To stop Silverpeas, in the <code>SILVERPEAS_HOME/bin</code> directory:</p>
+        <source>silverpeas stop</source>
+        <p>To get the status of Silverpeas, in the <code>SILVERPEAS_HOME/bin</code> directory:</p>
+        <source>silverpeas status</source>
+        <p>
+          Once started, you can access Silverpeas through the following url: <a href="http://localhost:8000/silverpeas">http://localhost:8000/silverpeas</a>
+          and by using the default credentials <code>SilverAdmin/SilverAdmin</code>.
+          <!-- Google Code for SuiviSilverpeas Conversion Page -->
+          <script type="text/javascript">
+            /* <![CDATA[ */
+              var google_conversion_id = 1067623059;
+              var google_conversion_language = "en";
+              var google_conversion_format = "3";
+              var google_conversion_color = "ffffff";
+              var google_conversion_label = "wINQCMmd4AEQk8WK_QM";
+              var google_conversion_value = 0;
+              /* ]]> */
+          </script>
+          <script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js">
+          </script>
+          <noscript>
+            <div style="display:inline;">
+              <img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/1067623059/?label=wINQCMmd4AEQk8WK_QM&amp;guid=ON&amp;script=0"/>
+            </div>
+          </noscript>
+        </p>
+      </subsection>
+    </section>
+  </body>
+</document>

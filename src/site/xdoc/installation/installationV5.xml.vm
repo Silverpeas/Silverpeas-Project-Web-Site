@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-    Copyright (C) 2000 - 2015 Silverpeas
+    Copyright (C) 2000 - 2016 Silverpeas
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -28,11 +28,14 @@
   <properties>
     <author>Emmanuel Hugonnet</author>
     <author>Miguel Moquillon</author>
-    <title>Installation</title>
+    <title>Installation of Silverpeas 5</title>
   </properties>
   <head>
   </head>
   <body>
+    <p>
+      Silverpeas 5 is the latest stable version of Silverpeas.
+    </p>
     <section name="Pre-requisite">
       <p>Silverpeas V5 has been tested and can be automatically deployed on JBoss 6.x. Silverpeas V5 has also been successfully deployed and run on other Application Servers (such as Websphere, Weblogic, ect.).
         Please find a list of the tools you will need to install Silverpeas below.<br/>
@@ -183,19 +186,6 @@
             <li>
               <a href="http://repository.silverpeas.org/files/silverpeas-${installer_stable_version}-jboss6.tar.gz">
                 <img src="../images/linux_logo_24X24.png"/> the last stable version  for GNU/Linux</a>
-            </li>
-          </ul>
-        </fieldset>
-        <fieldset>
-          <legend>Development release</legend>
-          <ul>
-            <li>
-              <a href="http://repository.silverpeas.org/files/silverpeas-${installer_version}-jboss6.zip">
-                <img src="../images/windows_logo_24X24.png"/> the current development version for Windows</a>
-            </li>
-            <li>
-              <a href="http://repository.silverpeas.org/files/silverpeas-${installer_version}-jboss6.tar.gz">
-                <img src="../images/linux_logo_24X24.png"/> the current development version for GNU/Linux</a>
             </li>
           </ul>
         </fieldset>

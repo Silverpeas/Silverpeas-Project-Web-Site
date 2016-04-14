@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-    Copyright (C) 2000 - 2014 Silverpeas
+    Copyright (C) 2000 - 2016 Silverpeas
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -29,16 +29,16 @@
   <bannerLeft>
     <name>Silverpeas</name>
     <src>images/logo-silverpeas.png</src>
-    <href>http://www.silverpeas.org/</href>
+    <href>https://www.silverpeas.org/</href>
   </bannerLeft>
   <publishDate position="right" format="yyyy-MM-dd" />
   <version position="right" />
   <!-- Powered By -->
   <poweredBy>
-    <logo name="Netbeans 7.3" href="http://netbeans.org/downloads/index.html" img="http://repository.silverpeas.org/docs/core/images/logos/logo_netBeans.gif" />
-    <logo name="Eclipse 3.7"  href="http://www.eclipse.org" img="http://repository.silverpeas.org/docs/core/images/logos/logo_eclipse.png" />
+    <logo name="Netbeans" href="http://netbeans.org/downloads/index.html" img="http://repository.silverpeas.org/docs/core/images/logos/logo_netBeans.gif" />
+    <logo name="Eclipse"  href="http://www.eclipse.org" img="http://repository.silverpeas.org/docs/core/images/logos/logo_eclipse.png" />
     <logo name="Intellij Idea" href="http://www.jetbrains.com/idea/" img="http://www.jetbrains.com/idea/opensource/img/all/banners/idea120x60_white.gif" />
-    <logo name="Maven 3.0.x" href="http://maven.apache.org/" img="http://repository.silverpeas.org/docs/core/images/logos/logo_maven.png" />
+    <logo name="Maven" href="http://maven.apache.org/" img="http://repository.silverpeas.org/docs/core/images/logos/logo_maven.png" />
     <!-- logo name="Zeroturnaround" href="http://www.zeroturnaround.com/" img="http://repository.silverpeas.org/docs/core/images/logos/logo_zeroTurnaround.png" / -->
     <logo name="Izpack" href="http://izpack.org/" img="http://repository.silverpeas.org/docs/core/images/logos/logo_izPack.png" />
     <logo name="Subshell Toromiro" href="http://www.subshell.com/en/toromiro/" img="http://repository.silverpeas.org/docs/core/images/logos/toromiro-logo.png" />
@@ -47,7 +47,7 @@
   <skin>
     <groupId>org.apache.maven.skins</groupId>
     <artifactId>maven-fluido-skin</artifactId>
-    <version>1.4-SNAPSHOT</version>
+    <version>1.4</version>
   </skin>
   <body>
     <head>
@@ -63,7 +63,7 @@
       </script>
     </head>
     <breadcrumbs>
-      <item name="Silverpeas" href="http://www.silverpeas.org"/>
+      <item name="Silverpeas" href="https://www.silverpeas.org"/>
     </breadcrumbs>
     <menu name="Silverpeas" inherit="top">
       <item name="About" href="intro.html" collapse="false"/>
@@ -80,7 +80,8 @@
       <item name="Screenshots" href="screenshots.html" collapse="true"/>
       <item name="Install Silverpeas" href="installation/index.html" collapse="true">
         <item name="Try Silverpeas" href="installation/izpack.html" collapse="false"/>
-        <item name="Installation" href="installation/installation.html" collapse="false"/>
+        <item name="Installation of Silverpeas 6" href="installation/installationV6.html" collapse="false"/>
+        <item name="Installation of Silverpeas 5" href="installation/installationV5.html" collapse="false"/>
         <item name="GNU/Linux Native Packages" href="http://www.silverpeas.org/repo/index.html" collapse="false" />
         <item name="Silverpeas in the Cloud" href="installation/cloud.html" collapse="false" />
         <item name="Online Edition of Documents" href="installation/webdav.html" collapse="false"/>

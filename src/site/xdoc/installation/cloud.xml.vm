@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-    Copyright (C) 2000 - 2013 Silverpeas
+    Copyright (C) 2000 - 2016 Silverpeas
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -47,7 +47,7 @@
 
       <section name="Generate your cloud-ready image of Silverpeas">
         <p>
-          Our appliance template is available in the <a href="https://www.usharesoft.com/marketplace/">UShareSoft marketplace</a>.
+          Our appliance template is available in the <a href="https://uforge.usharesoft.com/">UShareSoft marketplace</a>.
         </p>
         <img src="../images/snapshot-marketplace.png" alt="The Marketplace" style="text-align:center;float:center;margin-bottom:1em;"/>
         <p>
@@ -66,7 +66,7 @@
 
       <section name="About UShareSoft">
         <p>
-          <a href="http://www.usharesoft.com">UShareSoft</a> is a French company that simplifies the delivery and the management of software
+          <a href="http://www.usharesoft.com">UShareSoft</a> is a Fujitsu company that simplifies the delivery and the management of software
           for virtualized environments by providing to enterprises, ISV, and cloud providers a cloud software marketplace.
         </p>
         <p>

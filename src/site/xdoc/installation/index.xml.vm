@@ -37,12 +37,13 @@
   </head>
   <body>
     <p>
-      There is different ways to install Silverpeas according to your aims.
+      Silverpeas 6 is on the way to be released in this year. It is yet in development so there is for now only one way to install it.
+      For Silverpeas 5, our stable version of Silverpeas, there are different ways to install it according to your aims.
     </p>
     <section name="Try Silverpeas">
       <p>
         <img src="../images/logos/logo_izPack.png" alt="izpack" style="padding-right:10px;float:left;position:relative;"/>
-        <br/>We provide an easy way to try Silverpeas using 
+        <br/>We provide an easy way to try Silverpeas 5 using
         <a href="http://izpack.org/">Izpack</a> with a pre-configured JBoss Server and an H2 Database.</p>
       <p>
         You can find how to get in <a href="izpack.html">our dedicated page</a> how to get and use our installer.
@@ -51,7 +52,7 @@
     <section name="Use one of our GNU/Linux Native Packages">
       <p>
         <img src="../images/logos/tux.gif" alt="izpack" style="padding-right:10px;float:left;position:relative;"/>
-        <br/>We are also providing GNU/Linux native packaging of Silverpeas. So if you want to give it a try go to
+        <br/>We are also providing GNU/Linux native packaging of Silverpeas 5. So if you want to give it a try go to
         <a href="http://www.silverpeas.org/repo/index.html">our Debian and RPM packages repositories</a>
       </p>
       <p>These packages are ready for both a try or a production use, but we don't guarantee the upgrade will work fine between major versions of Silverpeas.</p>
@@ -60,14 +61,16 @@
     <section name="Install in production">
       <p>
         You whish to keep control on the installation process or to you whish to install Silverpeas in one of your production-ready servers running either with
-        a Unix system or with MS-Windows, then please consult the instructions on <a href="installation.html">how to install Silverpeas</a>.
+        a Unix system or with MS-Windows, then please consult the instructions on <a href="installationV5.html">how to install our stable version of Silverpeas 5</a>
+        or the instructions on <a href="installationV6.html">how to install Silverpeas 6</a>.
       </p>
     </section>
     <section name="Ready for the Cloud">
       <p>
         <img src="../images/logos/logo_usharesoft.png" alt="usharesoft" style="padding-right:10px;float:left;position:relative;"/>
-        <br/>Silverpeas is also ready to be deployed in your cloud, thanks to our partner <a href="http://www.usharesoft.com">UShareSoft</a>. So if you want to give it a try go to
-        <a href="cloud.html">our page</a> explaining how to get a cloud-ready image of Silverpeas.
+        <br/>Silverpeas 5 is also ready to be deployed in your cloud, thanks to our partner <a href="http://www.usharesoft.com">UShareSoft</a>. So if you want to give it a try go to
+        <a href="cloud.html">our page</a> explaining how to get a cloud-ready image of Silverpeas. Because of the peculiar and restricted
+        licensing of Java 6 from Oracle, the latest version of Silverpeas 5 ready to be deployed in your cloud is Silverpeas 5.13.
       </p>
     </section>
     <section name="Document Online Edition">
