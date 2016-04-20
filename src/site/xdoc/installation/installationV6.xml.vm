@@ -35,6 +35,13 @@
     <p>
       Silverpeas 6 will be the next major version of Silverpeas. It will be released in this year. It is in development and as such it isn't ready to be used for production.
     </p>
+    <p>
+      Silverpeas 6 isn't compatible with Silverpeas 5. For an upgrade from a Silverpeas 5 installation, please take care of:
+    </p>
+    <ul>
+      <li>the upgrade can be performed only from Silverpeas 5.15,</li>
+      <li>some migration treatments by hand are required on the properties and on the configuration before the upgrade (this is not the subject of this page).</li>
+    </ul>
     <section name="Pre-requisite">
       <p>
         Silverpeas 6 can be automatically deployed on the JEE application server <a href="http://wildfly.org/">Wildfly</a> &gt;= 8.1.
@@ -56,7 +63,7 @@
           You can download Wildfly 10 from different location:
         </p>
         <ul>
-          <li><strong>From our own Web site</strong>: <a href="https://repository.silverpeas.org/files/wildfly-10.0.0.Final.zip">Wildfly 10</a></li>
+          <li><strong>From our own Web site</strong>: <a href="https://www.silverpeas.org/files/wildfly-10.0.0.Final.zip">Wildfly 10</a></li>
           <li><strong>From the official Wildfly Project Web site</strong>: <a href="http://wildfly.org/downloads/">Wildfly downloads page</a></li>
         </ul>
         <p>
@@ -135,7 +142,7 @@
         <p>We currently provide a distribution of Silverpeas 6, that is to say a packaged and pre-configured version that will build Silverpeas and its database. Please download</p>
         <p>
             <img src="../images/snapshot_version_icon_32px.png"/>
-            <strong>Snapshot release</strong>: <a href="https://repository.silverpeas.org/files/silverpeas-${installer_snapshot_version}-wildfly10.zip">silverpeas-${installer_snapshot_version}-wildfly10.zip</a>
+            <strong>Snapshot release</strong>: <a href="https://www.silverpeas.org/files/silverpeas-${installer_snapshot_version}-wildfly10.zip">silverpeas-${installer_snapshot_version}-wildfly10.zip</a>
         </p>
 
         <p>Unzip the content into the location you want Silverpeas to be installed.</p>
