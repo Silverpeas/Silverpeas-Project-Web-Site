@@ -29,7 +29,7 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
   <properties>
-    <author>Emmanuel Hugonnet</author>
+    <author>Miguel Moquillon</author>
     <title>Release Notes</title>
   </properties>
   <head>
@@ -87,6 +87,9 @@
           </li>
           <li>
             <a href="https://tracker.silverpeas.org/attachments/download/3339/SilverpeasV5.14_ReleaseNote.pdf">Silverpeas 5.14 release notes</a>
+          </li>
+          <li>
+            <a href="https://tracker.silverpeas.org/attachments/download/4900/SilverpeasV5.15_ReleaseNote.pdf">Silverpeas 5.15 release notes</a>
           </li>
         </ul>
       </fieldset>
