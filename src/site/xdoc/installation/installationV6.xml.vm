@@ -143,8 +143,11 @@
         <p>
             <img src="../images/snapshot_version_icon_32px.png"/>
             <strong>Snapshot release</strong>: <a href="https://www.silverpeas.org/files/silverpeas-${installer_snapshot_version}-wildfly10.zip">silverpeas-${installer_snapshot_version}-wildfly10.zip</a>
+            (<a href="https://www.silverpeas.org/files/silverpeas-${installer_snapshot_version}-wildfly10.zip.asc">the GPG signature of the distribution</a>)
         </p>
-
+        <p>Check the integrity of the distribution after importing our public key:</p>
+        <source>gpg --keyserver hkp://pgp.mit.edu --recv-keys 3DF442B6
+gpg --verify silverpeas-${installer_snapshot_version}-wildfly10.zip.asc</source>
         <p>Unzip the content into the location you want Silverpeas to be installed.</p>
         <p>Set up the environment variable <b>SILVERPEAS_HOME</b> with the path of the extracted Silverpeas directory.</p>
         <p>
