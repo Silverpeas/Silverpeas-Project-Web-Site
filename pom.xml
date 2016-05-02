@@ -31,7 +31,7 @@
   <parent>
     <groupId>org.silverpeas</groupId>
     <artifactId>silverpeas-project</artifactId>
-    <version>1-SNAPSHOT</version>
+    <version>1.0-SNAPSHOT</version>
   </parent>
 
   <groupId>org.silverpeas</groupId>
@@ -308,6 +308,7 @@
     <installer_stable_version>5.15</installer_stable_version>
     <installer_izpack_version>5.15</installer_izpack_version>
     <installer_snapshot_version>6.0-SNAPSHOT</installer_snapshot_version>
+    <installer_pre_version>6.0-alpha1</installer_pre_version>
   </properties>
 
 </project>

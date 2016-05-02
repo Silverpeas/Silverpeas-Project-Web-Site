@@ -36,6 +36,10 @@
       Silverpeas 6 will be the next major version of Silverpeas. It will be released in this year. It is in development and as such it isn't ready to be used for production.
     </p>
     <p>
+      Pre-releases of Silverpeas 6 are also available for testing purpose in our <a href="https://hub.docker.com/r/silverpeas/silverpeas-test/">Docker Hub repository</a>.
+      as well as from an <a href="https://www.silverpeas.org/files/Silverpeas-${installer_pre_version}-installer.jar">IzPack Installer</a>.
+    </p>
+    <p>
       Silverpeas 6 isn't compatible with Silverpeas 5. For an upgrade from a Silverpeas 5 installation, please take care of:
     </p>
     <ul>
@@ -144,6 +148,11 @@
             <img src="../images/snapshot_version_icon_32px.png"/>
             <strong>Snapshot release</strong>: <a href="https://www.silverpeas.org/files/silverpeas-${installer_snapshot_version}-wildfly10.zip">silverpeas-${installer_snapshot_version}-wildfly10.zip</a>
             (<a href="https://www.silverpeas.org/files/silverpeas-${installer_snapshot_version}-wildfly10.zip.asc">the GPG signature of the distribution</a>)
+        </p>
+        <p>
+          <img src="../images/snapshot_version_icon_32px.png"/>
+          <strong>${installer_pre_version} release</strong>: <a href="https://www.silverpeas.org/files/silverpeas-${installer_pre_version}-wildfly10.zip">silverpeas-${installer_pre_version}-wildfly10.zip</a>
+          (<a href="https://www.silverpeas.org/files/silverpeas-${installer_pre_version}-wildfly10.zip.asc">the GPG signature of the distribution</a>)
         </p>
         <p>Check the integrity of the distribution after importing our public key:</p>
         <source>gpg --keyserver hkp://pgp.mit.edu --recv-keys 3DF442B6
