@@ -52,12 +52,12 @@
         We strongly recommend to deploy it on Wildfly 10 as this version will be used to build the next major version of JBoss EAP.
       </p>
       <p>
-        Silverpeas 6, like Silverpeas 5, depends on external tools to run and to offer a better user experience.
-        Please find a list of the tools you will need to install Silverpeas below.<br/>
+        Silverpeas 6, like Silverpeas 5, depends on external tools to run or to offer a better user experience.
+        Please find below a list of the tools you will need to install.<br/>
       </p>
       <subsection name="Java 8">
         <p>
-          Silverpeas needs a Java SE Development Kit (JDK) version 8, which can be downloaded <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html#jdk">from Oracle</a>
+          Silverpeas requires Java SE Development Kit (JDK) version 8 to run, which can be downloaded <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html#jdk">from Oracle</a>
           or <a href="http://openjdk.java.net/install/index.html">from OpenJDK</a>. Don't forget to set up the environment variable <code>JAVA_HOME</code> with the path of the installation directory of Java.
         </p>
       </subsection>
@@ -97,17 +97,26 @@
       <subsection name="PostgreSQL">
         <p>Silverpeas supports the following RDBMS:</p>
         <ul>
-          <li>PostgreSQL >= 9.1,</li>
+          <li>PostgreSQL >= 9.2,</li>
           <li>MS-SQLServer,</li>
-          <li>and Oracle >= 11.</li>
+          <li>and Oracle >= 12.</li>
         </ul>
         <p>
-          However we recommend to use PostgreSQL for its great capabilities compared to the others solutions. This is why Silverpeas is pre-configured to run on PostgreSQL 9.x
+          However we recommend to use PostgreSQL for its great capabilities and flexibilities compared to the others solutions. This is why Silverpeas is pre-configured to run on PostgreSQL 9.x
           which can be downloaded from <a href="http://www.postgresql.org/download/">here</a>.
         </p>
         <p>You will have to create a database <code>Silverpeas</code> and a user with administrative rights for this database.
           (The credentials of this user have to be specified in the Silverpeas configuration file; see <a href="#Configuration">the corresponding section</a>.)
           You may use the tool <a href="http://www.pgadmin.org/download/">pgAdmin</a> which provides a GUI to manage PostgreSQL.
+        </p>
+      </subsection>
+      <subsection name="LibreOffice">
+        <p>
+          Silverpeas needs LibreOffice (or OpenOffice.org) to convert documents into various formats (mainly in PDF).
+          This office suite has to be ran as a service in background (daemon in Unix jargon).
+        </p>
+        <p>
+          It is a free software (free as freedom) and it can be downloaded <a href="https://fr.libreoffice.org/download/libreoffice-stable/">from its home site</a>.
         </p>
       </subsection>
       <subsection name="ImageMagick">
@@ -143,7 +152,11 @@
     <section name="Installation">
       <p>You will get better performance with GNU/Linux (or *BSD) systems.</p>
       <subsection name="Preparing Silverpeas">
-        <p>We currently provide a distribution of Silverpeas 6, that is to say a packaged and pre-configured version that will build Silverpeas and its database. Please download</p>
+        <p>We currently provide a distribution of Silverpeas 6 which is a packaged and pre-configured version of the Silverpeas installation tool.
+          It will build Silverpeas 6 from different software bundles downloaded from our <a href="https://www.silverpeas.org/nexus/">Nexus Repository Manager</a>,
+          then it will set up Wildfly and the database for Silverpeas.
+        </p>
+        <p>Please download:</p>
         <p>
             <img src="../images/snapshot_version_icon_32px.png"/>
             <strong>Snapshot release</strong>: <a href="https://www.silverpeas.org/files/silverpeas-${installer_snapshot_version}-wildfly10.zip">silverpeas-${installer_snapshot_version}-wildfly10.zip</a>
@@ -182,7 +195,7 @@ gpg --verify silverpeas-${installer_snapshot_version}-wildfly10.zip.asc</source>
       </subsection>
       <subsection name="Proxy configuration">
         <p>
-          The installation process starts by downloading from our <a href="https://www.silverpeas.org/nexus/">Nexus Repository</a> the different software components that made up Silverpeas.
+          The installation process starts by downloading from our <a href="https://www.silverpeas.org/nexus/">Nexus Repository Manager</a> the different software components that made up Silverpeas.
           Hence, an access to the Internet is required, so if you are behind a proxy, you have to define correctly its properties for the installer.
         </p>
         <p>
