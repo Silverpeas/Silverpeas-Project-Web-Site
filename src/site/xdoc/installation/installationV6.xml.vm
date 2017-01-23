@@ -33,10 +33,14 @@
   </head>
   <body>
     <p>
-      Silverpeas 6 will be the next major version of Silverpeas. It will be released in this year. It is in development and as such it isn't ready to be used for production.
+      Silverpeas 6 will be the next major version of Silverpeas. It will be released in this year. It is in development and as such it isn't yet ready to be used for production.
     </p>
     <p>
-      Pre-releases of Silverpeas 6 are also available for testing purpose in our <a href="https://hub.docker.com/r/silverpeas/silverpeas-test/">Docker Hub repository</a>.
+      This document is about how to install Silverpeas 6 on a server. However, as alternative, Silverpeas 6 is also available as an official docker image
+      in the <a href="https://hub.docker.com/_/silverpeas/">Official Docker Hub Repository</a>.
+    </p>
+    <p>
+      Pre-releases of Silverpeas 6 are available for testing purpose in our <a href="https://hub.docker.com/r/silverpeas/silverpeas-test/">Docker Hub repository</a>.
       as well as from an <a href="https://www.silverpeas.org/files/Silverpeas-${installer_pre_version}-installer.jar">IzPack Installer</a>.
     </p>
     <p>
@@ -49,7 +53,7 @@
     <section name="Pre-requisite">
       <p>
         Silverpeas 6 can be automatically deployed on the JEE application server <a href="http://wildfly.org/">Wildfly</a> &gt;= 8.1.
-        We strongly recommend to deploy it on Wildfly 10 as this version will be used to build the next major version of JBoss EAP.
+        We strongly recommend to deploy it on Wildfly 10 as this version is used to build the current version of <a href="https://developers.redhat.com/products/eap/overview/">JBoss EAP</a>.
       </p>
       <p>
         Silverpeas 6, like Silverpeas 5, depends on external tools to run or to offer a better user experience.
@@ -63,11 +67,12 @@
       </subsection>
       <subsection name="Wildfly">
         <p>
-          Silverpeas requires Wildfly as a runtime. We strongly recommend Wildfly 10 as JBoss EAP 7 will be based upon it; JBoss EAP is the commercial, enterprise class, version of Wildfly.
+          Silverpeas requires Wildfly as a runtime. We strongly recommend Wildfly 10 as JBoss EAP 7 is based upon it; JBoss EAP is the commercial, enterprise class, version of Wildfly sold by RedHat.
+          If you need maintenance and services on the application server itself, then we recommend you to contact RedHat in order to subscribe to their <a href="https://www.redhat.com/apps/store/middleware/jboss_enterprise_application_platform.html">RedHat Subscription plan</a>.
           You can download Wildfly 10 from different location:
         </p>
         <ul>
-          <li><strong>From our own Web site</strong>: <a href="https://www.silverpeas.org/files/wildfly-10.0.0.Final.zip">Wildfly 10</a></li>
+          <li><strong>From our own Web site</strong>: <a href="https://www.silverpeas.org/files/wildfly-10.1.0.Final.zip">Wildfly 10</a></li>
           <li><strong>From the official Wildfly Project Web site</strong>: <a href="http://wildfly.org/downloads/">Wildfly downloads page</a></li>
         </ul>
         <p>
@@ -79,19 +84,19 @@
             For example, in Unix:
         </p>
           <ul>
-            <li>Unzip the <code>wildfly-10.0.0.Final.zip</code> file into <code>/opt/</code></li>
-            <li>Sets the <code>$JBOSS_HOME</code> environment variable with the path <code>/opt/wildfly-10.0.0.Final</code></li>
+            <li>Unzip the <code>wildfly-10.1.0.Final.zip</code> file into <code>/opt/</code></li>
+            <li>Sets the <code>$JBOSS_HOME</code> environment variable with the path <code>/opt/wildfly-10.1.0.Final</code></li>
           </ul>
         <p>
             <img src="../images/windows_logo_24X24.png"/>
             For example, in Windows:
         </p>
           <ul>
-            <li>Unzip the <code>wildfly-10.0.0.Final.zip</code> file into <code>C:\Silverpeas</code></li>
-            <li>Sets the <code>%JBOSS_HOME%</code> environment variable with the path <code>C:\Silverpeas\wildfly-10.0.0.Final</code></li>
+            <li>Unzip the <code>wildfly-10.1.0.Final.zip</code> file into <code>C:\Silverpeas</code></li>
+            <li>Sets the <code>%JBOSS_HOME%</code> environment variable with the path <code>C:\Silverpeas\wildfly-10.1.0.Final</code></li>
           </ul>
         <p>
-          In the next sections, we will refer the JBOSS_HOME environment variable by its name (without the OS-specific characters like % or $).
+          In the next sections, we will refer the JBOSS_HOME environment variable by its name (without the OS-specific characters like <code>%</code> or <code>$</code>).
         </p>
       </subsection>
       <subsection name="PostgreSQL">
@@ -152,7 +157,7 @@
     <section name="Installation">
       <p>You will get better performance with GNU/Linux (or *BSD) systems.</p>
       <subsection name="Preparing Silverpeas">
-        <p>We currently provide a distribution of Silverpeas 6 which is a packaged and pre-configured version of the Silverpeas installation tool.
+        <p>We currently provide a distribution of Silverpeas 6 which is a packaged and a pre-configured version of the Silverpeas installation tool.
           It will build Silverpeas 6 from different software bundles downloaded from our <a href="https://www.silverpeas.org/nexus/">Nexus Repository Manager</a>,
           then it will set up Wildfly and the database for Silverpeas.
         </p>
