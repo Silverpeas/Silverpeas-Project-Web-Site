@@ -119,43 +119,23 @@
       <id>mmoquillon</id>
       <name>Miguel Moquillon</name>
       <roles>
-        <role>Architect</role>
+        <role>Software Architect</role>
         <role>Developer</role>
       </roles>
       <organization>Silverpeas</organization>
-      <organizationUrl>http://www.silverpeas.org</organizationUrl>
+      <organizationUrl>https://www.silverpeas.org</organizationUrl>
       <email>miguel.moquillon@silverpeas.org</email>
-    </developer>
-    <developer>
-      <id>cbonin</id>
-      <name>Cécile Bonin</name>
-      <email>cecile.bonin@silverpeas.org</email>
-      <roles>
-        <role>Project Manager</role>
-        <role>Developer</role>
-      </roles>
-      <organization>Silverpeas</organization>
-      <organizationUrl>http://www.silverpeas.org</organizationUrl>
     </developer>
     <developer>
       <id>neysseric</id>
       <name>Nicolas Eysseric</name>
+      <email>nicolas.eysseric@silverpeas.org</email>
       <roles>
         <role>Product Manager</role>
         <role>Developer</role>
       </roles>
       <organization>Silverpeas</organization>
-      <organizationUrl>http://www.silverpeas.org</organizationUrl>
-      <email>nicolas.eysseric@silverpeas.org</email>
-    </developer>
-    <developer>
-      <id>ebonnet</id>
-      <name>Etienne Bonnet</name>
-      <roles>
-        <role>Developer</role>
-      </roles>
-      <organization>Silverpeas</organization>
-      <organizationUrl>http://www.silverpeas.org</organizationUrl>
+      <organizationUrl>https://www.silverpeas.org</organizationUrl>
     </developer>
     <developer>
       <id>aallibe</id>
@@ -165,7 +145,7 @@
         <role>Web Designer</role>
       </roles>
       <organization>Silverpeas</organization>
-      <organizationUrl>http://www.silverpeas.org</organizationUrl>
+      <organizationUrl>https://www.silverpeas.org</organizationUrl>
     </developer>
     <developer>
       <id>ychastagnier</id>
@@ -175,30 +155,33 @@
         <role>Developer</role>
       </roles>
       <organization>Silverpeas</organization>
-      <organizationUrl>http://www.silverpeas.org</organizationUrl>
+      <organizationUrl>https://www.silverpeas.org</organizationUrl>
+    </developer>
+    <developer>
+      <id>svuillet</id>
+      <name>Sébastien Vuillet</name>
+      <email>sebastien.vuillet@silverpeas.org</email>
+      <roles>
+        <role>Support</role>
+        <role>Mobile Developer</role>
+      </roles>
+      <organization>Silverpeas</organization>
+      <organizationUrl>https://www.silverpeas.org</organizationUrl>
+    </developer>
+    <developer>
+      <id>dlesimple</id>
+      <name>David Lesimple</name>
+      <email>david.lesimple@silverpeas.org</email>
+      <roles>
+        <role>Support</role>
+        <role>System Administrator</role>
+      </roles>
+      <organization>Silverpeas</organization>
+      <organizationUrl>https://www.silverpeas.org</organizationUrl>
     </developer>
   </developers>
 
   <contributors>
-    <contributor>
-      <name>David Lesimple</name>
-      <roles>
-        <role>Support</role>
-        <role>System Administrator</role>
-        <role>Project Manager</role>
-      </roles>
-      <organization>Silverpeas</organization>
-      <organizationUrl>http://www.silverpeas.com</organizationUrl>
-    </contributor>
-    <contributor>
-      <name>Sébastien Vuillet</name>
-      <roles>
-        <role>Project Manager</role>
-        <role>Developer</role>
-      </roles>
-      <organization>Silverpeas</organization>
-      <organizationUrl>http://www.silverpeas.com</organizationUrl>
-    </contributor>
     <contributor>
       <name>Emmanuel Hugonnet</name>
       <roles>
@@ -207,6 +190,24 @@
       </roles>
       <organization>RedHat</organization>
       <organizationUrl>http://www.redhat.com</organizationUrl>
+    </contributor>
+    <contributor>
+      <name>Etienne Bonnet</name>
+      <roles>
+        <role>Developer</role>
+        <role>Evangelist</role>
+      </roles>
+      <organization>Thales Services</organization>
+      <organizationUrl>https://www.thalesgroup.com</organizationUrl>
+    </contributor>
+    <contributor>
+      <name>Cécile Bonin</name>
+      <roles>
+        <role>Developer</role>
+        <role>Support</role>
+      </roles>
+      <organization>Xerox</organization>
+      <organizationUrl>https://www.xerox.fr/</organizationUrl>
     </contributor>
     <contributor>
       <name>Umar Raad</name>
@@ -230,6 +231,12 @@
       </roles>
       <organization>Oosphere</organization>
       <organizationUrl>http://www.oosphere.ch</organizationUrl>
+    </contributor>
+    <contributor>
+      <name>Rémi Pace</name>
+      <roles>
+        <role>Developer</role>
+      </roles>
     </contributor>
   </contributors>
 
