@@ -47,11 +47,6 @@
           <a href="https://hub.docker.com/">Docker Hub</a>.
         </p>
         <p>
-          Currently, Silverpeas 6 is in a development and as such only a snapshot version
-          is available in the official repository of the Docker Hub. No versions of Silverpeas 5
-          is available as a Docker image.
-        </p>
-        <p>
           To install the docker image of Silverpeas 6 in the cloud of your choice, please follow
           both the instructions in the
           <a href="https://hub.docker.com/_/silverpeas">Silverpeas Docker Image page</a> and in
@@ -85,7 +80,7 @@
             <code>Generate</code>
             button, below our logo. At this point, several type of virtual images are proposed to
             you, one for each virtual environment
-            (Amanzon, CloudStack, Eucalyptus, ...). In order to generate a usable image of
+            (Amazon, CloudStack, Eucalyptus, ...). In order to generate a usable image of
             Silverpeas, we recommend you to start with an enough disk
             space matching your first use of Silverpeas and to set at least 4GB as memory size.
             (According to the virtual image format like

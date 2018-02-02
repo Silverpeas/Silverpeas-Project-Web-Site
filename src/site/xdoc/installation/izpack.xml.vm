@@ -41,9 +41,9 @@
       <p>
         <img src="../images/logos/logo_izPack.png" alt="izpack" style="padding-right:10px;float:left;position:relative;"/>
         <br/>We provide an easy way to try Silverpeas using
-        <a href="http://izpack.org/">Izpack</a> with a pre-configured JBoss Server and an H2 Database.</p>
+        <a href="http://izpack.org/">Izpack</a> with a pre-configured Wildfly application server and an H2 Database.</p>
       <p>
-        <b>You have to have a Java 6 JDK installed.</b>
+        <b>You have to have a Java 8 JDK installed.</b>
         <br/>
         <b>You have to have <a href="http://www.imagemagick.org/script/index.php">ImageMagick</a> installed as it is required to render images and the preview of documents</b>
         <br/>
@@ -51,20 +51,20 @@
       </p>
       <ol>
         <li>Download the
-          <a href="http://www.silverpeas.org/files/Silverpeas-${installer_stable_version}-installer.jar">installer</a> (~ 253 Mo)
+          <a href="http://www.silverpeas.org/files/Silverpeas-${installer_izpack_version}-installer.jar">installer</a> (~ 253 Mo)
         </li>
         <li>Run the following command (or double click on the jar file)
-          <code>java -jar Silverpeas-${installer_stable_version}-installer.jar</code>
+          <code>java -jar Silverpeas-${installer_izpack_version}-installer.jar</code>
         </li>
-        <li>When all has been installed, go to the
-          <code>bin</code> directory under the installation directory and run the following scripts in that order
-          <ol>
-            <li>start_db.bat (thus starting the database). <b>Don't close the console</b></li>
-            <li>silverpeas_start_jboss.cmd (to start Silverpeas)</li>
-          </ol>
+        <li>When all has been installed, you can then play with Silverpeas by executing one of the following command in the <code>bin</code>
+          directory of the Silverpeas installation path:
+          <ul>
+            <li>To start Silverpeas: <code>silverpeas start</code></li>
+            <li>To stop Silverpeas: <code>silverpeas stop</code></li>
+          </ul>
         </li>
         <li>Now you can open a browser to
-          <a href="http://localhost:8000/silverpeas">http://localhost:8000/silverpeas</a> an login using the account
+          <a href="http://localhost:8000/silverpeas">http://localhost:8000/silverpeas</a> and sign in using the account
           <i>SilverAdmin/SilverAdmin</i>
         </li>
         <li>For
@@ -74,24 +74,19 @@
         </li>
       </ol>
     </section>
+    <section name="Try Silverpeas easily from our Docker image dedicated explicitly to tests">
+      <p>
+        <img src="../images/logos/logo_docker.png" alt="docker" style="padding-right:10px;float:left;position:relative;"/><br/>
+        Silverpeas can be also easily tested by using the Docker image of Silverpeas 6 dedicated to tests. You can
+        find it in our <a href="https://hub.docker.com/r/silverpeas/silverpeas-test/">Docker repository</a>.
+      </p>
+    </section>
     <section name="Try Silverpeas easily from a virtual image">
       <p>
         <img src="../images/logos/logo_usharesoft.png" alt="usharesoft" style="padding-right:10px;float:left;position:relative;"/>
         <br/>Silverpeas is also ready to be deployed in your cloud, thanks to our partner <a href="http://www.usharesoft.com">UShareSoft</a>. So if you want to give it a try go to
         <a href="cloud.html">our page</a> explaining how to get a cloud-ready image of Silverpeas.
       </p>
-    </section>
-    <section name="Try Silverpeas by using one of our GNU/Linux Native Packages">
-      <p>
-        <img src="../images/logos/tux.gif" alt="izpack" style="padding-right:10px;float:left;position:relative;"/>
-        <br/>We are also providing GNU/Linux native packaging of Silverpeas. So if you want to give it a try go to
-        <a href="http://www.silverpeas.org/repo/index.html">our Debian and RPM packages repositories</a>
-      </p>
-      <p>These packages are ready for both a try or a production use, but we don't guarantee the upgrade will work fine between major versions of Silverpeas.</p>
-      <p>If you want to help us to provide a better packaging or propose new formats, feel free to look at the <a href="https://github.com/Silverpeas/silverpeas-native-packages">Github project</a> or to fund our efforts.</p>
-    </section>
-    <section name="Problems">
-      <p>If you encounter a problem during installation or if you have any question, you can post them on the <a href="http://groups.google.com/group/silverpeas-users" >users mailing-list</a></p>
     </section>
   </body>
 </document>

@@ -35,7 +35,7 @@
 
   <groupId>org.silverpeas</groupId>
   <artifactId>silverpeas-website</artifactId>
-  <version>6.0-SNAPSHOT</version>
+  <version>6.0</version>
   <packaging>pom</packaging>
   <name>Silverpeas Project Web Site</name>
   <url>https://www.silverpeas.org</url>
@@ -244,37 +244,20 @@
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-javadoc-plugin</artifactId>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-site-plugin</artifactId>
-        <version>3.4</version>
+        <executions>
+          <execution>
+            <id>attach-descriptor</id>
+            <goals>
+              <goal>attach-descriptor</goal>
+            </goals>
+          </execution>
+        </executions>
         <configuration>
           <relativizeDecorationLinks>false</relativizeDecorationLinks>
           <generateSitemap>true</generateSitemap>
         </configuration>
       </plugin>
-      <!--
-      <plugin>
-        <groupId>com.github.github</groupId>
-        <artifactId>site-maven-plugin</artifactId>
-        <version>0.1</version>
-        <configuration>
-          <description>Creating site</description>
-          <override>false</override>
-          <message>Deploying web site on Githbub for ${project.name} - ${project.version}</message>
-          <includeAttached>true</includeAttached>
-        </configuration>
-        <executions>
-          <execution>
-            <goals>
-              <goal>site</goal>
-            </goals>
-            <phase>site</phase>
-          </execution>
-        </executions>
-      </plugin>-->
     </plugins>
   </build>
 
@@ -287,7 +270,6 @@
         <reportSets>
           <reportSet>
             <reports>
-              <report>index</report>
               <report>summary</report>
               <report>project-team</report>
               <report>mailing-list</report>
@@ -302,19 +284,13 @@
           <dependencyLocationsEnabled>false</dependencyLocationsEnabled>
         </configuration>
       </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-javadoc-plugin</artifactId>
-        <version>2.9</version>
-      </plugin>
     </plugins>
   </reporting>
 
   <properties>
-    <installer_stable_version>5.15</installer_stable_version>
-    <installer_izpack_version>5.15</installer_izpack_version>
-    <installer_snapshot_version>6.0-SNAPSHOT</installer_snapshot_version>
-    <installer_pre_version>6.0-rc2</installer_pre_version>
+    <installer_stable_version>6.0</installer_stable_version>
+    <installer_izpack_version>6.0</installer_izpack_version>
+    <installer_build_version>6.1-build180131</installer_build_version>
   </properties>
 
 </project>

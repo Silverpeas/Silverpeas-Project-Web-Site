@@ -37,59 +37,62 @@
   <body>
     <section name="ReleaseNotes">
       <p>Currently all our release notes are in
-        <b>French</b>. sorry for the inconvenience, we are looking for an easy way to
+        <em>French</em>. sorry for the inconvenience, we are looking for an easy way to
         provide them in English as
         soon as possible.
       </p>
       <fieldset class="related-issues">
         <ul>
           <li>
-            <a href="releases/Silverpeas V5.0.pdf">Silverpeas 5.0 release notes</a>
+            <a href="http://bit.ly/SilverpeasReleaseNote-6">Silverpeas 6.0 release note</a>
           </li>
           <li>
-            <a href="releases/Silverpeas V5.1.pdf">Silverpeas 5.1 release notes</a>
+            <a href="https://tracker.silverpeas.org/attachments/download/4900/SilverpeasV5.15_ReleaseNote.pdf">Silverpeas 5.15 release note</a>
           </li>
           <li>
-            <a href="releases/Silverpeas V5.2.pdf">Silverpeas 5.2 release notes</a>
+            <a href="https://tracker.silverpeas.org/attachments/download/3339/SilverpeasV5.14_ReleaseNote.pdf">Silverpeas 5.14 release note</a>
           </li>
           <li>
-            <a href="releases/Silverpeas V5.3.pdf">Silverpeas 5.3 release notes</a>
+            <a href="releases/SilverpeasV5.13_ReleaseNote.pdf">Silverpeas 5.13 release note</a>
           </li>
           <li>
-            <a href="releases/Silverpeas V5.4.pdf">Silverpeas 5.4 release notes</a>
+            <a href="releases/SilverpeasV5.12.2_ReleaseNote.pdf">Silverpeas 5.12 release note</a>
           </li>
           <li>
-            <a href="releases/SilverpeasV5.5_ReleaseNote.pdf">Silverpeas 5.5 release notes</a>
+            <a href="releases/SilverpeasV5.11_ReleaseNote.pdf">Silverpeas 5.11 release note0</a>
           </li>
           <li>
-            <a href="releases/SilverpeasV5.6_ReleaseNote.pdf">Silverpeas 5.6 release notes</a>
+            <a href="releases/SilverpeasV5.10_ReleaseNote.pdf">Silverpeas 5.10 release note</a>
           </li>
           <li>
-            <a href="releases/SilverpeasV5.7_ReleaseNote.pdf">Silverpeas 5.7 release notes</a>
-          </li> 
-          <li>
-            <a href="releases/SilverpeasV5.8_ReleaseNote.pdf">Silverpeas 5.8 release notes</a>
+            <a href="releases/SilverpeasV5.9_ReleaseNote.pdf">Silverpeas 5.9 release note</a>
           </li>
           <li>
-            <a href="releases/SilverpeasV5.9_ReleaseNote.pdf">Silverpeas 5.9 release notes</a>
+            <a href="releases/SilverpeasV5.8_ReleaseNote.pdf">Silverpeas 5.8 release note</a>
           </li>
           <li>
-            <a href="releases/SilverpeasV5.10_ReleaseNote.pdf">Silverpeas 5.10 release notes</a>
+            <a href="releases/SilverpeasV5.7_ReleaseNote.pdf">Silverpeas 5.7 release note</a>
           </li>
           <li>
-            <a href="releases/SilverpeasV5.11_ReleaseNote.pdf">Silverpeas 5.11 release notes</a>
+            <a href="releases/SilverpeasV5.6_ReleaseNote.pdf">Silverpeas 5.6 release note</a>
           </li>
           <li>
-            <a href="releases/SilverpeasV5.12.2_ReleaseNote.pdf">Silverpeas 5.12 release notes</a>
+            <a href="releases/SilverpeasV5.5_ReleaseNote.pdf">Silverpeas 5.5 release note</a>
           </li>
           <li>
-            <a href="releases/SilverpeasV5.13_ReleaseNote.pdf">Silverpeas 5.13 release notes</a>
+            <a href="releases/Silverpeas V5.4.pdf">Silverpeas 5.4 release note</a>
           </li>
           <li>
-            <a href="https://tracker.silverpeas.org/attachments/download/3339/SilverpeasV5.14_ReleaseNote.pdf">Silverpeas 5.14 release notes</a>
+            <a href="releases/Silverpeas V5.3.pdf">Silverpeas 5.3 release note</a>
           </li>
           <li>
-            <a href="https://tracker.silverpeas.org/attachments/download/4900/SilverpeasV5.15_ReleaseNote.pdf">Silverpeas 5.15 release notes</a>
+            <a href="releases/Silverpeas V5.2.pdf">Silverpeas 5.2 release note</a>
+          </li>
+          <li>
+            <a href="releases/Silverpeas V5.1.pdf">Silverpeas 5.1 release note</a>
+          </li>
+          <li>
+            <a href="releases/Silverpeas V5.0.pdf">Silverpeas 5.0 release note</a>
           </li>
         </ul>
       </fieldset>
