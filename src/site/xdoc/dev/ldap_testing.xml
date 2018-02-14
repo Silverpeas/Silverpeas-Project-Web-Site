@@ -38,9 +38,6 @@
   </head>
   <body>
     <section name="Testing your LDAP code with OpenDJ">
-      <p>A French version of this document is available on our 
-        <a href="http://blog.silverpeas.org/index.php?post/2012/07/13/Tester-son-code-LDAP-avec-OpenDJ">blog</a>
-      </p>
       <p>In the age of TDD and unit testing, you have to be able to test your code easily and fast.
         <br/>
         If testing with SQL databases is well documented, this is not the case for LDAP directories. Hopefully,

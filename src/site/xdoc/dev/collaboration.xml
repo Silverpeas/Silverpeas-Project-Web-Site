@@ -98,15 +98,20 @@
         <p>For information, Silverpeas is made up of the following projects, each of them with their
           own Git repository:</p>
         <ul>
-          <li><a href="https://github.com/Silverpeas/Silverpeas-Parent"><code>Silverpeas Parent</code></a> that
-          is a global descriptor of the Silverpeas projects: it defines the dependencies required to build and to run
-          Silverpeas, the team, the contributors, the project management tools used, and so on. Usually, you won't have
-          to modify this project.</li>
+          <li><a href="https://github.com/Silverpeas/silverpeas-dependencies-bom"><code>Silverpeas Dependencies</code></a> that
+            is a global descriptor defining all the dependencies with their version and their scope required to build and to run
+            Silverpeas. Usually, you won't have to modify this project.</li>
+          <li><a href="https://github.com/Silverpeas/silverpeas-test-dependencies-bom"><code>Silverpeas Test Dependencies</code></a> that
+            is a global descriptor defining all the dependencies with their version required to run the unit and integrations tests.
+            Usually, you won't have to modify this project.</li>
+          <li><a href="https://github.com/Silverpeas/Silverpeas-Project"><code>Silverpeas Project</code></a> that
+          is a global descriptor for many of the Silverpeas projects: it imports the descriptors above and defines plugins and profiles to
+            build Silverpeas according to different contexts. Usually, you won't have to modify this project.</li>
           <li><a href="https://github.com/Silverpeas/Silverpeas-Core"><code>Silverpeas Core</code></a> in which
           are defined the Core APIs of Silverpeas for both the business part and the Web part.</li>
           <li><a href="https://github.com/Silverpeas/Silverpeas-Components"><code>Silverpeas Components</code></a> that
           comprise all of the applications provided by Silverpeas (DEM, gallery, blog, ...)</li>
-          <li><a href="https://github.com/Silverpeas/Assembly-Silverpeas"><code>Assembly Silverpeas</code></a> is
+          <li><a href="https://github.com/Silverpeas/Silverpeas-Assembly"><code>Silverpeas Assembly</code></a> is
           a project that declares all the components that made up the Silverpeas collaborative platform and that
           defines the rules to build from them the final Silverpeas application, ready to be deployed into a JEE
           runtime.</li>
@@ -135,7 +140,8 @@ git rebase FETCH_HEAD</source>
         By doing this, when we'll merge your changes, the history of Silverpeas changes will be clean and understandable.</p>
       </subsection>
       <subsection name="Build Silverpeas">
-        <p>We use the <a href="http://maven.apache.org/">maven build tool</a> to manage the build life-cycle of our projects. With Maven,
+        <p>We use the <a href="www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">Java Development Kit 8</a> (Oracle JDK or OpenJDK 8)
+          and the <a href="http://maven.apache.org/">maven build tool</a> to manage the build life-cycle of our projects. With Maven,
           a project is described by a POM (Project Object Model) that is defined in the <code>pom.xml</code> file at the root of the
           project. Maven provides at least the following features:</p>
         <ul>
@@ -179,29 +185,34 @@ git rebase FETCH_HEAD</source>
         <p>or without running the tests:</p>
         <source>mvn clean install -Dmaven.test.skip=true</source>
         <p>In order to build the Silverpeas application,
-          you have to build first <code>Silverpeas-Core</code> and then <code>Silverpeas-components</code>.
-          If you have modified <code>Silverpeas-Parent</code>, you have to compile first this project before anything.</p>
+          you have to build first <code>Silverpeas-Core</code> and then <code>Silverpeas-Components</code>.
+          If you have modified <code>silverpeas-dependencies-bom</code>, <code>silverpeas-test-dependencies-bom</code>,
+        <code>Silverpeas-Project</code>, you have to compile first this project before anything.</p>
         <p>In the case you have added a new application, you can reference it into the <code>POM</code>
-        of the <code>Assembly-Silverpeas</code> project.</p>
+        of the <code>Silverpeas-Assembly</code> project.</p>
 
       </subsection>
       <subsection name="Installing and testing your codes">
         <p>Beside the unit and integration tests, you can test functionally your code in Silverpeas by
         installing it with your changes.</p>
-        <p>The project <code>Silverpeas-installer-package</code> is the source code to generate the
+        <p>The project <code>Silverpeas-Distribution</code> is the source code to generate the
           Silverpeas installation archives for both Windows and Unix-like systems. You can also build it
           by executing the following command:</p>
         <source>mvn clean package</source>
         <p>and the archives will be generated into the <code>target</code> directory of the project.
         Then just extract it, set correctly the environment variables <code>SILVERPEAS_HOME</code>
         and <code>JBOSS_HOME</code> and follows the instructions in the
-          <a href="../installation/installation.html">Silverpeas installation page</a>.</p>
+          <a href="../installation/installationV6.html">Silverpeas installation page</a>.</p>
         <p>Once done, you are ready to run Silverpeas either in debugging mode or in a normal mode
-        to test it:</p>
-        <source>silverpeas_start_jboss.sh</source>
-        <p>to run Silverpeas in normal mode in a Unix system,</p>
-        <source>silverpeas_debug_jboss.sh</source>
-        <p>to run Silverpeas in debugging mode in a Unix system.</p>
+        to test it. For doing, go to the folder <code>SILVERPEAS_HOME/bin</code> directory and then:</p>
+        <source>./silverpeas clean install</source>
+        <p>to clean any previous installation of Silverpeas and install your own changes,</p>
+        <source>./silverpeas start</source>
+        <p>to run Silverpeas in normal mode,</p>
+        <source>./silverpeas debug</source>
+        <p>to run Silverpeas in debugging mode,</p>
+        <source>./silverpeas stop</source>
+        <p>to stop Silverpeas.</p>
       </subsection>
       <subsection name="Creating a development branch">
         <p>Now that you have your own repository, let's create a branch to develop some code in it.
