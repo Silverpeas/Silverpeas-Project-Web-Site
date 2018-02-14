@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (C) 2000 - 2018 Silverpeas
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    As a special exception to the terms and conditions of version 3.0 of
+    the GPL, you may redistribute this Program in connection with Free/Libre
+    Open Source Software ("FLOSS") applications as described in Silverpeas's
+    FLOSS exception.  You should have received a copy of the text describing
+    the FLOSS exception, and it is also available here:
+    "http://www.silverpeas.org/docs/core/legal/floss_exception.html"
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+-->
+
+<document xmlns="http://maven.apache.org/XDOC/2.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+
+  <properties>
+    <title>Configuring Silverpeas behind an Apache or an Nginx reverse-proxy</title>
+    <author>Miguel Moquillon</author>
+  </properties>
+  <head>
+    <title>Configuring Silverpeas behind an Apache or an Nginx reverse-proxy</title>
+  </head>
+  <body>
+    <section name="Introduction">
+      <p>A reverse-proxy is usually used to give a single one-point access to different services or applications.
+        It is also used to handle TLS connections and then the required certificates.
+      </p>
+      <p>
+        The configuration of Silverpeas behind an Apache or an Nginx reverse-proxy is quite straightforward.<br/>
+In this example we want to configure a reverse-proxy that is handling TLS and proxyfying a Silverpeas running in a Wildfly server
+        on port 8000.
+      </p>
+    </section>
+    <section name="Apache Configuration">
+      <p>Defines the configuration of your site as following. The [...] means your own specific configuration for your
+      site and that isn't covered by this document.</p>
+      <source>
+    &lt;VirtualHost site.domaine.tld:443&gt;
+          ServerName site.domaine.tld:443
+
+          [...]
+        SSLEngine On
+        SSLProxyEngine On
+        SSLCertificateFile PATH_OF_YOUR_CRT
+        SSLCertificateKeyFile PATH_OF_YOUR_CERTIFICATE_KEY
+        SSLCertificateChainFile  PATH_OF_YOUR_CERTIFICATE_CHAIN_PEM
+        SSLVerifyClient None
+        SSLCipherSuite !ADH:!DSS:!RC4:HIGH:+3DES
+        SSLCompression Off
+        SSLHonorCipherOrder On
+        SSLProtocol all -SSLv2 -SSLv3
+
+        ProxyTimeout 300
+        ProxyVia Off
+        ProxyRequests Off
+        ProxyPreserveHost On
+
+        # Silverpeas
+        ProxyPass /weblib http://127.0.0.1:8000/weblib
+        ProxyPassReverse /weblib http://127.0.0.1:8000/weblib
+        ProxyPass /silverpeas http://127.0.0.1:8000/silverpeas
+        ProxyPassReverse /silverpeas http://127.0.0.1:8000/silverpeas
+        ProxyPass /website http://127.0.0.1:8000/website
+        ProxyPassReverse /website http://127.0.0.1:8000/website
+        ProxyPass /help_fr http://127.0.0.1:8000/help_fr
+        ProxyPassReverse /help_fr http://127.0.0.1:8000/help_fr
+
+        RewriteEngine On
+        RewriteRule ^/$ /silverpeas [R,L]
+
+        Header set Access-Control-Max-Age "1000"
+        Header set Access-Control-Allow-Headers "x-requested-with, Content-Type, origin, authorization, accept, X-STKN"
+        # This parameter is important for Wildfly
+        Header set X-Forwarded-Proto "https"
+
+        [...]
+    &lt;/VirtualHost&gt;
+     </source>
+    </section>
+    <section name="Configuring Nginx">
+      <p>Defines the configuration of your site as following. The [...] means your own specific configuration for your
+        site and that isn't covered by this document.</p>
+      <source>
+    [...]
+
+    server {
+        listen 443;
+        server_name site.domaine.tld;
+
+        [...]
+
+        ssl on;
+        ssl_certificate_key PATH_OF_YOUR_CERTIFICATE_KEY;
+        ssl_certificate     PATH_OF_YOUR_CERTIFICATE_CHAIN_PEM;
+        ssl_stapling on;
+        ssl_stapling_verify on;
+
+        ssl_session_timeout 5m;
+        ssl_protocols SSLv3 TLSv1 TLSv1.1 TLSv1.2;
+        ssl_ciphers "HIGH:!aNULL:!MD5 or HIGH:!aNULL:!MD5:!3DES";
+        ssl_prefer_server_ciphers on;
+        client_max_body_size 2048M;
+
+        location / {
+            proxy_pass http://127.0.0.1:8000/;
+            proxy_set_header Host $host;
+            proxy_set_header X-Forwarded-For $remote_addr;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+        rewrite ^/$ /silverpeas break;
+
+        [...]
+     }
+      </source>
+    </section>
+    <section name="Configuring Wildfly">
+      <subsection name="In a non TLS mode">
+      <p>Now, you just have to update one attribute of the HTTP listener of the Undertow Web server embedded in Wildfly. For doing,
+      go to the <code>JBOSS_HOME/bin</code> directory and, run Wildfly in administration mode only, enable the proxy forwarding and then stop Wildfly:</p>
+      <source>
+        $ ./standalone.sh -c standalone-full.xml --admin-only &amp;
+        [...]
+        $ ./jboss-cli.sh --connect -c "/subsystem=undertow/server=default-server/http-listener=default:write-attribute(name=proxy-address-forwarding,value=true)"
+        {"outcome" => "success"}
+        $ ./jboss-cli.sh --connect -c "/subsystem=undertow/server=default-server/http-listener=default:write-attribute(name=redirect-socket)"
+        {"outcome" => "success"}
+        $ ./jboss-cli.sh --connect -c "shutdown"
+      </source>
+      </subsection>
+      <subsection name="In TLS mode">
+        <p>Now, you just have to create a configuration for a socket binding to handle TLS connections (here <code>proxy-https</code>) and then update the HTTP listener of the Undertow Web server embedded in Wildfly. For doing,
+          go to the <code>JBOSS_HOME/bin</code> directory and, run Wildfly in administration mode only, create and use a socket binding for TLS connections, and enable the proxy forwarding, and then stop Wildfly:</p>
+        <source>
+          $ ./standalone.sh -c standalone-full.xml --admin-only &amp;
+          [...]
+          $ ./jboss-cli.sh --connect -c "/socket-binding-group=standard-sockets/socket-binding=proxy-https:add(port=443)"
+          {"outcome" => "success"}
+          $ ./jboss-cli.sh --connect -c "/subsystem=undertow/server=default-server/http-listener=default:write-attribute(name=proxy-address-forwarding,value=true)"
+          {"outcome" => "success"}
+          $ ./jboss-cli.sh --connect -c "/subsystem=undertow/server=default-server/http-listener=default:write-attribute(name=redirect-socket,value=proxy-https)"
+          {"outcome" => "success"}
+          $ ./jboss-cli.sh --connect -c "shutdown"
+        </source>
+      </subsection>
+    </section>
+  </body>
+</document>
