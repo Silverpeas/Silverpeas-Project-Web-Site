@@ -32,6 +32,7 @@
   <head>
   </head>
   <body>
+
     <p>
       Silverpeas 6 is the new major version of Silverpeas. It replaces definitively the previous 5.x versions. It is based upon Java 8, JEE 7 and the application
       server Wildfly 10.1.0. A great work has been done both in its engines that propulse Silverpeas as well as in its Web GUI to smooth
@@ -49,16 +50,31 @@
       in the <a href="https://hub.docker.com/_/silverpeas/">Official Docker Hub Repository</a>.
     </p>
     <p>
-      You can give easily a try of Silverpeas by using one of our testing dedicated Silverpeas distribution in which the database is directly embedded
+      <strong>You can give easily a try</strong> of Silverpeas by using one of our testing dedicated Silverpeas distribution in which the database is directly embedded
       with Silverpeas:
     </p>
     <ul>
-      <li>A docker image of Silverpeas in our <a href="https://hub.docker.com/r/silverpeas/silverpeas-test/">Docker Hub repository</a>,</li>
-      <li>A Izpack Installer of Silverpeas for both Unix-like system and Windows available in our <a href="https://www.silverpeas.org/files/Silverpeas-${installer_izpack_version}-installer.jar">our site</a></li>
+      <li><em>A docker image of Silverpeas</em> in our <a href="https://hub.docker.com/r/silverpeas/silverpeas-test/">Docker Hub repository</a>,</li>
+      <li><em>A Izpack Installer of Silverpeas</em> for both Unix-like system and Windows available in our <a href="https://www.silverpeas.org/files/Silverpeas-${installer_izpack_version}-installer.jar">our site</a></li>
     </ul>
     <p>Both the Docker image and the Izpack installer provide only a stable version of Silverpeas, no bug-fixes ones.</p>
     <p>These solutions are obviously limited in functionalities as Silverpeas requires additional external tools and services to perform some of its
       advanced features and those services aren't packaged with them (in order to keep them simple and light for a testing purpose).</p>
+    <p>
+      To fetch directly the last stable version, production-ready, of Silverpeas, please use the links below to download both the distribution of Wildfly required by Silverpeas and the current distribution of Silverpeas:
+    </p>
+    <ul>
+      <li>
+        <img src="../images/logos/wildfly_logo.png" width="60"/>
+        <a href="https://www.silverpeas.org/files/wildfly-10.1.0.Final.zip">Wildfly 10</a>
+      </li>
+      <li>
+        <img src="../images/silverpeas_icon_60x32px.png"/>
+        <a href="https://www.silverpeas.org/files/silverpeas-${installer_stable_version}-wildfly10.zip">silverpeas-${installer_stable_version}-wildfly10.zip</a>
+        (<a href="https://www.silverpeas.org/files/silverpeas-${installer_stable_version}-wildfly10.zip.asc">the GPG signature of the distribution</a>)
+      </li>
+    </ul>
+    <p>Don't forget to read the instructions below about how to install Silverpeas from these two distributions.</p>
 
     <section name="Pre-requisite">
       <p>
@@ -155,13 +171,21 @@
         </p>
         <ul>
           <li><strong>Ghostscript</strong>: <a href="http://www.ghostscript.com/download/">http://www.ghostscript.com/download/</a></li>
-          <li><strong>Pdf2Json</strong>: <a href="https://github.com/flexpaper/pdf2json/releases">https://github.com/flexpaper/pdf2json/releases</a></li>
           <li><strong>SWFTools</strong>: <a href="http://www.swftools.org/download.html">http://www.swftools.org/download.html</a></li>
+          <li><strong>Pdf2Json</strong>: <a href="https://github.com/flexpaper/pdf2json/releases">https://github.com/flexpaper/pdf2json/releases</a></li>
         </ul>
         <p>
           If you expect to install Silverpeas on a server running with a Debian-based distribution, you cannot use the SWFTools software packaged with your distribution.
           Indeed, it lacks of the program <code>pdf2swf</code> that is used by Silverpeas.
         </p>
+        <p>
+          For Unix-like operating systems, we have compiled and packaged both Pdf2Json and SWFTools so that you have just to unpack them at the root directory;
+          they will be installed into the <code>/usr/local</code> folder so that their binary will be by default in the <code>PATH</code> (they will be in <code>/usr/local/bin</code>).
+        </p>
+        <ul>
+          <li><strong>SWFTools</strong>: <a href="https://www.silverpeas.org/files/swftools-bin-0.9.2.zip">swftools-bin-0.9.2.zip</a></li>
+          <li><strong>Pdf2Json</strong>: <a href="https://www.silverpeas.org/files/pdf2json-bin-0.68.zip">pdf2json-bin-0.68.zip</a></li>
+        </ul>
       </subsection>
     </section>
     <section name="Installation">
@@ -252,7 +276,8 @@ gpg --verify silverpeas-${installer_stable_version}-wildfly10.zip.asc</source>
         </p>
         <p>
           Usually, the properties of the database to be used by Silverpeas have to be set explictly into this configuration file. So, if it doesn't already exist, creates it from the template
-          <code>SILVERPEAS_HOME/configuration/sample_config.properties</code> in the same directory and set the following properties with the parameters of the database:
+          <code>SILVERPEAS_HOME/configuration/sample_config.properties</code> in the same directory and set the following properties with the parameters of the database.
+          Example of such a <code>SILVERPEAS_HOME/configuration/config.properties</code> file:
         </p>
         <source><![CDATA[DB_SERVERTYPE = the database type (POSTGRESQL, MSSQL, or ORACLE)
 DB_SERVER = the IP address or the DNS name of the database server
@@ -263,8 +288,25 @@ DB_NAME = the name of the database if otherwise than Silverpeas]]></source>
           Beside the global configuration file, the behaviour of some of the Silverpeas functionalities are parameterized through properties files in the directory <code>SILVERPEAS_HOME/properties</code> that is generated during
           the installation process. This setting can be refined either through a Groovy script or an XML script in <code>SILVERPEAS_HOME/configuration/silverpeas</code>. In the case of an XML script, as in Silverpeas 5, it is usually
           named <code>CustomerSettings.xml</code>. When you name your own scripts to configure some parts of Silverpeas, don't forget the scripts are loaded by the configuration process by their name and the
-          <code>00-SilverpeasSettings.xml</code> script must be the first one to be executed.
+          <code>00-SilverpeasSettings.xml</code> script must be the first one to be executed. Below an example of such a <code>SILVERPEAS_HOME/configuration/silverpeas/CustomerSettings.xml</code> file:
         </p>
+        <source>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;silverpeas-settings product="Custom"&gt;
+  &lt;fileset root="${SILVERPEAS_HOME}/properties/org/silverpeas"&gt;
+
+    &lt;configfile name="calendar/settings/calendar.properties"&gt;
+      &lt;parameter key="calendar.import.ics.file.replace.before.process"&gt;&lt;![CDATA[CREATED:0000/CREATED:1970]]&gt;&lt;/parameter&gt;
+    &lt;/configfile&gt;
+
+    &lt;configfile name="general.properties"&gt;
+      &lt;parameter key="web.request.domain.allowed"&gt;*&lt;/parameter&gt;
+    &lt;/configfile&gt;
+
+    &lt;configfile name="util/uploads/uploadSettings.properties"&gt;
+      &lt;parameter key="MaximumFileSize"&gt;1610612736&lt;/parameter&gt;
+    &lt;/configfile&gt;
+  &lt;/fileset&gt;
+&lt;/silverpeas-settings&gt;</source>
       </subsection>
       <subsection name="Installing Silverpeas">
         <p>
