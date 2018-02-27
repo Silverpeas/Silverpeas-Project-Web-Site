@@ -28,62 +28,108 @@
            elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema"
            targetNamespace="http://silverpeas.org/xml/ns/migration">
 
+  <xs:annotation>
+    <xs:documentation>
+      Copyright (C) 2000 - 2018 Silverpeas
+
+      This program is free software: you can redistribute it and/or modify
+      it under the terms of the GNU Affero General Public License as
+      published by the Free Software Foundation, either version 3 of the
+      License, or (at your option) any later version.
+
+      As a special exception to the terms and conditions of version 3.0 of
+      the GPL, you may redistribute this Program in connection with Free/Libre
+      Open Source Software ("FLOSS") applications as described in Silverpeas's
+      FLOSS exception. You should have recieved a copy of the text describing
+      the FLOSS exception, and it is also available here:
+      "http://www.silverpeas.org/legal/floss_exception.html"
+
+      This program is distributed in the hope that it will be useful,
+      but WITHOUT ANY WARRANTY; without even the implied warranty of
+      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+      GNU Affero General Public License for more details.
+
+      You should have received a copy of the GNU Affero General Public License
+      along with this program. If not, see &lt;http://www.gnu.org/licenses/>.
+    </xs:documentation>
+  </xs:annotation>
+
+  <xs:annotation>
+    <xs:documentation xml:lang="en">
+      <![CDATA[
+      This schema defines the grammar of a data source migration descriptor. Each descriptor
+      defines for a given Silverpeas module a set of rules to migrate the data source schema to a
+      newer state (newer version).
+      A Silverpeas module can be either a Silverpeas Core Engine (or API) or a Silverpeas
+      component.
+      The descriptor is made up of two main elements:
+        - current to specify the current version of the data source schema for the Silverpeas module,
+        - upgrade to specify the version from which the rules has to be applied in order to pass to
+        the next version.
+      Each of these elements defines a list of scripts to run in order to migrate the data source
+      schema from its current version up to the latest one. A migration can be then either a fresh
+      installation of the schema or an upgrade of the existing one.
+      ]]>
+    </xs:documentation>
+  </xs:annotation>
+
   <xs:element name="migration">
     <xs:annotation>
-      <xs:documentation>
-        Copyright (C) 2000 - 2018 Silverpeas
-
-        This program is free software: you can redistribute it and/or modify
-        it under the terms of the GNU Affero General Public License as
-        published by the Free Software Foundation, either version 3 of the
-        License, or (at your option) any later version.
-
-        As a special exception to the terms and conditions of version 3.0 of
-        the GPL, you may redistribute this Program in connection with Free/Libre
-        Open Source Software ("FLOSS") applications as described in Silverpeas's
-        FLOSS exception. You should have recieved a copy of the text describing
-        the FLOSS exception, and it is also available here:
-        "http://www.silverpeas.org/legal/floss_exception.html"
-
-        This program is distributed in the hope that it will be useful,
-        but WITHOUT ANY WARRANTY; without even the implied warranty of
-        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-        GNU Affero General Public License for more details.
-
-        You should have received a copy of the GNU Affero General Public License
-        along with this program. If not, see &lt;http://www.gnu.org/licenses/>.
+      <xs:documentation xml:lang="en">
+     <![CDATA[
+     The migration element is the root of the migration descriptor. It is defined for a given
+     Silverpeas module and it declares the different migration rules to apply to either spawn
+     the data source schema or to upgrade from all the previous versions of this schema.
+     The name of the Silverpeas module is indicated by the attribute module.
+      ]]>
       </xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
         <xs:annotation>
           <xs:documentation>
-            Root element gathering both the current scripts to run when creating the first time
-            the datasource for a Silverpeas module or the different migration scripts to run when
-            upgrading an existing datasource to its latest state.
-            A Silverpeas module can be either a Silverpeas Core Engine (or API) or a Silverpeas
-            component. Its name is indicated by the module attribute.
+      <![CDATA[
+      The migration root element is made up of the child elements below as ordered as
+      following:
+        - current to specify the current version of the data source schema for the Silverpeas module,
+        - upgrade to specify the version from which the rules has to be applied in order to pass to
+        the next version.
+      The current sub-element is mandatory whereas the upgrade sub-element can be specified one or
+      several times, each of them indicating an upgrade from a given data source schema version.
+      The current element accepts as attribute the current version of the data source schema
+      required by the Silverpeas module. The current element defines the rules set to apply for
+      a fresh installation of the Silverpeas module. The upgrade element accepts as attribute the
+      actual version of the data source schema for which it has to be taken into account in order
+      to upgrade the schema to the next version. Each upgrade element defines a rules set to apply
+      for upgrading the data source schema from the actual version to the next one. One or more
+      upgrade can be then performed sequentially according to the actual version of the schema and
+      the current version expected by the module.
+      ]]>
           </xs:documentation>
         </xs:annotation>
         <xs:element name="current" type="CreationRule">
           <xs:annotation>
             <xs:documentation>
+              <![CDATA[
               The current migration rule dedicated to the creation of the datasource for the
               underlying Silverpeas module.
+              ]]>
             </xs:documentation>
           </xs:annotation>
         </xs:element>
         <xs:element name="upgrade" type="UpgradeRule" minOccurs="0" maxOccurs="unbounded">
           <xs:annotation>
             <xs:documentation>
-              Upgrade rules to upgrade the state of the datasource from a given version to the
-              next version. Each upgrade rules are applied from the actual state of the datasource
-              up to the expected state of the datasource.
+              <![CDATA[
+              Upgrade rules to upgrade the state of the data source from a given version to the
+              next version. Each upgrade rules are applied from the actual state of the data source
+              up to the expected state of the data source.
+              ]]>
             </xs:documentation>
           </xs:annotation>
         </xs:element>
       </xs:sequence>
-      <xs:attribute name="module" type="xs:string" use="required"/>
+      <xs:attribute name="module" type="xs:normalizedString" use="required"/>
       <xs:attribute name="order" type="xs:integer"/>
     </xs:complexType>
   </xs:element>
@@ -91,7 +137,9 @@
   <xs:simpleType name="VersionID">
     <xs:annotation>
       <xs:documentation>
-        The format of a version of a datasource, that is the version of its state.
+        <![CDATA[
+        The format of a version of a data source, that is the version of its state.
+        ]]>
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:integer">
@@ -102,11 +150,13 @@
   <xs:simpleType name="ScriptType">
     <xs:annotation>
       <xs:documentation>
+        <![CDATA[
         A script is a file containing the statements that perform a change (or a creation) of the
-        datasource state.
+        data source state.
+        ]]>
       </xs:documentation>
     </xs:annotation>
-    <xs:restriction base="xs:string">
+    <xs:restriction base="xs:token">
       <xs:enumeration value="sql"/>
       <xs:enumeration value="groovy"/>
     </xs:restriction>
@@ -115,14 +165,16 @@
   <xs:complexType name="MigrationRule">
     <xs:annotation>
       <xs:documentation>
+        <![CDATA[
         A migration rule is an ordered set of scripts to load and execute in order to perform
-        a migration of the datasource of the underlying module.
+        a migration of the data source of the underlying module.
+        ]]>
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="script" maxOccurs="unbounded">
         <xs:complexType>
-          <xs:attribute name="name" type="xs:string" use="required"/>
+          <xs:attribute name="name" type="xs:token" use="required"/>
           <xs:attribute name="type" type="ScriptType" use="required"/>
         </xs:complexType>
       </xs:element>
@@ -132,28 +184,32 @@
   <xs:complexType name="CreationRule">
     <xs:annotation>
       <xs:documentation>
-        A migration rule dedicated to create the datasource of the underlying module.
+        <![CDATA[
+        A migration rule dedicated to create the data source of the underlying module.
+        ]]>
       </xs:documentation>
     </xs:annotation>
-    <xs:simpleContent>
+    <xs:complexContent>
       <xs:extension base="MigrationRule">
         <xs:attribute name="version" type="VersionID" use="required"/>
       </xs:extension>
-    </xs:simpleContent>
+    </xs:complexContent>
   </xs:complexType>
 
   <xs:complexType name="UpgradeRule">
     <xs:annotation>
       <xs:documentation>
-        A migration rule dedicated to upgrade the datasource of the underlying module from the
-        version fromVersion to the next <one class=""></one>
+        <![CDATA[
+        A migration rule dedicated to upgrade the data source of the underlying module from the
+        version fromVersion to the next one.
+        ]]>
       </xs:documentation>
     </xs:annotation>
-    <xs:simpleContent>
+    <xs:complexContent>
       <xs:extension base="MigrationRule">
         <xs:attribute name="fromVersion" type="VersionID" use="required"/>
       </xs:extension>
-    </xs:simpleContent>
+    </xs:complexContent>
   </xs:complexType>
 
 </xs:schema>
