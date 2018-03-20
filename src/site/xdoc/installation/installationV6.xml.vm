@@ -35,7 +35,7 @@
 
     <p>
       Silverpeas 6 is the new major version of Silverpeas. It replaces definitively the previous 5.x versions. It is based upon Java 8, JEE 7 and the application
-      server Wildfly 10.1.0. A great work has been done both in its engines that propulse Silverpeas as well as in its Web GUI to smooth
+      server Wildfly ${current_wildfly_version}. A great work has been done both in its engines that propulse Silverpeas as well as in its Web GUI to smooth
       the user interaction and to offer a better user experience.
     </p>
     <p>
@@ -66,20 +66,20 @@
     <ul>
       <li>
         <img src="../images/logos/wildfly_logo.png" width="60"/>
-        <a href="https://www.silverpeas.org/files/wildfly-10.1.0.Final.zip">Wildfly 10</a>
+        <a href="https://www.silverpeas.org/files/wildfly-${current_wildfly_version}.Final.zip">Wildfly ${current_wildfly_release}</a>
       </li>
       <li>
         <img src="../images/silverpeas_icon_60x32px.png"/>
-        <a href="https://www.silverpeas.org/files/silverpeas-${installer_stable_version}-wildfly10.zip">silverpeas-${installer_stable_version}-wildfly10.zip</a>
-        (<a href="https://www.silverpeas.org/files/silverpeas-${installer_stable_version}-wildfly10.zip.asc">the GPG signature of the distribution</a>)
+        <a href="https://www.silverpeas.org/files/silverpeas-${installer_stable_version}-wildfly${current_wildfly_release}.zip">silverpeas-${installer_stable_version}-wildfly${current_wildfly_release}.zip</a>
+        (<a href="https://www.silverpeas.org/files/silverpeas-${installer_stable_version}-wildfly${current_wildfly_release}.zip.asc">the GPG signature of the distribution</a>)
       </li>
     </ul>
     <p>Don't forget to read the instructions below about how to install Silverpeas from these two distributions.</p>
 
     <section name="Pre-requisite">
       <p>
-        Silverpeas 6 can be automatically deployed on the JEE application server <a href="http://wildfly.org/">Wildfly</a> &gt;= 8.1.
-        We strongly recommend to deploy it on Wildfly 10 as this version is used to build the current version of <a href="https://developers.redhat.com/products/eap/overview/">JBoss EAP</a>.
+        Silverpeas 6 can be automatically deployed on the JEE application server <a href="http://wildfly.org/">Wildfly</a> &gt;= 10.1.0.
+        Nevertheless, we strongly recommend to deploy it on Wildfly ${current_wildfly_version} as this version was tested by ourselves with the current version of Silverpeas.
       </p>
       <p>
         Silverpeas 6 depends on external tools/services to run or to offer a better user experience.
@@ -93,12 +93,12 @@
       </subsection>
       <subsection name="Wildfly">
         <p>
-          Silverpeas requires Wildfly as a runtime. We strongly recommend Wildfly 10 as JBoss EAP 7 is based upon it; JBoss EAP is the commercial, enterprise class, version of Wildfly sold by RedHat.
+          Silverpeas requires Wildfly as a runtime that is the open-source version of <a href="https://developers.redhat.com/products/eap/overview/">JBoss EAP</a>; JBoss EAP is the commercial, enterprise class, version of Wildfly sold by RedHat.
           If you need maintenance and services on the application server itself, then we recommend you to contact RedHat in order to subscribe to their <a href="https://www.redhat.com/apps/store/middleware/jboss_enterprise_application_platform.html">RedHat Subscription plan</a>.
-          You can download Wildfly 10 from different location:
+          You can download Wildfly from different locations:
         </p>
         <ul>
-          <li><strong>From our own Web site</strong>: <a href="https://www.silverpeas.org/files/wildfly-10.1.0.Final.zip">Wildfly 10</a></li>
+          <li><strong>From our own Web site</strong>: <a href="https://www.silverpeas.org/files/wildfly-${current_wildfly_version}.Final.zip">Wildfly ${current_wildfly_version}</a></li>
           <li><strong>From the official Wildfly Project Web site</strong>: <a href="http://wildfly.org/downloads/">Wildfly downloads page</a></li>
         </ul>
         <p>
@@ -110,16 +110,16 @@
             For example, in Unix:
         </p>
           <ul>
-            <li>Unzip the <code>wildfly-10.1.0.Final.zip</code> file into <code>/opt/</code></li>
-            <li>Sets the <code>$JBOSS_HOME</code> environment variable with the path <code>/opt/wildfly-10.1.0.Final</code></li>
+            <li>Unzip the <code>wildfly-${current_wildfly_version}.Final.zip</code> file into <code>/opt/</code></li>
+            <li>Sets the <code>$JBOSS_HOME</code> environment variable with the path <code>/opt/wildfly-${current_wildfly_version}.Final</code></li>
           </ul>
         <p>
             <img src="../images/windows_logo_24X24.png"/>
             For example, in Windows:
         </p>
           <ul>
-            <li>Unzip the <code>wildfly-10.1.0.Final.zip</code> file into <code>C:\Silverpeas</code></li>
-            <li>Sets the <code>%JBOSS_HOME%</code> environment variable with the path <code>C:\Silverpeas\wildfly-10.1.0.Final</code></li>
+            <li>Unzip the <code>wildfly-${current_wildfly_version}.Final.zip</code> file into <code>C:\Silverpeas</code></li>
+            <li>Sets the <code>%JBOSS_HOME%</code> environment variable with the path <code>C:\Silverpeas\wildfly-${current_wildfly_version}.Final</code></li>
           </ul>
         <p>
           In the next sections, we will refer the JBOSS_HOME environment variable by its name (without the OS-specific characters like <code>%</code> or <code>$</code>).
@@ -199,17 +199,20 @@
         <p>Please download:</p>
         <p>
             <img src="../images/silverpeas_icon_60x32px.png"/>
-            <strong>Stable version</strong> (currently ${installer_stable_version}): <a href="https://www.silverpeas.org/files/silverpeas-${installer_stable_version}-wildfly10.zip">silverpeas-${installer_stable_version}-wildfly10.zip</a>
-            (<a href="https://www.silverpeas.org/files/silverpeas-${installer_stable_version}-wildfly10.zip.asc">the GPG signature of the distribution</a>)
+            <strong>Stable version</strong> (currently ${installer_stable_version}): <a href="https://www.silverpeas.org/files/silverpeas-${installer_stable_version}-wildfly${current_wildfly_release}.zip">silverpeas-${installer_stable_version}-wildfly${current_wildfly_release}.zip</a>
+            (<a href="https://www.silverpeas.org/files/silverpeas-${installer_stable_version}-wildfly${current_wildfly_release}.zip.asc">the GPG signature of the distribution</a>)
         </p>
         <p>
           <img src="../images/snapshot_version_icon_32px.png"/>
-          <strong>Build version</strong> (currently ${installer_build_version}): <a href="https://www.silverpeas.org/files/silverpeas-${installer_build_version}-wildfly10.zip">silverpeas-${installer_build_version}-wildfly10.zip</a>
-          (<a href="https://www.silverpeas.org/files/silverpeas-${installer_build_version}-wildfly10.zip.asc">the GPG signature of the distribution</a>)
+          <strong>Build version</strong> (currently ${installer_build_version}): <a href="https://www.silverpeas.org/files/silverpeas-${installer_build_version}-wildfly${next_wildfly_release}.zip">silverpeas-${installer_build_version}-wildfly${next_wildfly_release}.zip</a>
+          (<a href="https://www.silverpeas.org/files/silverpeas-${installer_build_version}-wildfly${next_wildfly_release}.zip.asc">the GPG signature of the distribution</a>)
+        </p>
+        <p>
+          (<strong>WARNING</strong>: the build version of Silverpeas is tested with Wildfly ${next_wildfly_version}. You can download it directly from <a href="https://www.silverpeas.org/files/wildfly-${next_wildfly_version}.Final.zip">our web site</a>.)
         </p>
         <p>Check the integrity of the distribution after importing our public key:</p>
         <source>gpg --keyserver hkp://pgp.mit.edu --recv-keys 3DF442B6
-gpg --verify silverpeas-${installer_stable_version}-wildfly10.zip.asc</source>
+gpg --verify silverpeas-${installer_stable_version}-wildfly${current_wildfly_release}.zip.asc</source>
         <p>Unzip the content into the location you want Silverpeas to be installed.</p>
         <p>Set up the environment variable <b>SILVERPEAS_HOME</b> with the path of the extracted Silverpeas directory.</p>
         <p>
@@ -217,16 +220,16 @@ gpg --verify silverpeas-${installer_stable_version}-wildfly10.zip.asc</source>
           For example, in Unix:
         </p>
         <ul>
-          <li>Unzip the <code>silverpeas-${installer_stable_version}-wildfly10.zip</code> file into <code>/opt/</code></li>
-          <li>Sets the <code>$SILVERPEAS_HOME</code> environment variable with the path <code>/opt/silverpeas-${installer_stable_version}-wildfly10</code></li>
+          <li>Unzip the <code>silverpeas-${installer_stable_version}-wildfly${current_wildfly_release}.zip</code> file into <code>/opt/</code></li>
+          <li>Sets the <code>$SILVERPEAS_HOME</code> environment variable with the path <code>/opt/silverpeas-${installer_stable_version}-wildfly${current_wildfly_release}</code></li>
         </ul>
         <p>
           <img src="../images/windows_logo_24X24.png"/>
           For example, in Windows:
         </p>
         <ul>
-          <li>Unzip the <code>silverpeas-${installer_stable_version}-wildfly10.zip</code> file into <code>C:\Silverpeas</code></li>
-          <li>Sets the <code>%SILVERPEAS_HOME%</code> environment variable with the path <code>C:/Silverpeas/silverpeas-${installer_stable_version}-wildfly10</code>
+          <li>Unzip the <code>silverpeas-${installer_stable_version}-wildfly${current_wildfly_release}.zip</code> file into <code>C:\Silverpeas</code></li>
+          <li>Sets the <code>%SILVERPEAS_HOME%</code> environment variable with the path <code>C:/Silverpeas/silverpeas-${installer_stable_version}-wildfly${current_wildfly_release}</code>
             (the slash instead of the backslash character as path separator is normal and SILVERPEAS_HOME should be set as such)</li>
         </ul>
         <p>
