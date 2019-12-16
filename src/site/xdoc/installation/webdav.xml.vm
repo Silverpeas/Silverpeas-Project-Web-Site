@@ -39,10 +39,10 @@
     <section name="The Native Online Edition Program">
       <p>Please, download the program that matches your OS:</p>
       <ul>
-        <li><a href="http://www.silverpeas.org/files/spwebdav/windows/setup64.exe" alt="installator for Windows 64bits">For Windows 64bits (Windows 7 and Windows 8)</a></li>
-        <li><a href="http://www.silverpeas.org/files/spwebdav/windows/setup32.exe" alt="installator for Windows 32bits">For Windows 32bits (Windows XP and some Windows 7)</a></li>
-        <li><a href="http://www.silverpeas.org/files/spwebdav/linux/spwebdav.tgz" alt="archive for GNU/Linux x64">For GNU/Linux x64</a></li>
-        <li><a href="http://www.silverpeas.org/files/spwebdav/darwin/onlineEditing" alt="executable for MacOS X x64">For MacOS X x64</a></li>
+        <li><a href="http://www.silverpeas.org/files/spwebdav/windows/setup64.exe" alt="installator for Windows 64bits">For Windows 64bits (Windows 7 and Windows 8) - 2 860 190 bytes</a></li>
+        <li><a href="http://www.silverpeas.org/files/spwebdav/windows/setup32.exe" alt="installator for Windows 32bits">For Windows 32bits (Windows XP and some Windows 7) - 2 811 783 bytes</a></li>
+        <li><a href="http://www.silverpeas.org/files/spwebdav/linux/spwebdav.tgz" alt="archive for GNU/Linux x64">For GNU/Linux x64 - 682971 bytes</a></li>
+        <li><a href="http://www.silverpeas.org/files/spwebdav/darwin/onlineEditing" alt="executable for MacOS X x64">For MacOS X x64 - 2343536 bytes</a></li>
       </ul>
       <p>The program takes profit of the protocol handler mechanism to open a document accessible through WebDAV with an available Office Suite.
       Unfortunately, this mechanism is not yet used for MacOS X.</p>
