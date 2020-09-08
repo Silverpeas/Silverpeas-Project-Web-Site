@@ -50,7 +50,7 @@
       <id>Silverpeas</id>
       <layout>default</layout>
       <name>Silverpeas Repository</name>
-      <url>http://www.silverpeas.org/nexus/content/groups/silverpeas</url>
+      <url>https://www.silverpeas.org/nexus/content/groups/silverpeas</url>
       <releases>
         <enabled>true</enabled>
       </releases>
@@ -64,7 +64,7 @@
     <pluginRepository>
       <id>Silverpeas</id>
       <name>Silverpeas Maven 3.x Repository</name>
-      <url>http://www.silverpeas.org/nexus/content/groups/silverpeas</url>
+      <url>https://www.silverpeas.org/nexus/content/groups/silverpeas</url>
     </pluginRepository>
   </pluginRepositories>
 
@@ -83,7 +83,7 @@
   <scm>
     <connection>scm:git:git@github.com:Silverpeas/A_SILVERPEAS_PROJECT.git</connection>
     <developerConnection>scm:git:git@github.com:Silverpeas/A_SILVERPEAS_PROJECT.git</developerConnection>
-    <url>http://github.com/Silverpeas</url>
+    <url>https://github.com/Silverpeas</url>
   </scm>
 
   <mailingLists>
@@ -91,13 +91,13 @@
       <name>Silverpeas Users List</name>
       <subscribe>mailto:silverpeas-users+subscribe@googlegroups.com</subscribe>
       <unsubscribe>mailto:silverpeas-users+unsubscribe@googlegroups.com</unsubscribe>
-      <archive>http://groups.google.com/group/silverpeas-users</archive>
+      <archive>https://groups.google.com/group/silverpeas-users</archive>
     </mailingList>
     <mailingList>
       <name>Silverpeas Development List</name>
       <subscribe>mailto:silverpeas-dev+subscribe@googlegroups.com</subscribe>
       <unsubscribe>mailto:silverpeas-dev+unsubscribe@googlegroups.com</unsubscribe>
-      <archive>http://groups.google.com/group/silverpeas-dev</archive>
+      <archive>https://groups.google.com/group/silverpeas-dev</archive>
     </mailingList>
   </mailingLists>
 
@@ -110,7 +110,7 @@
     <license>
       <name>GNU Affero General Public License with FLOSS Exception</name>
       <distribution>repo</distribution>
-      <url>http://www.silverpeas.org/legal/gnu_affero.html</url>
+      <url>https://www.silverpeas.org/legal/gnu_affero.html</url>
     </license>
   </licenses>
 
@@ -189,7 +189,7 @@
         <role>Support</role>
       </roles>
       <organization>RedHat</organization>
-      <organizationUrl>http://www.redhat.com</organizationUrl>
+      <organizationUrl>https://www.redhat.com</organizationUrl>
     </contributor>
     <contributor>
       <name>Etienne Bonnet</name>
@@ -222,7 +222,7 @@
         <role>Developer</role>
       </roles>
       <organization>AIM Services</organization>
-      <organizationUrl>http://www.aim-services.ch</organizationUrl>
+      <organizationUrl>https://www.aim-services.ch</organizationUrl>
     </contributor>
     <contributor>
       <name>Nicolas Dupont</name>
@@ -230,7 +230,7 @@
         <role>Developer</role>
       </roles>
       <organization>Oosphere</organization>
-      <organizationUrl>http://www.oosphere.ch</organizationUrl>
+      <organizationUrl>https://www.oosphere.ch</organizationUrl>
     </contributor>
     <contributor>
       <name>Rémi Pace</name>
@@ -241,6 +241,15 @@
   </contributors>
 
   <build>
+    <resources>
+      <resource>
+        <directory>src/site/resources</directory>
+        <includes>
+          <include>index.html</include>
+        </includes>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
