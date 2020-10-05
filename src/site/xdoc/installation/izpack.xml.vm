@@ -80,13 +80,9 @@
         Silverpeas can be also easily tested by using the Docker image of Silverpeas 6 dedicated to tests. You can
         find it in our <a href="https://hub.docker.com/r/silverpeas/silverpeas-test/">Docker repository</a>.
       </p>
-    </section>
-    <section name="Try Silverpeas easily from a virtual image">
-      <p>
-        <img src="../images/logos/logo_usharesoft.png" alt="usharesoft" style="padding-right:10px;float:left;position:relative;"/>
-        <br/>Silverpeas is also ready to be deployed in your cloud, thanks to our partner <a href="http://www.usharesoft.com">UShareSoft</a>. So if you want to give it a try go to
-        <a href="cloud.html">our page</a> explaining how to get a cloud-ready image of Silverpeas.
-      </p>
+      <p>The <a href="https://hub.docker.com/r/silverpeas/silverpeas-test/">Docker repository</a> of our tests images
+        provides both a Docker image to test a stable version of Silverpeas and a Docker image with the latest build
+        version of the next stable major release of Silverpeas</p>
     </section>
   </body>
 </document>

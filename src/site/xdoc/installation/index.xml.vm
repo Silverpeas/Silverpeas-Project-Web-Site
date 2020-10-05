@@ -60,11 +60,6 @@
         <br/>Silverpeas 6 is also available as a Docker image in the Official image library in the Docker Hub. You will find
         information about the use of this image in our <a href="https://hub.docker.com/_/silverpeas/">official DockerHub repository</a>.
       </p>
-      <p>
-        <img src="../images/logos/logo_usharesoft.png" alt="usharesoft" style="padding-right:10px;float:left;position:relative;"/>
-        <br/>Silverpeas 6 is also ready to be deployed in your cloud, thanks to our partner <a href="http://www.usharesoft.com">UShareSoft</a>. So if you want to give it a try go to
-        <a href="cloud.html">our page</a> explaining how to get a cloud-ready image of Silverpeas.
-      </p>
     </section>
     <section name="Document Online Edition">
       <p>Silverpeas provides the users a way to edit the documents in Silverpeas by using their favorite Office Suite. This feature
