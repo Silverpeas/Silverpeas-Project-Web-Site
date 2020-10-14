@@ -35,7 +35,7 @@
 
     <p>
       Silverpeas 6 is the new major version of Silverpeas. It replaces definitively the previous 5.x versions. It is based upon Java 8, JEE 7 and the application
-      server Wildfly ${current_wildfly_version}. A great work has been done both in its engines that propulse Silverpeas as well as in its Web GUI to smooth
+      server Wildfly ${current_wildfly_version}. A great work has been done both in its engines that propels Silverpeas as well as in its Web GUI to smooth
       the user interaction and to offer a better user experience.
     </p>
     <p>
@@ -49,6 +49,8 @@
       This document is about how to install Silverpeas 6 on a server. However, as alternative, Silverpeas 6 is also available as an official docker image
       in the <a href="https://hub.docker.com/_/silverpeas/">Official Docker Hub Repository</a>.
     </p>
+
+    <section name="Give it a try">
     <p>
       <strong>You can give easily a try</strong> of Silverpeas by using one of our testing dedicated Silverpeas distribution in which the database is directly embedded
       with Silverpeas:
@@ -58,10 +60,14 @@
       <li><em>A Izpack Installer of Silverpeas</em> for both Unix-like system and Windows available in our <a href="https://www.silverpeas.org/files/Silverpeas-${installer_izpack_version}-installer.jar">our site</a></li>
     </ul>
     <p>Both the Docker image and the Izpack installer provide only a stable version of Silverpeas, no bug-fixes ones.</p>
-    <p>These solutions are obviously limited in functionalities as Silverpeas requires additional external tools and services to perform some of its
+    </section>
+
+    <section name="Download the production-ready distribution">
+
+    <p>The above solutions are obviously limited in functionalities as Silverpeas requires additional external tools and services to perform some of its
       advanced features and those services aren't packaged with them (in order to keep them simple and light for a testing purpose).</p>
     <p>
-      To fetch directly the last stable version, production-ready, of Silverpeas, please use the links below to download both the distribution of Wildfly required by Silverpeas and the current distribution of Silverpeas:
+      <img src="../images/stable_version_icon_32px.png"/> To fetch directly the last stable version, production-ready, of Silverpeas, please use the links below to download both the distribution of Wildfly required by Silverpeas and the current distribution of Silverpeas:
     </p>
     <ul>
       <li>
@@ -74,7 +80,24 @@
         (<a href="https://www.silverpeas.org/files/silverpeas-${installer_stable_version}-wildfly${current_wildfly_release}.zip.asc">the GPG signature of the distribution</a>)
       </li>
     </ul>
+    <p>
+      <img src="../images/snapshot_version_icon_24px.png"/> You can also fetch the last release candidate of the next major version of Silverpeas by downloading both the distribution of Wildfly required by it and its current distribution:
+    </p>
+    <ul>
+      <li>
+        <img src="../images/logos/wildfly_logo.png" width="60"/>
+        <a href="https://www.silverpeas.org/files/wildfly-${next_wildfly_version}.Final.zip">Wildfly ${next_wildfly_release}</a>
+      </li>
+      <li>
+        <img src="../images/silverpeas_icon_60x32px.png"/>
+        <a href="https://www.silverpeas.org/files/silverpeas-${installer_build_version}-wildfly${next_wildfly_release}.zip">silverpeas-${installer_build_version}-wildfly${next_wildfly_release}.zip</a>
+        (<a href="https://www.silverpeas.org/files/silverpeas-${installer_build_version}-wildfly${next_wildfly_release}.zip.asc">the GPG signature of the distribution</a>)
+      </li>
+    </ul>
+
     <p>Don't forget to read the instructions below about how to install Silverpeas from these two distributions.</p>
+
+    </section>
 
     <section name="Pre-requisite">
       <p>
@@ -85,9 +108,13 @@
         Silverpeas 6 depends on external tools/services to run or to offer a better user experience.
         Please find below a list of the tools and services you will need to install.<br/>
       </p>
-      <subsection name="Java 8">
+      <subsection name="Java">
         <p>
-          Silverpeas requires Java SE Development Kit (JDK) version 8 to run, which can be downloaded <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html#jdk">from Oracle</a>
+          Silverpeas 6.0 and 6.1 requires Java SE Development Kit (JDK) version 8 to run, which can be downloaded <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html#jdk">from Oracle</a>
+          or <a href="http://openjdk.java.net/install/index.html">from OpenJDK</a>. Don't forget to set up the environment variable <code>JAVA_HOME</code> with the path of the installation directory of Java.
+        </p>
+        <p>
+          Silverpeas 6.1 and above requires Java SE Development Kit (JDK) version 11 to run, which can be downloaded <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html#jdk">from Oracle</a>
           or <a href="http://openjdk.java.net/install/index.html">from OpenJDK</a>. Don't forget to set up the environment variable <code>JAVA_HOME</code> with the path of the installation directory of Java.
         </p>
       </subsection>
@@ -144,7 +171,7 @@
       <subsection name="LibreOffice">
         <p>
           Silverpeas needs LibreOffice (or OpenOffice.org) to convert documents into various formats (mainly in PDF).
-          This office suite has to be ran as a service in background (daemon in Unix jargon).
+          For Silverpeas 6.0, this office suite has to be ran as a service in background (daemon in Unix jargon), but no more since Silverpeas 6.1; indeed, since this version, Silverpeas 6 manages itself the execution of LibreOffice as a background service.
         </p>
         <p>
           It is a free software (free as freedom) and it can be downloaded <a href="https://fr.libreoffice.org/download/libreoffice-stable/">from its home site</a>.
@@ -197,19 +224,24 @@
           then it will set up Wildfly and the database for Silverpeas.
         </p>
         <p>Please download:</p>
-        <p>
-            <img src="../images/silverpeas_icon_60x32px.png"/>
-            <strong>Stable version</strong> (currently ${installer_stable_version}): <a href="https://www.silverpeas.org/files/silverpeas-${installer_stable_version}-wildfly${current_wildfly_release}.zip">silverpeas-${installer_stable_version}-wildfly${current_wildfly_release}.zip</a>
+        <dl>
+          <dt>
+            <img src="../images/stable_version_icon_32px.png"/>
+            Stable version (currently ${installer_stable_version}): <a href="https://www.silverpeas.org/files/silverpeas-${installer_stable_version}-wildfly${current_wildfly_release}.zip">silverpeas-${installer_stable_version}-wildfly${current_wildfly_release}.zip</a>
             (<a href="https://www.silverpeas.org/files/silverpeas-${installer_stable_version}-wildfly${current_wildfly_release}.zip.asc">the GPG signature of the distribution</a>)
-        </p>
-        <p>
-          <img src="../images/snapshot_version_icon_32px.png"/>
-          <strong>Build version</strong> (currently ${installer_build_version}): <a href="https://www.silverpeas.org/files/silverpeas-${installer_build_version}-wildfly${next_wildfly_release}.zip">silverpeas-${installer_build_version}-wildfly${next_wildfly_release}.zip</a>
-          (<a href="https://www.silverpeas.org/files/silverpeas-${installer_build_version}-wildfly${next_wildfly_release}.zip.asc">the GPG signature of the distribution</a>)
-        </p>
-        <p>
-          (<strong>WARNING</strong>: the build version of Silverpeas is tested with Wildfly ${next_wildfly_version}. You can download it directly from <a href="https://www.silverpeas.org/files/wildfly-${next_wildfly_version}.Final.zip">our web site</a>.)
-        </p>
+          </dt>
+          <dd>
+            <p>The stable version of Silverpeas is built atop of JEE 7, runs in Java 8, and is tested with Wildfly ${current_wildfly_release} that can be directly downloaded from <a href="https://www.silverpeas.org/files/wildfly-${current_wildfly_version}.Final.zip">our web site</a>.</p>
+          </dd>
+          <dt>
+            <img src="../images/snapshot_version_icon_24px.png"/>
+            Build version (currently ${installer_build_version}): <a href="https://www.silverpeas.org/files/silverpeas-${installer_build_version}-wildfly${next_wildfly_release}.zip">silverpeas-${installer_build_version}-wildfly${next_wildfly_release}.zip</a>
+            (<a href="https://www.silverpeas.org/files/silverpeas-${installer_build_version}-wildfly${next_wildfly_release}.zip.asc">the GPG signature of the distribution</a>)
+          </dt>
+          <dd>
+            <p>The build version of Silverpeas is built atop of JEE 8, runs in Java 11 (and not more in Java 8), and is tested with Wildfly ${next_wildfly_version} that can be directly downloaded from <a href="https://www.silverpeas.org/files/wildfly-${next_wildfly_version}.Final.zip">our web site</a>.</p>
+          </dd>
+        </dl>
         <p>Check the integrity of the distribution after importing our public key:</p>
         <source>gpg --keyserver hkp://pgp.mit.edu --recv-keys 3DF442B6
 gpg --verify silverpeas-${installer_stable_version}-wildfly${current_wildfly_release}.zip.asc</source>
