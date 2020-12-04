@@ -49,10 +49,13 @@
         <br/>
         <b>This version is not suitable for production!</b>.
       </p>
+      <p><b>WARNING</b></p>
       <p>
-        <b><em>WARNING</em></b>. There is an issue with the H2 database: its SQL dialect doesn't support the <code>COUNT() OVER()</code> windowing function as with others supported
+      <em>
+        There is an issue with the H2 database: its SQL dialect doesn't support the <code>COUNT() OVER()</code> windowing function as it is with others supported
         SQL systems (PostgreSQL, MS-SQL Server, and Oracle). The consequence is the galleries don't work as well as any functionalities in Silverpeas using pagination to retrieve information.
         We are currently working on a workaround but it this isn't our priority as H2 is only used in tests and not in productions.
+      </em>
       </p>
       <ol>
         <li>Download the
