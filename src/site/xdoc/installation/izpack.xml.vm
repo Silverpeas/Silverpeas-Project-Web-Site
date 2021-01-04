@@ -41,14 +41,15 @@
       <p>
         <img src="../images/logos/logo_izPack.png" alt="izpack" style="padding-right:10px;float:left;position:relative;"/>
         <br/>We provide an easy way to try Silverpeas using
-        <a href="http://izpack.org/">IzPack</a> with a pre-configured Wildfly application server and an H2 Database.</p>
-      <p>
-        <b>You have to have a Java 8 JDK installed.</b>
-        <br/>
-        <b>You have to have <a href="http://www.imagemagick.org/script/index.php">ImageMagick</a> installed as it is required to render images and the preview of documents</b>
-        <br/>
-        <b>This version is not suitable for production!</b>.
+        <a href="http://izpack.org/">IzPack</a> with a pre-configured Wildfly application server and an H2 Database.
       </p>
+      <p>The following requirements have to be satisfied:</p>
+      <ul>
+        <li>You have to have a Java 8 JDK installed.</li>
+        <li>You have to have <a href="http://www.imagemagick.org/script/index.php">ImageMagick</a> installed as it is required to render images and the preview of documents</li>
+        <li>You have to have <a href="https://www.libreoffice.org/">LibreOffice</a> installed in its default path as it is required for both the documents conversion (used in the document preview) and export</li>
+        <li>This version is not suitable for production, only for testing purpose!</li>
+      </ul>
       <ol>
         <li>Download the
           <a href="http://www.silverpeas.org/files/Silverpeas-${installer_izpack_version}-installer.jar">installer</a> (~ 253 Mo)
