@@ -298,11 +298,11 @@
 
   <properties>
     <!-- versions of the Silverpeas installer -->
-    <installer_stable_version>6.2</installer_stable_version>
-    <installer_izpack_version>6.2</installer_izpack_version>
+    <installer_stable_version>6.1.2</installer_stable_version>
+    <installer_izpack_version>6.1.2</installer_izpack_version>
     <installer_build_version>6.2-build210127</installer_build_version>
     <!-- versions of Wildfly used by both the current stable version and the build versions of Silverpeas -->
-    <current_wildfly_release>20</current_wildfly_release>
+    <current_wildfly_release>18</current_wildfly_release>
     <current_wildfly_version>${current_wildfly_release}.0.1</current_wildfly_version>
     <next_wildfly_release>20</next_wildfly_release>
     <next_wildfly_version>${next_wildfly_release}.0.1</next_wildfly_version>
