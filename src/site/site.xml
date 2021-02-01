@@ -38,12 +38,12 @@
   <version position="right" />
   <!-- Powered By -->
   <poweredBy>
-    <logo name="Netbeans" href="http://netbeans.org/downloads/index.html" img="images/logos/logo_netBeans.gif" />
-    <logo name="Eclipse"  href="http://www.eclipse.org" img="images/logos/logo_eclipse.png" />
-    <logo name="Maven" href="http://maven.apache.org/" img="images/logos/logo_maven.png" />
-    <logo name="Izpack" href="http://izpack.org/" img="images/logos/logo_izPack.png" />
-    <logo name="Subshell Toromiro" href="http://www.subshell.com/en/toromiro/" img="images/logos/toromiro-logo.png" />
-    <logo name="Yourkit" href="http://www.yourkit.com" img="images/logos/yourkit-logo.png" />
+    <logo name="Netbeans" href="https://netbeans.apache.org/download/index.html" img="images/logos/logo_netBeans.gif" />
+    <logo name="Eclipse"  href="https://www.eclipse.org" img="images/logos/logo_eclipse.png" />
+    <logo name="Maven" href="https://maven.apache.org/" img="images/logos/logo_maven.png" />
+    <logo name="Izpack" href="https://izpack.org/" img="images/logos/logo_izPack.png" />
+    <logo name="Subshell Toromiro" href="https://www.subshell.com/en/toromiro/" img="images/logos/toromiro-logo.png" />
+    <logo name="Yourkit" href="https://www.yourkit.com" img="images/logos/yourkit-logo.png" />
   </poweredBy>
   <skin>
     <groupId>org.apache.maven.skins</groupId>
@@ -74,7 +74,7 @@
         <item name="Online Edition of Documents" href="installation/webdav.html" collapse="false"/>
       </item>
       <item name="Our versions" href="#" collapse="true">
-        <item name="Roadmap" href="https://tracker.silverpeas.org/projects/silverpeas/roadmap?completed=1" collapse="false"/>
+        <item name="Roadmap" href="https://tracker.silverpeas.org/projects/silverpeas/roadmap" collapse="false"/>
         <item name="Changelog" href="https://tracker.silverpeas.org/projects/silverpeas/roadmap?completed=1&amp;with_subprojects=1"/>
         <item name="Release Notes" href="releasenotes.html" collapse="false"/>
       </item>
@@ -111,7 +111,7 @@
     <footer>
       <![CDATA[
       <div class="license">
-        <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Licence Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>.
+        <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Licence Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>.
       </div>
       ]]>
     </footer>
