@@ -34,9 +34,13 @@
   <body>
 
     <p>
-      Silverpeas 6 is the new major version of Silverpeas. It replaces definitively the previous 5.x versions. It is based upon Java 8, JEE 7 and the application
-      server Wildfly ${current_wildfly_version}. A great work has been done both in its engines that propels Silverpeas as well as in its Web GUI to smooth
+      Silverpeas 6 is the new major version of Silverpeas. It replaces definitively the previous 5.x versions.
+      A great work has been done both in its engines that propels Silverpeas as well as in its Web GUI to smooth
       the user interaction and to offer a better user experience.
+      <a href="https://www.silverpeas.org/files/silverpeas-6.0.2-wildfly10.zip">Silverpeas 6.0</a> and
+      <a href="https://www.silverpeas.org/files/silverpeas-6.1.2-wildfly18.zip">6.1</a> were based upon Java 8, JEE 7, and respectively the application
+      server Wildfly 10.1.0 and 18.0.1. Starting with 6.2, Silverpeas is now based upon Java 11, JEE 8 and
+      Wildfly ${current_wildfly_version}.
     </p>
     <p>
       Silverpeas 6 isn't compatible with Silverpeas 5. For an upgrade from a Silverpeas 5 installation, please take care of:
@@ -114,7 +118,7 @@
           or <a href="http://openjdk.java.net/install/index.html">from OpenJDK</a>. Don't forget to set up the environment variable <code>JAVA_HOME</code> with the path of the installation directory of Java.
         </p>
         <p>
-          Silverpeas 6.1 and above requires Java SE Development Kit (JDK) version 11 to run, which can be downloaded <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html#jdk">from Oracle</a>
+          Silverpeas 6.2 and above requires Java SE Development Kit (JDK) version 11 to run, which can be downloaded <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html#jdk">from Oracle</a>
           or <a href="http://openjdk.java.net/install/index.html">from OpenJDK</a>. Don't forget to set up the environment variable <code>JAVA_HOME</code> with the path of the installation directory of Java.
         </p>
       </subsection>
