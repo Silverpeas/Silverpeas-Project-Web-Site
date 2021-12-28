@@ -23,9 +23,9 @@
         })();</script>
 </head>
 <body class="topBarEnabled" id="home">
-<a href="http://github.com/Silverpeas"> <img style="position: absolute; top: 0; right: 0; border: 0; z-index: 10000;"
+<a href="https://github.com/Silverpeas"> <img style="position: absolute; top: 0; right: 0; border: 0; z-index: 10000;"
         src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"
-        alt="Fork me on GitHub"> </a>
+        alt="Fork me on GitHub"/> </a>
 <div id="topbar" class="navbar navbar-fixed-top navbar-inverse">
   <div class="navbar-inner">
     <div> <a data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a>
@@ -57,7 +57,7 @@
             <li class="dropdown-submenu"><a href="#" title="Our versions">Our versions</a>
               <ul class="dropdown-menu">
                 <li><a href="https://tracker.silverpeas.org/projects/silverpeas/roadmap" title="Roadmap">Roadmap</a></li>
-                <li><a href="https://tracker.silverpeas.org/projects/silverpeas/roadmap?completed=1&with_subprojects=1" title="Changelog">Changelog</a></li>
+                <li><a href="https://tracker.silverpeas.org/projects/silverpeas/roadmap?completed=1&amp;with_subprojects=1" title="Changelog">Changelog</a></li>
                 <li><a href="releasenotes.html" title="Release Notes">Release Notes</a></li>
               </ul>
             </li>
@@ -107,16 +107,15 @@
     </div>
   </div>
 </div>
-</div>
 <div >
   <div id="banner">
-    <div class="pull-left"> <a href="http://www.silverpeas.org/" id="bannerLeft"> <img src="images/logo.png"  alt="Silverpeas"/> </a> </div>
+    <div class="pull-left"> <a href="https://www.silverpeas.org/" id="bannerLeft"> <img src="images/logo.png"  alt="Silverpeas"/> </a> </div>
     <div class="pull-right"> </div>
     <h1>Improving the <strong>collaboration</strong> and the <strong>sharing</strong></h1>
     <p class="accroche">We believe in the work efficiency by the collaboration, by knowledge-sharing and by a rapid feedback, and we want to extend and improve this way of thinking and of working.
       Therefore we have built a collaborative and social-networking platform that is both intuitive and ready to be used: Silverpeas.</p>
-    <p id="zone-bouton"><a href="http://www.silverpeas.org/installation/izpack.html"><img src="images/download_sidebar.png" alt="Download the IzpAck Installer" class="bouton"></a>
-      <a href="installation/installationV6.html"><img src="images/instruction_installation.png" alt="Find the instruction installation" class="bouton" id="btnInstruction"></a></p>
+    <p id="zone-bouton"><a href="https://www.silverpeas.org/installation/izpack.html"><img src="images/download_sidebar.png" alt="Download the IzpAck Installer" class="bouton"/></a>
+      <a href="installation/installationV6.html"><img src="images/instruction_installation.png" alt="Find the instruction installation" class="bouton" id="btnInstruction"/></a></p>
     <p id="discours-mr-coss">Silverpeas is available as <strong>Free Software</strong> under the Affero GPL</p>
     <div class="clear">
       <hr/>
@@ -127,8 +126,8 @@
       <li><a href="project-info.html">Documentation <span>Learn more about our project</span></a></li>
       <li><a href="support.html">Support <span>Subscribe to our mailing List</span></a></li>
       <li><a href="dev/collaboration.html">Contribution <span>How to contribute with GitHub</span></a></li>
-      <li><a href="https://www.silverpeas.org/files/silverpeas-6.2-wildfly20.zip">Download <span>the latest stable version of Silverpeas</span></a></li>
-      <li><a target="_blank" href="http://www.silverpeas.com/en/59/portail.html/">Screenshots <span>Some product screenshot on silverpeas.com</span></a></li>
+      <li><a href="https://www.silverpeas.org/files/silverpeas-${installer_stable_version}-wildfly${current_wildfly_release}.zip">Download <span>the latest stable version of Silverpeas</span></a></li>
+      <li><a target="_blank" href="https://www.silverpeas.com/en/59/portail.html/">Screenshots <span>Some product screenshot on silverpeas.com</span></a></li>
     </ul>
   </div>
   <div class="row-fluid">
@@ -144,7 +143,7 @@
                                 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
                               })();
                             </script>
-          <div class="community center"> <a target="_blank" href="http://twitter.com/Silverpeas"><img title="Follow us on Twitter" alt="Twitter" src="images/btn-twitt-uk.png"></a> <a target="_blank" href="http://www.facebook.com/pages/Silverpeas/113429255383677"><img title="Follow us on Facebook" alt="Facebook" src="images/btn-fb-uk.png"></a> </div>
+          <div class="community center"> <a target="_blank" href="https://twitter.com/Silverpeas"><img title="Follow us on Twitter" alt="Twitter" src="images/btn-twitt-uk.png"/></a> <a target="_blank" href="https://www.facebook.com/pages/Silverpeas/113429255383677"><img title="Follow us on Facebook" alt="Facebook" src="images/btn-fb-uk.png"/></a> </div>
           <div class="clear"></div>
         </div>
       </div>
@@ -154,8 +153,8 @@
         <p>Accessible from a simple web browser or from a Smartphone, Silverpeas is used every days by ourselves. It makes it possible for users to work together, share their knowledge and good practices, and in general to improve their reciprocal 		empathy, therefore their willingness to collaborate.
           The introduction in the latest version of the conversational and relational (social network) functions has once again improved its benchmark coverage.</p>
         <h2>Collaborative workspaces </h2>
-        <p>Use Silverpeas to build an Intranet or Extranet and feed web 2.0 sites optimizing sharing and performance.<br>
-          Based on it's collaborative bus, Silverpeas is used to share documents (EDM for Electronic Documentation Management), to optimize project managment, content management and knowledge and skills management.<br>
+        <p>Use Silverpeas to build an Intranet or Extranet and feed web 2.0 sites optimizing sharing and performance.<br/>
+          Based on it's collaborative bus, Silverpeas is used to share documents (EDM for Electronic Documentation Management), to optimize project management, content management and knowledge and skills management.<br/>
           Silverpeas improves and encourages best practices and helps the creation of social networks, thanks to improved workflow and information management.</p>
         <h2>Ready-to-use applications </h2>
         <p>With more than 30 ready-to-use applications, Silverpeas&trade; combines all the tools you need to get your collaborative spaces up and running in a few clicks. Applications such as blog, wiki, forum, directories, project management, ECM, picture gallery, diaries, and many more let you develop your own personalized space. Other features: EDM (Electronic Documentation Management), collaborative tools, agendas, booking system, chat, yellow pages, social network, survey, quiz, forums, Project management tools (with Gantt support), knowledge management, content management tools such as blogs, image gallery, EDM, RSS flows, workflow engine, connections to databases, and groupware (Domino, Groupwise, Zimbra, Outlook)...</p>
@@ -167,11 +166,11 @@
 <hr/>
 <footer>
   <div class="container-fluid">
-    <div class="row span12 license">Copyright &copy; 2021 <a href="http://www.silverpeas.org">Silverpeas</a>.
+    <div class="row span12 license">Copyright &copy; 2021 <a href="https://www.silverpeas.org">Silverpeas</a>.
       All Rights Reserved. </div>
   </div>
   <div class="license">
-    <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Licence Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>.
+    <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Licence Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>.
   </div>
 </footer>
 </body>
