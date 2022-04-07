@@ -34,7 +34,7 @@
   </parent>
 
   <artifactId>silverpeas-website</artifactId>
-  <version>6.2.2</version>
+  <version>6.2.3</version>
   <packaging>pom</packaging>
   <name>Silverpeas Project Web Site</name>
   <url>https://www.silverpeas.org</url>
@@ -304,8 +304,8 @@
 
   <properties>
     <!-- versions of the Silverpeas installer -->
-    <installer_stable_version>6.2.2</installer_stable_version>
-    <installer_izpack_version>6.2.2</installer_izpack_version>
+    <installer_stable_version>6.2.3</installer_stable_version>
+    <installer_izpack_version>6.2.3</installer_izpack_version>
     <installer_build_version>6.3-build220406</installer_build_version>
     <!-- versions of Wildfly used by both the current stable version and the build versions of Silverpeas -->
     <current_wildfly_release>20</current_wildfly_release>
