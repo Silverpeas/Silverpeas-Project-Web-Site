@@ -310,8 +310,8 @@
     <!-- versions of Wildfly used by both the current stable version and the build versions of Silverpeas -->
     <current_wildfly_release>20</current_wildfly_release>
     <current_wildfly_version>20.0.1</current_wildfly_version>
-    <next_wildfly_release>24</next_wildfly_release>
-    <next_wildfly_version>24.0.1</next_wildfly_version>
+    <next_wildfly_release>26</next_wildfly_release>
+    <next_wildfly_version>26.1.1</next_wildfly_version>
   </properties>
 
 </project>
