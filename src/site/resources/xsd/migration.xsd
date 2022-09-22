@@ -24,9 +24,10 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<xs:schema xmlns="http://silverpeas.org/xml/ns/migration" attributeFormDefault="unqualified"
+<xs:schema xmlns="http://silverpeas.org/xml/ns/migration"
            elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           targetNamespace="http://silverpeas.org/xml/ns/migration">
+           targetNamespace="http://silverpeas.org/xml/ns/migration"
+           version="1.0">
 
   <xs:annotation>
     <xs:documentation>
@@ -40,9 +41,9 @@
       As a special exception to the terms and conditions of version 3.0 of
       the GPL, you may redistribute this Program in connection with Free/Libre
       Open Source Software ("FLOSS") applications as described in Silverpeas's
-      FLOSS exception. You should have recieved a copy of the text describing
+      FLOSS exception. You should have received a copy of the text describing
       the FLOSS exception, and it is also available here:
-      "http://www.silverpeas.org/legal/floss_exception.html"
+      "https://www.silverpeas.org/legal/floss_exception.html"
 
       This program is distributed in the hope that it will be useful,
       but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -50,7 +51,7 @@
       GNU Affero General Public License for more details.
 
       You should have received a copy of the GNU Affero General Public License
-      along with this program. If not, see &lt;http://www.gnu.org/licenses/>.
+      along with this program. If not, see &lt;https://www.gnu.org/licenses/>.
     </xs:documentation>
   </xs:annotation>
 
@@ -64,7 +65,7 @@
       component.
       The descriptor is made up of two main elements:
         - current to specify the current version of the data source schema for the Silverpeas module,
-        - upgrade to specify the version from which the rules has to be applied in order to pass to
+        - upgrade to specify the version from which the rules have to be applied in order to pass to
         the next version.
       Each of these elements defines a list of scripts to run in order to migrate the data source
       schema from its current version up to the latest one. A migration can be then either a fresh
@@ -78,7 +79,7 @@
       <xs:documentation xml:lang="en">
      <![CDATA[
      The migration element is the root of the migration descriptor. It is defined for a given
-     Silverpeas module and it declares the different migration rules to apply to either spawn
+     Silverpeas module, and it declares the different migration rules to apply to either spawn
      the data source schema or to upgrade from all the previous versions of this schema.
      The name of the Silverpeas module is indicated by the attribute module.
       ]]>
@@ -92,7 +93,7 @@
       The migration root element is made up of the child elements below as ordered as
       following:
         - current to specify the current version of the data source schema for the Silverpeas module,
-        - upgrade to specify the version from which the rules has to be applied in order to pass to
+        - upgrade to specify the version from which the rules have to be applied in order to pass to
         the next version.
       The current sub-element is mandatory whereas the upgrade sub-element can be specified one or
       several times, each of them indicating an upgrade from a given data source schema version.
@@ -102,7 +103,7 @@
       actual version of the data source schema for which it has to be taken into account in order
       to upgrade the schema to the next version. Each upgrade element defines a rules set to apply
       for upgrading the data source schema from the actual version to the next one. One or more
-      upgrade can be then performed sequentially according to the actual version of the schema and
+      upgrade can be performed sequentially according to the actual version of the schema and
       the current version expected by the module.
       ]]>
           </xs:documentation>
