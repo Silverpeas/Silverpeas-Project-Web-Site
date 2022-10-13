@@ -37,8 +37,7 @@
       Silverpeas 6 is the new major version of Silverpeas. It replaces definitively the previous 5.x versions.
       A great work has been done both in its engines that propels Silverpeas as well as in its Web GUI to smooth
       the user interaction and to offer a better user experience.
-      <a href="https://www.silverpeas.org/files/silverpeas-6.0.2-wildfly10.zip">Silverpeas 6.0</a> and
-      <a href="https://www.silverpeas.org/files/silverpeas-6.1.2-wildfly18.zip">6.1</a> were based upon Java 8, JEE 7, and respectively the application
+      Silverpeas 6.0 and 6.1 were based upon Java 8, JEE 7, and respectively the application
       server Wildfly 10.1.0 and 18.0.1. Starting with 6.2, Silverpeas is now based upon Java 11, JEE 8 and
       Wildfly ${current_wildfly_version}.
     </p>
