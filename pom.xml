@@ -30,7 +30,7 @@
   <parent>
     <groupId>org.silverpeas</groupId>
     <artifactId>silverpeas-project</artifactId>
-    <version>1.5-build220922</version>
+    <version>1.6-build221014</version>
   </parent>
 
   <artifactId>silverpeas-website</artifactId>
@@ -309,9 +309,9 @@
     <installer_build_version>6.4-build221012</installer_build_version>
     <!-- versions of Wildfly used by both the current stable version and the build versions of Silverpeas -->
     <current_wildfly_release>26</current_wildfly_release>
-    <current_wildfly_version>26.1.1</current_wildfly_version>
+    <current_wildfly_version>26.1.2</current_wildfly_version>
     <next_wildfly_release>26</next_wildfly_release>
-    <next_wildfly_version>26.1.1</next_wildfly_version>
+    <next_wildfly_version>26.1.2</next_wildfly_version>
   </properties>
 
 </project>
