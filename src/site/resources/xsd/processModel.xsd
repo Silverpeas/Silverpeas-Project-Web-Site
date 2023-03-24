@@ -75,7 +75,7 @@
 				<xs:element ref="consequences" minOccurs="0"/>
 			</xs:sequence>
 			<xs:attribute name="name" type="xs:ID" use="required"/>
-			<xs:attribute name="form" type="xs:string" use="required"/> <!-- can't use IDREF, no ID in form -->
+			<xs:attribute name="form" type="xs:string" use="optional"/> <!-- can't use IDREF, no ID in form -->
 			<xs:attribute name="kind" type="xs:string" default="update"/>
 		</xs:complexType>
 	</xs:element>
@@ -134,9 +134,9 @@
 				<xs:element ref="interestedUsers" minOccurs="0"/>
 				<xs:element ref="allowedActions" minOccurs="0"/>
 				<xs:element ref="preconditions" minOccurs="0"/>
+        <xs:element ref="timeOutActions" minOccurs="0"/>
 			</xs:sequence>
 			<xs:attribute name="name" type="xs:ID" use="required"/>
-			<xs:attribute name="timeoutAction" type="xs:IDREF"/>
 			<xs:attribute name="timeoutInterval" type="xs:integer"/>
 			<xs:attribute name="timeoutNotifyAdmin" type="xs:boolean" default="false"/>
 		</xs:complexType>
@@ -191,8 +191,8 @@
 				<xs:element ref="description" minOccurs="0"/>
 				<xs:element ref="type" minOccurs="0"/>
 				<xs:element ref="readonly" minOccurs="0"/>
-                <xs:element ref="param" minOccurs="0" maxOccurs="unbounded"/>
-                <xs:element ref="formula" minOccurs="0"/>
+        <xs:element ref="param" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="formula" minOccurs="0"/>
 			</xs:sequence>
 			<xs:attribute name="name" type="xs:ID" use="required"/>
 			<xs:attribute name="computed" type="xs:boolean" default="false"/>
@@ -234,19 +234,50 @@
 					</xs:element>
 					<xs:element ref="notifiedUsers" minOccurs="0"/>
 				</xs:choice>
-			</xs:sequence>
-            <xs:attribute name="item" type="xs:IDREF" />
-            <xs:attribute name="operator" type="xs:string"/>
-            <xs:attribute name="value" type="xs:string"/>
+        <xs:element ref="notify" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="triggers" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="item" type="xs:IDREF" />
+      <xs:attribute name="operator" type="xs:string"/>
+      <xs:attribute name="value" type="xs:string"/>
 		</xs:complexType>
 	</xs:element>
+
+  <xs:element name="triggers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="trigger" minOccurs="1" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="trigger">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="param" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="name" type="xs:string" />
+      <xs:attribute name="handler" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="notify">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="relatedUser" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="userInRole" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="message" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+
 	<!-- ...................................................................... DEFINITION DES UTILISATEURS CALCULES -->
 	<xs:element name="relatedUser">
 		<xs:complexType>
-			<xs:attribute name="participant" type="xs:IDREF" />
-			<xs:attribute name="folderItem" type="xs:IDREF" />
-			<xs:attribute name="relation" type="xs:IDREF"/>
-			<xs:attribute name="role" type="xs:IDREF"/>
+			<xs:attribute name="participant" type="xs:IDREF" use="optional"/>
+			<xs:attribute name="folderItem" type="xs:IDREF" use="optional"/>
+			<xs:attribute name="relation" type="xs:IDREF" use="optional"/>
+			<xs:attribute name="role" type="xs:IDREF" use="required"/>
 		</xs:complexType>
 	</xs:element>
 	<!-- ...................................................................... DEFINITION DES UTILISATEURS NOTIFIES -->
@@ -323,7 +354,7 @@
 					</xs:complexType>
 				</xs:element>
 			</xs:sequence>
-			<xs:attribute name="role" type="xs:IDREF" use="required"/>
+			<xs:attribute name="role" type="xs:string" use="optional"/>
 		</xs:complexType>
 	</xs:element>
 	<!-- .................................................... DEFINITION D'UNE LISTE DE FORMULAIRES -->
@@ -362,7 +393,22 @@
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
-	<!-- .................................................... DEFINITION D'UNE LISTE DUTILISATEURS AUTORISES -->
+  <!-- .................................................... DEFINITION D'UNE LISTE D'ACTIONS RETARDEES -->
+  <xs:element name="timeOutActions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="timeOutAction" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:attribute name="action" type="xs:IDREF" use="required"/>
+            <xs:attribute name="delay" type="xs:string" use="required"/>
+            <xs:attribute name="order" type="xs:string" use="required"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- .................................................... DEFINITION D'UNE LISTE DUTILISATEURS AUTORISES -->
 	<xs:element name="allowedUsers">
 		<xs:complexType>
 			<xs:sequence>
