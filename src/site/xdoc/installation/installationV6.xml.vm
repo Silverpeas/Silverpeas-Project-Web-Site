@@ -70,7 +70,7 @@
     <p>The above solutions are obviously limited in functionalities as Silverpeas requires additional external tools and services to perform some of its
       advanced features and those services aren't packaged with them (in order to keep them simple and light for a testing purpose).</p>
     <p>
-      <img src="../images/stable_version_icon_32px.png"/> To fetch directly the last stable version, production-ready, of Silverpeas, please use the links below to download both the distribution of Wildfly required by Silverpeas and the current distribution of Silverpeas:
+      <img src="../images/stable_version_icon_32px.png"/> To fetch directly <em>the last stable version</em>, production-ready, of Silverpeas, please use the links below to download both the distribution of Wildfly required by Silverpeas and the current distribution of Silverpeas:
     </p>
     <ul>
       <li>
@@ -84,7 +84,7 @@
       </li>
     </ul>
     <p>
-      <img src="../images/snapshot_version_icon_24px.png"/> You can also fetch the last release candidate of the next major version of Silverpeas by downloading both the distribution of Wildfly required by it and its current distribution:
+      <img src="../images/snapshot_version_icon_24px.png"/> You can also fetch <em>the last release candidate</em> of the next major version of Silverpeas by downloading both the distribution of Wildfly required by it and its current distribution:
     </p>
     <ul>
       <li>
@@ -242,9 +242,20 @@
             (<a href="https://www.silverpeas.org/files/silverpeas-${installer_build_version}-wildfly${next_wildfly_release}.zip.asc">the GPG signature of the distribution</a>)
           </dt>
           <dd>
-            <p>The build version of Silverpeas is built atop of JEE 8, runs in Java 11 (and not more in Java 8), and is tested with Wildfly ${next_wildfly_version} that can be directly downloaded from <a href="https://www.silverpeas.org/files/wildfly-${next_wildfly_version}.Final.zip">our web site</a>.</p>
+            <p>The build version of Silverpeas is built atop of JEE 8, runs in Java 11 (and not anymore in Java 8), and is tested with Wildfly ${next_wildfly_version} that can be directly downloaded from <a href="https://www.silverpeas.org/files/wildfly-${next_wildfly_version}.Final.zip">our web site</a>.</p>
           </dd>
         </dl>
+        <blockquote title="Warning">
+        <h5>Warning</h5>
+        The next version of Silverpeas will be based upon the Apache Jackrabbit
+        Oak implementation of the JCR and not anymore on the Apache Jackrabbit 2. So, the following
+        requirements have to be satisfied for your existing Silverpeas:
+        <ul>
+          <li>Don't update the version of Silvepreas: the distribution archive of <i>silverpeas-${installer_build_version}-wildfly${next_wildfly_release}.zip</i> has to be get and used instead.</li>
+          <li>Migrate your JCR repository to Jackrabbit Oak: for doing, fetch the <a href="https://repo1.maven.org/maven2/org/apache/jackrabbit/oak-upgrade/1.50.0/oak-upgrade-1.50.0.jar">oak-upgrade-1.50.0.jar</a> tool
+            and follow the instructions in the <a href="https://jackrabbit.apache.org/oak/docs/migration.html">migration guide</a></li>
+        </ul>
+        </blockquote>
         <p>Check the integrity of the distribution after importing our public key:</p>
         <source>gpg --keyserver hkp://pgp.mit.edu --recv-keys 3DF442B6
 gpg --verify silverpeas-${installer_stable_version}-wildfly${current_wildfly_release}.zip.asc</source>
@@ -302,7 +313,7 @@ gpg --verify silverpeas-${installer_stable_version}-wildfly${current_wildfly_rel
         </p>
       </subsection>
       <subsection name="Configuration">
-        <p>The configuration of Silverpeas is splitted into two main folders in the directory <code>SILVERPEAS_HOME/configuration</code>:</p>
+        <p>The configuration of Silverpeas is split into two main folders in the directory <code>SILVERPEAS_HOME/configuration</code>:</p>
         <ul>
           <li><code>jboss</code> with JBoss CLI scripts for configuring Wildfly in order to run Silverpeas,</li>
           <li><code>silverpeas</code> with Groovy and XML scripts for configuring the Silverpeas application itself.</li>
@@ -313,7 +324,7 @@ gpg --verify silverpeas-${installer_stable_version}-wildfly${current_wildfly_rel
           their default value. To set some parameters with a different value, then just uncomment them and set the correct value. This file is used by the configuration process to set up both the Wildfly server and Silverpeas.
         </p>
         <p>
-          Usually, the properties of the database to be used by Silverpeas have to be set explictly into this configuration file. So, if it doesn't already exist, creates it from the template
+          Usually, the properties of the database to be used by Silverpeas have to be set explicitly into this configuration file. So, if it doesn't already exist, creates it from the template
           <code>SILVERPEAS_HOME/configuration/sample_config.properties</code> in the same directory and set the following properties with the parameters of the database.
           Example of such a <code>SILVERPEAS_HOME/configuration/config.properties</code> file:
         </p>
@@ -348,7 +359,7 @@ DB_NAME = the name of the database if otherwise than Silverpeas]]></source>
       </subsection>
       <subsection name="Installing Silverpeas">
         <p>
-          The installation program is built upon the build automation system <a href="http://gradle.org/">Gradle</a>. You don't have to install it as the program will download it the first time you run it.
+          The installation program is built upon the build automation system <a href="https://gradle.org/">Gradle</a>. You don't have to install it as the program will download it the first time you run it.
         </p>
         <p>
           For an upgrade, if the use of a new Silverpeas distribution isn't required, you just have to change the <code>version</code> variable in the <code>SILVERPEAS_HOME/bin/silverpeas.gradle</code> file with the new version of Silverpeas 6.
@@ -407,7 +418,7 @@ DB_NAME = the name of the database if otherwise than Silverpeas]]></source>
           </script>
           <noscript>
             <div style="display:inline;">
-              <img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/1067623059/?label=wINQCMmd4AEQk8WK_QM&amp;guid=ON&amp;script=0"/>
+              <img height="1" width="1" style="border-style:none;" alt="" src="https://www.googleadservices.com/pagead/conversion/1067623059/?label=wINQCMmd4AEQk8WK_QM&amp;guid=ON&amp;script=0"/>
             </div>
           </noscript>
         </p>
