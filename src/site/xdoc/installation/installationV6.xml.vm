@@ -84,8 +84,9 @@
       </li>
     </ul>
     <p>
-      <img src="../images/snapshot_version_icon_24px.png"/> You can also fetch <em>the last release candidate</em> of the next major version of Silverpeas by downloading both the distribution of Wildfly required by it and its current distribution:
+      <img src="../images/snapshot_version_icon_24px.png"/> You can also fetch <em>the last release candidate</em> of the next major version of Silverpeas by downloading both the distribution of Wildfly required by it and its current distribution.
     </p>
+      <p>For those wishing to upgrade their Silverpeas distribution to the latest release candidate, you have to know latter has an impacting change on its implementation of the JCR that requires a migration of it. See below on how to install Silverpeas for more explanations.</p>
     <ul>
       <li>
         <img src="../images/logos/wildfly_logo.png" width="60"/>
