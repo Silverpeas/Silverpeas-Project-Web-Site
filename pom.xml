@@ -237,6 +237,12 @@
         <role>Developer</role>
       </roles>
     </contributor>
+    <contributor>
+      <name>Tyler Ramsbey</name>
+      <roles>
+        <role>Penetration Tester</role>
+      </roles>
+    </contributor>
   </contributors>
 
   <build>
