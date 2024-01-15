@@ -33,7 +33,7 @@ Please, consult the console log of the build ${currentBuild.displayName} of ${cu
     always {
       step([$class                  : 'Mailer',
             notifyEveryUnstableBuild: true,
-            recipients              : "miguel.moquillon@silverpeas.org, yohann.chastagnier@silverpeas.org, nicolas.eysseric@silverpeas.org",
+            recipients              : "miguel.moquillon@silverpeas.org, yohann.chastagnier@silverpeas.org, david.lesimple@silverpeas.org",
             sendToIndividuals       : true])
     }
   }
