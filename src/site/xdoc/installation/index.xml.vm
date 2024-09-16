@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-    Copyright (C) 2000 - 2022 Silverpeas
+    Copyright (C) 2000 - 2024 Silverpeas
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -27,7 +27,7 @@
 
 <document xmlns="http://maven.apache.org/XDOC/2.0"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+          xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 https://maven.apache.org/xsd/xdoc-2.0.xsd">
 
   <properties>
     <title>Silverpeas Installation Ways</title>
@@ -37,20 +37,18 @@
   </head>
   <body>
     <p>
-      Silverpeas 6 is out this month and it is distributed in several ways.
+      Silverpeas 6 is distributed in several ways.
     </p>
     <section name="Try Silverpeas">
       <p>
-        <img src="../images/logos/logo_izPack.png" alt="izpack" style="padding-right:10px;float:left;position:relative;"/>
-        <br/>We provide an easy way to try Silverpeas 6 using
-        <a href="http://izpack.org/">Izpack</a> with a pre-configured Wildfly application server and an H2 Database.</p>
-      <p>
-        You can find how to get in <a href="izpack.html">our dedicated page</a> how to get and use our installer.
+        <br/>We provide an easy way to try Silverpeas 6 by signing up in our demonstration platform:
+        <a href="https://enjoy.silverpeas.com">Enjoy Silverpeas!</a>
       </p>
     </section>
     <section name="Install in production">
       <p>
-        You whish to keep control on the installation process or to you whish to install Silverpeas in one of your production-ready servers running either with
+        You wish to keep control on the installation process or to you want to install
+        Silverpeas in one of your production-ready servers running either with
         a Unix system or with MS-Windows, then please consult the instructions on <a href="installationV6.html">how to install our stable version of Silverpeas 6</a>.
       </p>
     </section>

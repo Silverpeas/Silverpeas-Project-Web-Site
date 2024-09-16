@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-    Copyright (C) 2000 - 2022 Silverpeas
+    Copyright (C) 2000 - 2024 Silverpeas
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -55,14 +55,9 @@
 
     <section name="Give it a try">
     <p>
-      <strong>You can give easily a try</strong> of Silverpeas by using one of our testing dedicated Silverpeas distribution in which the database is directly embedded
-      with Silverpeas:
+      <strong>You can give easily a try</strong> of Silverpeas by signing up in our
+      demonstration platform <a href="https://enjoy.silverpeas.com">Enjoy Silverpeas!</a>
     </p>
-    <ul>
-      <li><em>A docker image of Silverpeas</em> in our <a href="https://hub.docker.com/r/silverpeas/silverpeas-test/">Docker Hub repository</a>,</li>
-      <li><em>A Izpack Installer of Silverpeas</em> for both Unix-like system and Windows available in our <a href="https://www.silverpeas.org/files/Silverpeas-${installer_izpack_version}-installer.jar">our site</a></li>
-    </ul>
-    <p>Both the Docker image and the Izpack installer provide only a stable version of Silverpeas, no bug-fixes ones.</p>
     </section>
 
     <section name="Download the production-ready distribution">

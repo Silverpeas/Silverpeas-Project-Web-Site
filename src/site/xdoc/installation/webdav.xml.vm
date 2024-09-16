@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-    Copyright (C) 2000 - 2022 Silverpeas
+    Copyright (C) 2000 - 2024 Silverpeas
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -27,7 +27,7 @@
 
 <document xmlns="http://maven.apache.org/XDOC/2.0"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+          xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 https://maven.apache.org/xsd/xdoc-2.0.xsd">
 
   <properties>
     <title>Installation of a native program for the online edition of documents.</title>
@@ -39,10 +39,14 @@
     <section name="The Native Online Edition Program">
       <p>Please, download the program that matches your OS:</p>
       <ul>
-        <li><a href="http://www.silverpeas.org/files/spwebdav/windows/setup64.exe" alt="installator for Windows 64bits">For Windows 64bits (Windows 7 and Windows 8) - 2 860 190 bytes</a></li>
-        <li><a href="http://www.silverpeas.org/files/spwebdav/windows/setup32.exe" alt="installator for Windows 32bits">For Windows 32bits (Windows XP and some Windows 7) - 2 811 783 bytes</a></li>
-        <li><a href="http://www.silverpeas.org/files/spwebdav/linux/spwebdav.tgz" alt="archive for GNU/Linux x64">For GNU/Linux x64 - 682971 bytes</a></li>
-        <li><a href="http://www.silverpeas.org/files/spwebdav/darwin/onlineEditing" alt="executable for MacOS X x64">For MacOS X x64 - 2343536 bytes</a></li>
+        <li><a href="https://www.silverpeas.org/files/spwebdav/windows/setup64.exe"
+               alt="installator for Windows 64bits">For Windows 64bits (Windows 7 and Windows 8) - 2 860 190 bytes</a></li>
+        <li><a href="https://www.silverpeas.org/files/spwebdav/windows/setup32.exe"
+               alt="installator for Windows 32bits">For Windows 32bits (Windows XP and some Windows 7) - 2 811 783 bytes</a></li>
+        <li><a href="https://www.silverpeas.org/files/spwebdav/linux/spwebdav.tgz" alt="archive
+        for GNU/Linux x64">For GNU/Linux x64 - 682971 bytes</a></li>
+        <li><a href="https://www.silverpeas.org/files/spwebdav/darwin/onlineEditing"
+               alt="executable for MacOS X x64">For MacOS X x64 - 2343536 bytes</a></li>
       </ul>
       <p>The program takes profit of the protocol handler mechanism to open a document accessible through WebDAV with an available Office Suite.
       Unfortunately, this mechanism is not yet used for MacOS X.</p>
@@ -56,9 +60,10 @@
       </p>
       <p>
         The online edition is usually performed through a Java program that is installed and launched thanks to
-        the <a href="http://www.oracle.com/technetwork/java/javase/javawebstart/index.html">Java Web Start mechanism</a>.
+        the <a href="https://www.oracle.com/technetwork/java/javase/javawebstart/index.html">Java
+        Web Start mechanism</a>.
         The installation and the upgrade of the program is done transparently thanks to this mechanism.
-        Unfortunately, the security restrictions to use this mechanism are increasibly constraining and some of our users have
+        Unfortunately, the security restrictions to use this mechanism are increasingly constraining and some of our users have
         complained of the refusal by the Web browser to launch the program. For example, the Chrome Web browser stops now
         the execution of any Java program. For the other Web browsers, we have normally fixed this
         issue and this problem shouldn't occur any more; it implies to use the latest version of Java in the user host (Java 8).
