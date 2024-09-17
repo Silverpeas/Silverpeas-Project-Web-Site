@@ -27,7 +27,7 @@
 <xs:schema xmlns="http://silverpeas.org/xml/ns/component"
            elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema"
            targetNamespace="http://silverpeas.org/xml/ns/component"
-           version="3.0">
+           version="4.0">
 
   <xs:annotation>
     <xs:documentation>
@@ -140,8 +140,8 @@
         <xs:annotation>
           <xs:documentation>
             The writer. He can add/remove/edit his own contributions in the application instances.
-            With some instances, he can also participate in the edition of the contributions of
-            others users.
+            When the multiuser contribution is supported, he can also participate in the edition
+            of the contributions of others users.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -193,7 +193,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="message" type="MessageType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="message" type="MessageType" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -202,12 +202,14 @@
       <xs:documentation>
         Description of a user profile supported by a Web Application Component. It provides a label
         of the role, a short description of it that will be displayed as a help, and a mapping with
-        one or several user profiles from the parent space.
+        one or several user profiles from the parent space. The l10n information can be provided
+        by the resource bundles accompanying the XML Web Application Component descriptor instead
+        of being directly defined in latter.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="label" type="L10nType"/>
-      <xs:element name="help" type="L10nType"/>
+      <xs:element name="label" type="L10nType" minOccurs="0"/>
+      <xs:element name="help" type="L10nType" minOccurs="0"/>
       <xs:element name="spaceMapping" minOccurs="0">
         <xs:complexType>
           <xs:annotation>
@@ -238,6 +240,11 @@
         For the global application parameters, those are applying on all the instances of the
         application, they have to be defined in a dedicated properties file on the filesystem.
       </xs:documentation>
+      <xs:documentation>
+        Any l10n data describing a parameter (label, help and warning) can be provided by the
+        resource bundles accompanying the XML Web Application Component descriptor instead of
+        being directly defined in latter.
+      </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="name" type="xs:string">
@@ -247,7 +254,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="label" type="L10nType">
+      <xs:element name="label" type="L10nType" minOccurs="0">
         <xs:annotation>
           <xs:documentation>
             The displayable name of the parameter to render to users.
@@ -392,7 +399,7 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element type="L10nType" name="help">
+      <xs:element type="L10nType" name="help" minOccurs="0">
         <xs:annotation>
           <xs:documentation>
             A help about the parameter explaining what it does.
@@ -421,11 +428,13 @@
       <xs:documentation>
         In the case a parameter accepts only discriminant values, this type defines what are those
         values in the form of an option. For each option, a name indicates to the user what this
-        value, and the value itself with which the parameter can be set.
+        value, and the value itself with which the parameter can be set. The name is localized,
+        meaning it can be provided by the resource bundles accompanying the XML Web Application
+        Component descriptor instead of being directly defined in latter.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="name" type="L10nType"/>
+      <xs:element name="name" type="L10nType" minOccurs="0"/>
       <xs:element name="value" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
@@ -438,10 +447,15 @@
         a help to render to the users. Then are defined the order to indicate it displayable rank
         and all the grouped parameters.
       </xs:documentation>
+      <xs:documentation>
+        Any l10n data describing a group of parameters (label, description and help) can be
+        provided by the resource bundles accompanying the XML Web Application Component
+        descriptor instead of being directly defined in latter.
+      </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="label" type="L10nType"/>
-      <xs:element name="description" type="L10nType"/>
+      <xs:element name="label" type="L10nType" minOccurs="0"/>
+      <xs:element name="description" type="L10nType" minOccurs="0"/>
       <xs:element name="help" type="L10nType" minOccurs="0"/>
       <xs:element name="order" type="xs:int"/>
       <xs:element name="parameters">
@@ -461,6 +475,11 @@
         Descriptor of a Web Application Component in which are defined its name, a description of
         it, the different supported user profiles, the pre-defined instance parameters, and the
         specific instance parameters. The texts are usually localized.
+      </xs:documentation>
+      <xs:documentation>
+        Any l10n information about the Web Application Component (label, description, suite, etc.)
+        can be provided by the resource bundles accompanying the XML Web Application Component
+        descriptor instead of being directly defined in latter.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
@@ -485,21 +504,21 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <xs:element type="L10nType" name="label">
+      <xs:element type="L10nType" name="label" minOccurs="0">
         <xs:annotation>
           <xs:documentation>
             The name of the application to render to the users.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element type="L10nType" name="description">
+      <xs:element type="L10nType" name="description" minOccurs="0">
         <xs:annotation>
           <xs:documentation>
             A description of the application, of what it does, what are its goals.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element type="L10nType" name="suite">
+      <xs:element type="L10nType" name="suite" minOccurs="0">
         <xs:annotation>
           <xs:documentation>
             The category in which this application has to be put.
@@ -604,6 +623,11 @@
         description of it, the pre-defined instance parameters, and the specific instance
         parameters. The texts are usually localized.
       </xs:documentation>
+      <xs:documentation>
+        Any l10n information about the Personal Web Application Component (label, description, etc.)
+        can be provided by the resource bundles accompanying the XML Web Application Component
+        descriptor instead of being directly defined in latter.
+      </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element type="xs:string" name="name">
@@ -613,14 +637,14 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element type="L10nType" name="label">
+      <xs:element type="L10nType" name="label" minOccurs="0">
         <xs:annotation>
           <xs:documentation>
             The name of the personal application to render to the users.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element type="L10nType" name="description">
+      <xs:element type="L10nType" name="description" minOccurs="0">
         <xs:annotation>
           <xs:documentation>
             A description of the personal application, of what it does, what are its goals.
