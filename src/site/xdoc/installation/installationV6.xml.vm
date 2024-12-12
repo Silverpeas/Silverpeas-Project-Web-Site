@@ -58,6 +58,11 @@
       <strong>You can give easily a try</strong> of Silverpeas by signing up in our
       demonstration platform <a href="https://enjoy.silverpeas.com">Enjoy Silverpeas!</a>
     </p>
+    <p>
+      In the case you're comfortable with Docker, you have also an another way to give a try of
+      Silverpeas by pulling and running our dedicated Silverpeas
+      <a href="https://hub.docker.com/r/silverpeas/silverpeas-test">Docker image for testing</a>.
+    </p>
     </section>
 
     <section name="Download the production-ready distribution">
