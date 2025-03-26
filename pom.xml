@@ -219,7 +219,6 @@
     <contributor>
       <name>Ludovic Bertin</name>
       <roles>
-        <role>Project Manager</role>
         <role>Developer</role>
       </roles>
       <organization>AIM Services</organization>
@@ -242,6 +241,13 @@
     <contributor>
       <name>Tyler Ramsbey</name>
       <roles>
+        <role>Penetration Tester</role>
+      </roles>
+    </contributor>
+    <contributor>
+      <name>Mingi Hong</name>
+      <roles>
+        <role>Security Researcher</role>
         <role>Penetration Tester</role>
       </roles>
     </contributor>
