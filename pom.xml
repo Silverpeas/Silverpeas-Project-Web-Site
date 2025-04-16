@@ -251,6 +251,13 @@
         <role>Penetration Tester</role>
       </roles>
     </contributor>
+    <contributor>
+      <name>Mohamed Gamal</name>
+      <organizationUrl>https://github.com/M0hmedGamal</organizationUrl>
+      <roles>
+        <role>Security Researcher</role>
+      </roles>
+    </contributor>
   </contributors>
 
   <build>
