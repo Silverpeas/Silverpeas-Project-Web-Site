@@ -51,7 +51,7 @@
       <id>Silverpeas</id>
       <layout>default</layout>
       <name>Silverpeas Repository</name>
-      <url>https://www.silverpeas.org/nexus/content/groups/silverpeas</url>
+      <url>https://nexus3.silverpeas.org/repository/silverpeas</url>
       <releases>
         <enabled>true</enabled>
       </releases>
@@ -65,7 +65,7 @@
     <pluginRepository>
       <id>Silverpeas</id>
       <name>Silverpeas Maven 3.x Repository</name>
-      <url>https://www.silverpeas.org/nexus/content/groups/silverpeas</url>
+      <url>https://nexus3.silverpeas.org/repository/silverpeas</url>
     </pluginRepository>
   </pluginRepositories>
 
@@ -78,7 +78,7 @@
 
   <ciManagement>
     <system>Jenkins</system>
-    <url>http://integration.silverpeas.org/jenkins</url>
+    <url>https://integration.silverpeas.org/jenkins</url>
   </ciManagement>
 
   <scm>
