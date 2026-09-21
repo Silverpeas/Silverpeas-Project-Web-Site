@@ -273,6 +273,21 @@
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-clean-plugin</artifactId>
+        <executions>
+          <!-- the strip-maven-site execution inherited from the parent POM is meant for the
+               modules documenting the REST API only; here the Maven site is all what is
+               published, so it must be kept as it is once generated -->
+          <execution>
+            <id>strip-maven-site</id>
+            <configuration>
+              <skip>true</skip>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-site-plugin</artifactId>
         <dependencies>
           <dependency>
