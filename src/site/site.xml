@@ -93,6 +93,10 @@
       </item>
       <item name="Silverpeas Core" href="/docs/core/index.html"/>
       <item name="Silverpeas Applications" href="/docs/components/index.html"/>
+      <item name="REST APIs" href="#" collapse="true">
+        <item name="Core API" href="/restapi/core/index.html"/>
+        <item name="Components API" href="/restapi/components/index.html"/>
+      </item>
     </menu>
     <menu name="How to contribute" inherit="none">
       <item name="Contribution" href="/dev/collaboration.html" collapse="true"/>
